@@ -196,6 +196,33 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maximum Bending Moment.
+        /// </summary>
+        public static string MaximumBendingMoment {
+            get {
+                return ResourceManager.GetString("MaximumBendingMoment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum Bending Stress.
+        /// </summary>
+        public static string MaximumBendingStress {
+            get {
+                return ResourceManager.GetString("MaximumBendingStress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum Deflection.
+        /// </summary>
+        public static string MaximumDeflection {
+            get {
+                return ResourceManager.GetString("MaximumDeflection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum Side Pressure.
         /// </summary>
         public static string MaximumSidePressure {
@@ -210,6 +237,15 @@ namespace EngineeringFort {
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pressure.
+        /// </summary>
+        public static string Pressure {
+            get {
+                return ResourceManager.GetString("Pressure", resourceCulture);
             }
         }
         
@@ -255,6 +291,15 @@ namespace EngineeringFort {
         public static string SupportSpacing {
             get {
                 return ResourceManager.GetString("SupportSpacing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thickness.
+        /// </summary>
+        public static string Thickness {
+            get {
+                return ResourceManager.GetString("Thickness", resourceCulture);
             }
         }
         

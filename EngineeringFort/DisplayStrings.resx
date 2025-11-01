@@ -192,4 +192,19 @@
   <data name="UniformlyDistributedLoad" xml:space="preserve">
     <value>Uniformly Distributed Load</value>
   </data>
+  <data name="MaximumBendingMoment" xml:space="preserve">
+    <value>Maximum Bending Moment</value>
+  </data>
+  <data name="MaximumBendingStress" xml:space="preserve">
+    <value>Maximum Bending Stress</value>
+  </data>
+  <data name="MaximumDeflection" xml:space="preserve">
+    <value>Maximum Deflection</value>
+  </data>
+  <data name="Pressure" xml:space="preserve">
+    <value>Pressure</value>
+  </data>
+  <data name="Thickness" xml:space="preserve">
+    <value>Thickness</value>
+  </data>
 </root>

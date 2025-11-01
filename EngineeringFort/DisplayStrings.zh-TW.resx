@@ -192,4 +192,19 @@
   <data name="UniformlyDistributedLoad" xml:space="preserve">
     <value>均佈載重</value>
   </data>
+  <data name="MaximumBendingMoment" xml:space="preserve">
+    <value>最大彎矩</value>
+  </data>
+  <data name="MaximumBendingStress" xml:space="preserve">
+    <value>最大彎應力</value>
+  </data>
+  <data name="MaximumDeflection" xml:space="preserve">
+    <value>最大撓度</value>
+  </data>
+  <data name="Pressure" xml:space="preserve">
+    <value>壓力</value>
+  </data>
+  <data name="Thickness" xml:space="preserve">
+    <value>厚度</value>
+  </data>
 </root>
