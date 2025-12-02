@@ -511,6 +511,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unit Strip Cross Sectional Area.
+        /// </summary>
+        public static string UnitStripCrossSectionalArea {
+            get {
+                return ResourceManager.GetString("UnitStripCrossSectionalArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unit Strip Moment Of Inertia.
         /// </summary>
         public static string UnitStripMomentOfInertia {

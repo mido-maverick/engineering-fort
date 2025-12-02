@@ -18,6 +18,9 @@ public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkShe
 
     public virtual Length SupportSpacing { get; set; }
 
+    public virtual Area UnitStripCrossSectionalArea =>
+        RectangularCrossSection.CalculateCrossSectionalArea(UnitStripWidth, FormworkComponent.Thickness);
+
     public virtual Volume UnitStripSectionModulus =>
         RectangularCrossSection.CalculateSectionModulus(UnitStripWidth, FormworkComponent.Thickness);
 

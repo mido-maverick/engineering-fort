@@ -288,4 +288,7 @@
   <data name="SafetyFactor" xml:space="preserve">
     <value>安全係數</value>
   </data>
+  <data name="UnitStripCrossSectionalArea" xml:space="preserve">
+    <value>單位斷面積</value>
+  </data>
 </root>

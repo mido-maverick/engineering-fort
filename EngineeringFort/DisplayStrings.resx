@@ -288,4 +288,7 @@
   <data name="SafetyFactor" xml:space="preserve">
     <value>Safety Factor</value>
   </data>
+  <data name="UnitStripCrossSectionalArea" xml:space="preserve">
+    <value>Unit Strip Cross Sectional Area</value>
+  </data>
 </root>
