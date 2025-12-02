@@ -192,9 +192,16 @@ public class Converter
     {
         var elements = objects.Select(obj =>
         {
+            var type = obj.GetType();
+            var name = type.Name;
+            var displayName = type.GetCustomAttribute<DisplayAttribute>()?.Name;
+            var localizedName = DisplayStrings.ResourceManager.GetString(name);
+            var localizedDisplayName = displayName is not null ? DisplayStrings.ResourceManager.GetString(displayName) : null;
             var template = templates.OfType<SdtElement>().FirstOrDefault(sdt =>
-                sdt.SdtProperties?.GetFirstChild<Tag>()?.Val == obj.GetType().Name) as OpenXmlCompositeElement ??
-                templates.First();
+            {
+                var tagValue = sdt.SdtProperties?.GetFirstChild<Tag>()?.Val?.Value;
+                return tagValue == name || tagValue == displayName || tagValue == localizedName || tagValue == localizedDisplayName;
+            }) as OpenXmlCompositeElement ?? templates.First();
             return (TElement)template.Clone();
         }).ToArray();
         var previousElement = templates.Last();
