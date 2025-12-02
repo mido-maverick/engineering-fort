@@ -142,7 +142,8 @@ public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSuppo
 
     public virtual QuantityCheck<Pressure> ShearStressCheck => new()
     {
-        Value = MaximumShearStress
+        Value = MaximumShearStress,
+        Limit = FormworkComponent.AllowableShearStress ?? new()
     };
 
     public virtual Length MaximumDeflection => FormworkComponent.ElasticModulus is Pressure elasticModulus ?

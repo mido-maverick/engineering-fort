@@ -8,5 +8,7 @@ public record class FormworkSupport : FormworkComponent
 
     public virtual Pressure? AllowableBendingStress => Material?.AllowableBendingStress();
 
+    public virtual Pressure? AllowableShearStress => Material?.AllowableShearStress();
+
     public virtual Pressure? ElasticModulus => Material?.ElasticModulus();
 }
