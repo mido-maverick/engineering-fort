@@ -288,8 +288,17 @@ public class Converter
         {
             case bool b:
                 throw new NotImplementedException();
-            case int or double or Enum or IQuantity:
+            case int or double or IQuantity:
                 Set(sdtElement, Format(obj, format));
+                break;
+            case Enum e:
+                var enumName = e.ToString();
+                var enumType = e.GetType();
+                var enumMember = enumType.GetMember(e.ToString()).First();
+                var displayAttribute = enumMember.GetCustomAttribute<DisplayAttribute>();
+                var displayName = displayAttribute?.Name;
+                var localizedName = DisplayStrings.ResourceManager.GetString(displayName ?? enumName);
+                Set(sdtElement, localizedName ?? displayName ?? enumName);
                 break;
             case string s:
                 Set(sdtElement, s);
