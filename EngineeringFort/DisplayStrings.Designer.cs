@@ -133,11 +133,29 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bottom Cantilever Beam Check.
+        /// </summary>
+        public static string BottomCantileverBeamCheck {
+            get {
+                return ResourceManager.GetString("BottomCantileverBeamCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cantilever Beam.
         /// </summary>
         public static string CantileverBeam {
             get {
                 return ResourceManager.GetString("CantileverBeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cantilever Length.
+        /// </summary>
+        public static string CantileverLength {
+            get {
+                return ResourceManager.GetString("CantileverLength", resourceCulture);
             }
         }
         

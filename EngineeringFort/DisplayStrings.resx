@@ -318,4 +318,10 @@
   <data name="AllowableDeflection" xml:space="preserve">
     <value>Allowable Deflection</value>
   </data>
+  <data name="BottomCantileverBeamCheck" xml:space="preserve">
+    <value>Bottom Cantilever Beam Check</value>
+  </data>
+  <data name="CantileverLength" xml:space="preserve">
+    <value>Cantilever Length</value>
+  </data>
 </root>

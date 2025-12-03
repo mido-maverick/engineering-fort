@@ -318,4 +318,10 @@
   <data name="AllowableDeflection" xml:space="preserve">
     <value>容許撓度</value>
   </data>
+  <data name="BottomCantileverBeamCheck" xml:space="preserve">
+    <value>底部懸臂梁檢核</value>
+  </data>
+  <data name="CantileverLength" xml:space="preserve">
+    <value>懸臂長度</value>
+  </data>
 </root>

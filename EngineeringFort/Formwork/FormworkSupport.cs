@@ -10,5 +10,7 @@ public record class FormworkSupport : FormworkComponent
 
     public virtual Pressure? AllowableShearStress => Material?.AllowableShearStress();
 
+    public virtual Length AllowableDeflection { get; set; }
+
     public virtual Pressure? ElasticModulus => Material?.ElasticModulus();
 }

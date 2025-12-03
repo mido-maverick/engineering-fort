@@ -1,3 +1,4 @@
+using static EngineeringFort.SteelConstructionManual;
 using static EngineeringFort.SteelConstructionManual.BeamFormulas;
 
 namespace EngineeringFort.Formwork;
@@ -95,8 +96,22 @@ public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSuppo
 
     public virtual Length SupportSpacing { get; set; }
 
+    public virtual Length CantileverLength { get; set; }
+
     public virtual ForcePerLength UniformlyDistributedLoad => ForcePerLength.FromKilogramsForcePerCentimeter(
         Pressure.KilogramsForcePerSquareCentimeter * TributaryWidth.Centimeters);
+
+    public virtual BeamCheck? BottomCantileverBeamCheck => Orientation is Orientation.Vertical ? new()
+    {
+        UniformlyDistributedLoad = UniformlyDistributedLoad,
+        BeamForm = BeamForm.Cantilever,
+        Length = CantileverLength,
+        CrossSection = FormworkComponent.CrossSection,
+        ElasticModulus = FormworkComponent.ElasticModulus ?? new(),
+        AllowableBendingStress = FormworkComponent.AllowableBendingStress ?? new(),
+        AllowableShearStress = FormworkComponent.AllowableShearStress ?? new(),
+        AllowableDeflection = FormworkComponent.AllowableDeflection
+    } : null;
 
     public virtual Torque MaximumBendingMoment => ContinuousBeam.ThreeEqualSpans.AllSpansLoaded.Mmax(UniformlyDistributedLoad, SupportSpacing);
 
