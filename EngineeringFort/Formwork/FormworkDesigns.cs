@@ -18,7 +18,7 @@ public record class SideFormworkDesign : FormworkDesign, ISideFormworkDesign
     public virtual Pressure MaximumSidePressure { get; set; }
 
     [Display(Name = nameof(FormworkLayerCheck), ResourceType = typeof(DisplayStrings))]
-    public FormworkLayerCheck?[] FormworkLayerChecks { get; } = new FormworkLayerCheck?[5];
+    public FormworkLayerCheck?[] FormworkLayerChecks { get; init; } = new FormworkLayerCheck?[5]; // TODO: limit length
 
     public override IEnumerable<ICheck> SubChecks => FormworkLayerChecks.OfType<ICheck>();
 }
