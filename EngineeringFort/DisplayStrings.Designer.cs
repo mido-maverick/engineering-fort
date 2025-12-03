@@ -70,11 +70,38 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allowable Deflection.
+        /// </summary>
+        public static string AllowableDeflection {
+            get {
+                return ResourceManager.GetString("AllowableDeflection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allowable Shear Stress.
+        /// </summary>
+        public static string AllowableShearStress {
+            get {
+                return ResourceManager.GetString("AllowableShearStress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Beam.
         /// </summary>
         public static string Beam {
             get {
                 return ResourceManager.GetString("Beam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Beam Check.
+        /// </summary>
+        public static string BeamCheck {
+            get {
+                return ResourceManager.GetString("BeamCheck", resourceCulture);
             }
         }
         
@@ -156,6 +183,15 @@ namespace EngineeringFort {
         public static string CrossSectionalArea {
             get {
                 return ResourceManager.GetString("CrossSectionalArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deflection Check.
+        /// </summary>
+        public static string DeflectionCheck {
+            get {
+                return ResourceManager.GetString("DeflectionCheck", resourceCulture);
             }
         }
         
@@ -300,6 +336,15 @@ namespace EngineeringFort {
         public static string IsValid {
             get {
                 return ResourceManager.GetString("IsValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Length.
+        /// </summary>
+        public static string Length {
+            get {
+                return ResourceManager.GetString("Length", resourceCulture);
             }
         }
         

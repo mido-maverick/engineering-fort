@@ -303,4 +303,19 @@
   <data name="BeamForm" xml:space="preserve">
     <value>梁形式</value>
   </data>
+  <data name="BeamCheck" xml:space="preserve">
+    <value>梁檢核</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>長度</value>
+  </data>
+  <data name="DeflectionCheck" xml:space="preserve">
+    <value>撓度檢核</value>
+  </data>
+  <data name="AllowableShearStress" xml:space="preserve">
+    <value>容許剪應力</value>
+  </data>
+  <data name="AllowableDeflection" xml:space="preserve">
+    <value>容許撓度</value>
+  </data>
 </root>

@@ -303,4 +303,19 @@
   <data name="BeamForm" xml:space="preserve">
     <value>Beam Form</value>
   </data>
+  <data name="BeamCheck" xml:space="preserve">
+    <value>Beam Check</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="DeflectionCheck" xml:space="preserve">
+    <value>Deflection Check</value>
+  </data>
+  <data name="AllowableShearStress" xml:space="preserve">
+    <value>Allowable Shear Stress</value>
+  </data>
+  <data name="AllowableDeflection" xml:space="preserve">
+    <value>Allowable Deflection</value>
+  </data>
 </root>
