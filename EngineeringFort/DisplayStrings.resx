@@ -291,4 +291,16 @@
   <data name="UnitStripCrossSectionalArea" xml:space="preserve">
     <value>Unit Strip Cross Sectional Area</value>
   </data>
+  <data name="SimpleBeam" xml:space="preserve">
+    <value>Simply Supported Beam</value>
+  </data>
+  <data name="CantileverBeam" xml:space="preserve">
+    <value>Cantilever Beam</value>
+  </data>
+  <data name="ContinuousBeam" xml:space="preserve">
+    <value>Continuous Beam</value>
+  </data>
+  <data name="BeamForm" xml:space="preserve">
+    <value>Beam Form</value>
+  </data>
 </root>

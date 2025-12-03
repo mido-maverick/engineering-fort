@@ -291,4 +291,16 @@
   <data name="UnitStripCrossSectionalArea" xml:space="preserve">
     <value>單位斷面積</value>
   </data>
+  <data name="SimpleBeam" xml:space="preserve">
+    <value>簡支梁</value>
+  </data>
+  <data name="CantileverBeam" xml:space="preserve">
+    <value>懸臂梁</value>
+  </data>
+  <data name="ContinuousBeam" xml:space="preserve">
+    <value>連續梁</value>
+  </data>
+  <data name="BeamForm" xml:space="preserve">
+    <value>梁形式</value>
+  </data>
 </root>

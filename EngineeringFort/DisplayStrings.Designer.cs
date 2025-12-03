@@ -79,6 +79,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Beam Form.
+        /// </summary>
+        public static string BeamForm {
+            get {
+                return ResourceManager.GetString("BeamForm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bending Stress Check.
         /// </summary>
         public static string BendingStressCheck {
@@ -97,6 +106,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cantilever Beam.
+        /// </summary>
+        public static string CantileverBeam {
+            get {
+                return ResourceManager.GetString("CantileverBeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check.
         /// </summary>
         public static string Check {
@@ -111,6 +129,15 @@ namespace EngineeringFort {
         public static string CheckStatus {
             get {
                 return ResourceManager.GetString("CheckStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continuous Beam.
+        /// </summary>
+        public static string ContinuousBeam {
+            get {
+                return ResourceManager.GetString("ContinuousBeam", resourceCulture);
             }
         }
         
@@ -453,6 +480,15 @@ namespace EngineeringFort {
         public static string SideFormworkDesign {
             get {
                 return ResourceManager.GetString("SideFormworkDesign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simply Supported Beam.
+        /// </summary>
+        public static string SimpleBeam {
+            get {
+                return ResourceManager.GetString("SimpleBeam", resourceCulture);
             }
         }
         

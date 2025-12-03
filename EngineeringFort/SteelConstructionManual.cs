@@ -1,9 +1,24 @@
-﻿namespace EngineeringFort;
+namespace EngineeringFort;
 
 public static class SteelConstructionManual
 {
+    public enum BeamForm
+    {
+        [Display(Name = nameof(BeamFormulas.SimpleBeam), ResourceType = typeof(DisplayStrings))]
+        Simple,
+
+        [Display(Name = nameof(BeamFormulas.CantileverBeam), ResourceType = typeof(DisplayStrings))]
+        Cantilever,
+
+        [Display(Name = nameof(BeamFormulas.ContinuousBeam), ResourceType = typeof(DisplayStrings))]
+        Continuous
+    }
+
     public static class BeamFormulas
     {
+        /// <summary>
+        /// Simply Supported Beam
+        /// </summary>
         public static class SimpleBeam
         {
             public static class UniformlyDistributedLoad
