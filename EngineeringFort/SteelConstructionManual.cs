@@ -14,6 +14,13 @@ public static class SteelConstructionManual
         Continuous
     }
 
+    public enum LoadingCondition
+    {
+        UniformlyDistributed,
+        IncreasingUniformlyToOneEnd,
+        IncreasingUniformlyToCenter
+    }
+
     public static class BeamFormulas
     {
         /// <summary>
