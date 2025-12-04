@@ -304,7 +304,8 @@ public class Converter
                 Set(sdtElement, s);
                 break;
             case null:
-                throw new NotImplementedException();
+                sdtElement.Remove();
+                break;
             case Array a:
                 if (sdtElement is SdtBlock sdtBlock) Set(sdtBlock, a);
                 break;
