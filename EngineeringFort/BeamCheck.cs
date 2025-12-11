@@ -62,6 +62,8 @@ public record class BeamCheck : Check
         _ => new(),
     };
 
+    public virtual double ShearStressSafetyFactor { get; set; } = 1;
+
     public virtual Pressure MaximumShearStress
     {
         get
@@ -69,7 +71,7 @@ public record class BeamCheck : Check
             if (CrossSection is null) return new();
             try
             {
-                return MaximumShearForce / CrossSection.CrossSectionalArea;
+                return ShearStressSafetyFactor * MaximumShearForce / CrossSection.CrossSectionalArea;
             }
             catch (ArgumentException)
             {
