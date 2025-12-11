@@ -102,4 +102,14 @@ public record class BeamCheck : Check
         Value = MaximumDeflection,
         Limit = AllowableDeflection
     };
+
+    public override IEnumerable<ICheck> SubChecks
+    {
+        get
+        {
+            yield return BendingStressCheck;
+            yield return ShearStressCheck;
+            yield return DeflectionCheck;
+        }
+    }
 }

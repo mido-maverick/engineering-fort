@@ -88,6 +88,8 @@ public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkShe
             SupportSpacing,
             elasticModulus,
             UnitStripMomentOfInertia) : new();
+
+    public override IEnumerable<ICheck> SubChecks => [];
 }
 
 public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSupport>
@@ -132,9 +134,19 @@ public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSuppo
 
     public virtual double ShearStressSafetyFactor { get; set; } = 1;
 
+    public override IEnumerable<ICheck> SubChecks
+    {
+        get
+        {
+            if (BottomCantileverBeamCheck is not null) yield return BottomCantileverBeamCheck;
+            yield return ContinuousBeamCheck;
+        }
+    }
 }
 
 public record class FormworkTieRodLayerCheck : FormworkLayerCheck<FormworkTieRod>
 {
     public override Pressure Pressure { get => base.Pressure; set => base.Pressure = value; }
+
+    public override IEnumerable<ICheck> SubChecks => [];
 }
