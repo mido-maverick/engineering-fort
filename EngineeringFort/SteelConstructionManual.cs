@@ -2,8 +2,14 @@ namespace EngineeringFort;
 
 public static class SteelConstructionManual
 {
+    /// <summary>
+    /// The structural formation (configuration) of a beam, determining its support conditions.
+    /// </summary>
     public enum BeamForm
     {
+        /// <summary>
+        /// Simply Supported
+        /// </summary>
         [Display(Name = nameof(BeamFormulas.SimpleBeam), ResourceType = typeof(DisplayStrings))]
         Simple,
 
