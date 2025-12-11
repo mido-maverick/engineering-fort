@@ -146,6 +146,10 @@ public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSuppo
 
 public record class FormworkTieRodLayerCheck : FormworkLayerCheck<FormworkTieRod>
 {
+    public virtual Length HorizontalSpacing { get; set; }
+
+    public virtual Length VerticalSpacing { get; set; }
+
     public override Pressure Pressure { get => base.Pressure; set => base.Pressure = value; }
 
     public override IEnumerable<ICheck> SubChecks => [];

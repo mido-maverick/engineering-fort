@@ -58,6 +58,7 @@ What's included:
 |簡支梁|Simple Beam||
 |版|Slab||
 |細長|Slender||
+|間距|Spacing||
 |勁度|Stiffness||
 |強度|Strength||
 |應力|Stress||

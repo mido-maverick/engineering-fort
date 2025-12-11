@@ -330,4 +330,10 @@
   <data name="ContinuousBeamCheck" xml:space="preserve">
     <value>Continuous Beam Check</value>
   </data>
+  <data name="HorizontalSpacing" xml:space="preserve">
+    <value>Horizontal Spacing</value>
+  </data>
+  <data name="VerticalSpacing" xml:space="preserve">
+    <value>Vertical Spacing</value>
+  </data>
 </root>

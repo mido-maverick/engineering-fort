@@ -358,6 +358,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Horizontal Spacing.
+        /// </summary>
+        public static string HorizontalSpacing {
+            get {
+                return ResourceManager.GetString("HorizontalSpacing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is Valid.
         /// </summary>
         public static string IsValid {
@@ -687,6 +696,15 @@ namespace EngineeringFort {
         public static string VerticalOrientation {
             get {
                 return ResourceManager.GetString("VerticalOrientation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical Spacing.
+        /// </summary>
+        public static string VerticalSpacing {
+            get {
+                return ResourceManager.GetString("VerticalSpacing", resourceCulture);
             }
         }
         

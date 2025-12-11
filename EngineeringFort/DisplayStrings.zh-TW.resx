@@ -330,4 +330,10 @@
   <data name="ContinuousBeamCheck" xml:space="preserve">
     <value>連續梁檢核</value>
   </data>
+  <data name="HorizontalSpacing" xml:space="preserve">
+    <value>水平間距</value>
+  </data>
+  <data name="VerticalSpacing" xml:space="preserve">
+    <value>垂直間距</value>
+  </data>
 </root>
