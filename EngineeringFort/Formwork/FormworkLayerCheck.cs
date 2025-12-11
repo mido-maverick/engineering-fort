@@ -158,5 +158,10 @@ public record class FormworkTieRodLayerCheck : FormworkLayerCheck<FormworkTieRod
 
     public override Pressure Pressure { get => base.Pressure; set => base.Pressure = value; }
 
+    /// <summary>
+    /// Maximum force applied on each tie rod
+    /// </summary>
+    public virtual Force MaximumAppliedForce => Pressure * TributaryArea;
+
     public override IEnumerable<ICheck> SubChecks => [];
 }

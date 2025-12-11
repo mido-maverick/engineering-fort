@@ -342,4 +342,7 @@
   <data name="TributaryArea" xml:space="preserve">
     <value>載重面積</value>
   </data>
+  <data name="MaximumAppliedForce" xml:space="preserve">
+    <value>最大受力</value>
+  </data>
 </root>

@@ -403,6 +403,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maximum Applied Force.
+        /// </summary>
+        public static string MaximumAppliedForce {
+            get {
+                return ResourceManager.GetString("MaximumAppliedForce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum Bending Moment.
         /// </summary>
         public static string MaximumBendingMoment {

@@ -342,4 +342,7 @@
   <data name="TributaryArea" xml:space="preserve">
     <value>Tributary Area</value>
   </data>
+  <data name="MaximumAppliedForce" xml:space="preserve">
+    <value>Maximum Applied Force</value>
+  </data>
 </root>
