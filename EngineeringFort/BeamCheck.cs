@@ -48,7 +48,7 @@ public record class BeamCheck : Check
         }
     }
 
-    public virtual QuantityCheck<Pressure>? BendingStressCheck => new()
+    public virtual QuantityCheck<Pressure> BendingStressCheck => new()
     {
         Value = MaximumBendingStress,
         Limit = AllowableBendingStress
@@ -80,7 +80,7 @@ public record class BeamCheck : Check
         }
     }
 
-    public virtual QuantityCheck<Pressure>? ShearStressCheck => new()
+    public virtual QuantityCheck<Pressure> ShearStressCheck => new()
     {
         Value = MaximumShearStress,
         Limit = AllowableShearStress
@@ -97,7 +97,7 @@ public record class BeamCheck : Check
         _ => new(),
     };
 
-    public virtual QuantityCheck<Length>? DeflectionCheck => new()
+    public virtual QuantityCheck<Length> DeflectionCheck => new()
     {
         Value = MaximumDeflection,
         Limit = AllowableDeflection
