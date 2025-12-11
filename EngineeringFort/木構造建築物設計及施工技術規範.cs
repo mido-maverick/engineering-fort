@@ -144,9 +144,9 @@ public static class 木構造建築物設計及施工技術規範
 
             public Pressure 短期容許剪應力 => 纖維方向之短期容許應力(受力類型.剪, 針闊葉樹別, 木材類別, 木材等級);
 
-            public Pressure AllowableBendingStress() => 長期容許彎應力;
+            Pressure Formwork.IFormworkSupportMaterial.AllowableBendingStress() => 短期容許彎應力;
 
-            public Pressure AllowableShearStress() => 長期容許剪應力;
+            Pressure Formwork.IFormworkSupportMaterial.AllowableShearStress() => 短期容許剪應力;
 
             public Pressure ElasticModulus() => 纖維方向之彈性模數;
         }
