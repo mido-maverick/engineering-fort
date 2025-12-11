@@ -1,4 +1,4 @@
-﻿namespace EngineeringFort;
+namespace EngineeringFort;
 
 public interface ICheck
 {
@@ -9,7 +9,7 @@ public interface ICheck
 
 public abstract record class Check : ICheck
 {
-    public virtual IEnumerable<ICheck> SubChecks { get; } = [];
+    public abstract IEnumerable<ICheck> SubChecks { get; }
     public virtual bool IsValid => SubChecks.All(sc => sc.IsValid);
     public virtual string CheckStatus => IsValid ? "<<OK>>" : "--NG--";
 }
