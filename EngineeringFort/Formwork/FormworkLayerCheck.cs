@@ -28,6 +28,8 @@ public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkShe
     public virtual AreaMomentOfInertia UnitStripMomentOfInertia =>
         RectangularCrossSection.CalculateMomentOfInertia(UnitStripWidth, FormworkComponent.Thickness);
 
+    public override Pressure Pressure { get => base.Pressure; set => base.Pressure = value; }
+
     public virtual ForcePerLength UniformlyDistributedLoad => ForcePerLength.FromKilogramsForcePerCentimeter(
         Pressure.KilogramsForcePerSquareCentimeter * UnitStripWidth.Centimeters);
 
@@ -98,6 +100,8 @@ public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSuppo
 
     public virtual Length CantileverLength { get; set; }
 
+    public override Pressure Pressure { get => base.Pressure; set => base.Pressure = value; }
+
     public virtual ForcePerLength UniformlyDistributedLoad => ForcePerLength.FromKilogramsForcePerCentimeter(
         Pressure.KilogramsForcePerSquareCentimeter * TributaryWidth.Centimeters);
 
@@ -132,4 +136,5 @@ public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSuppo
 
 public record class FormworkTieRodLayerCheck : FormworkLayerCheck<FormworkTieRod>
 {
+    public override Pressure Pressure { get => base.Pressure; set => base.Pressure = value; }
 }
