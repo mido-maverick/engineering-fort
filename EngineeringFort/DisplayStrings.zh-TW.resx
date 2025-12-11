@@ -324,4 +324,7 @@
   <data name="CantileverLength" xml:space="preserve">
     <value>懸臂長度</value>
   </data>
+  <data name="ShearStressSafetyFactor" xml:space="preserve">
+    <value>剪應力安全係數</value>
+  </data>
 </root>

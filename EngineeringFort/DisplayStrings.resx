@@ -324,4 +324,7 @@
   <data name="CantileverLength" xml:space="preserve">
     <value>Cantilever Length</value>
   </data>
+  <data name="ShearStressSafetyFactor" xml:space="preserve">
+    <value>Shear Stress Safety Factor</value>
+  </data>
 </root>

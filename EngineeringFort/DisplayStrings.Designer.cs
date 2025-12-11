@@ -538,6 +538,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shear Stress Safety Factor.
+        /// </summary>
+        public static string ShearStressSafetyFactor {
+            get {
+                return ResourceManager.GetString("ShearStressSafetyFactor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Side Formwork Design.
         /// </summary>
         public static string SideFormworkDesign {
