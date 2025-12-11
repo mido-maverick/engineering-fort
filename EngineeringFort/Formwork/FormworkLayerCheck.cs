@@ -140,13 +140,15 @@ public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSuppo
 
     public virtual Force MaximumShearForce => ContinuousBeam.ThreeEqualSpans.AllSpansLoaded.Vmax(UniformlyDistributedLoad, SupportSpacing);
 
+    public virtual double ShearStressSafetyFactor { get; set; } = 1;
+
     public virtual Pressure MaximumShearStress
     {
         get
         {
             try
             {
-                return MaximumShearForce / FormworkComponent.CrossSection.CrossSectionalArea;
+                return ShearStressSafetyFactor * MaximumShearForce / FormworkComponent.CrossSection.CrossSectionalArea;
             }
             catch (ArgumentException)
             {
