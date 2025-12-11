@@ -36,9 +36,23 @@ public static class SteelConstructionManual
         {
             public static class UniformlyDistributedLoad
             {
+                /// <summary>
+                /// (w * l) / 2
+                /// </summary>
+                /// <returns>The maximum shear force</returns>
                 public static Force Vmax(ForcePerLength w, Length l) => (w * l) / 2;
+
+                /// <summary>
+                /// (w * (l * l)) / 8
+                /// </summary>
+                /// <returns>The maximum bending moment</returns>
                 public static Torque Mmax(ForcePerLength w, Length l) => (w * (l * l)) / 8;
-                public static Length Δmax(ForcePerLength w, Length l, Pressure E, AreaMomentOfInertia I) // (5 * w * (l * l * l * l)) / (384 * E * I)
+
+                /// <summary>
+                /// (5 * w * (l * l * l * l)) / (384 * E * I)
+                /// </summary>
+                /// <returns>The maximum deflection</returns>
+                public static Length Δmax(ForcePerLength w, Length l, Pressure E, AreaMomentOfInertia I)
                 {
                     var eiNewtonSquareMeters = E.Pascals * I.MetersToTheFourth;
                     if (eiNewtonSquareMeters is 0) return Length.Zero;
@@ -52,9 +66,23 @@ public static class SteelConstructionManual
         {
             public static class UniformlyDistributedLoad
             {
+                /// <summary>
+                /// w * l
+                /// </summary>
+                /// <returns>The maximum shear force</returns>
                 public static Force Vmax(ForcePerLength w, Length l) => w * l;
+
+                /// <summary>
+                /// (w * (l * l)) / 2
+                /// </summary>
+                /// <returns>The maximum bending moment</returns>
                 public static Torque Mmax(ForcePerLength w, Length l) => (w * (l * l)) / 2;
-                public static Length Δmax(ForcePerLength w, Length l, Pressure E, AreaMomentOfInertia I) // (w * (l * l * l * l)) / (8 * E * I)
+
+                /// <summary>
+                /// (w * (l * l * l * l)) / (8 * E * I)
+                /// </summary>
+                /// <returns>The maximum deflection</returns>
+                public static Length Δmax(ForcePerLength w, Length l, Pressure E, AreaMomentOfInertia I)
                 { 
                     var eiNewtonSquareMeters = E.Pascals * I.MetersToTheFourth;
                     if (eiNewtonSquareMeters is 0) return Length.Zero;
@@ -70,9 +98,23 @@ public static class SteelConstructionManual
             {
                 public static class AllSpansLoaded
                 {
+                    /// <summary>
+                    /// 0.6 * (w * l)
+                    /// </summary>
+                    /// <returns>The maximum shear force</returns>
                     public static Force Vmax(ForcePerLength w, Length l) => 0.6 * (w * l);
+
+                    /// <summary>
+                    /// 0.1 * (w * (l * l))
+                    /// </summary>
+                    /// <returns>The maximum bending moment</returns>
                     public static Torque Mmax(ForcePerLength w, Length l) => 0.1 * (w * (l * l));
-                    public static Length Δmax(ForcePerLength w, Length l, Pressure E, AreaMomentOfInertia I) // (w * (l * l * l * l)) / (145 * E * I)
+
+                    /// <summary>
+                    /// (w * (l * l * l * l)) / (145 * E * I)
+                    /// </summary>
+                    /// <returns>The maximum deflection</returns>
+                    public static Length Δmax(ForcePerLength w, Length l, Pressure E, AreaMomentOfInertia I)
                     {
                         var eiNewtonSquareMeters = E.Pascals * I.MetersToTheFourth;
                         if (eiNewtonSquareMeters is 0) return Length.Zero;
