@@ -113,62 +113,21 @@ public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSuppo
         AllowableDeflection = FormworkComponent.AllowableDeflection
     } : null;
 
-    public virtual Torque MaximumBendingMoment => ContinuousBeam.ThreeEqualSpans.AllSpansLoaded.Mmax(UniformlyDistributedLoad, SupportSpacing);
-
-    public virtual Pressure MaximumBendingStress
+    public virtual BeamCheck ContinuousBeamCheck => new()
     {
-        get
-        {
-            try
-            {
-                return Pressure.FromKilogramsForcePerSquareCentimeter(
-                    MaximumBendingMoment.KilogramForceCentimeters /
-                    FormworkComponent.CrossSection.SectionModulus.CubicCentimeters);
-            }
-            catch (ArgumentException)
-            {
-                return new();
-            }
-        }
-    }
-
-    public virtual QuantityCheck<Pressure> BendingStressCheck => new()
-    {
-        Value = MaximumBendingStress,
-        Limit = FormworkComponent.AllowableBendingStress ?? new()
+        UniformlyDistributedLoad = UniformlyDistributedLoad,
+        BeamForm = BeamForm.Continuous,
+        Length = SupportSpacing,
+        CrossSection = FormworkComponent.CrossSection,
+        ElasticModulus = FormworkComponent.ElasticModulus ?? Pressure.Zero,
+        ShearStressSafetyFactor = ShearStressSafetyFactor,
+        AllowableBendingStress = FormworkComponent.AllowableBendingStress ?? Pressure.Zero,
+        AllowableShearStress = FormworkComponent.AllowableShearStress ?? Pressure.Zero,
+        AllowableDeflection = FormworkComponent.AllowableDeflection
     };
-
-    public virtual Force MaximumShearForce => ContinuousBeam.ThreeEqualSpans.AllSpansLoaded.Vmax(UniformlyDistributedLoad, SupportSpacing);
 
     public virtual double ShearStressSafetyFactor { get; set; } = 1;
 
-    public virtual Pressure MaximumShearStress
-    {
-        get
-        {
-            try
-            {
-                return ShearStressSafetyFactor * MaximumShearForce / FormworkComponent.CrossSection.CrossSectionalArea;
-            }
-            catch (ArgumentException)
-            {
-                return new();
-            }
-        }
-    }
-
-    public virtual QuantityCheck<Pressure> ShearStressCheck => new()
-    {
-        Value = MaximumShearStress,
-        Limit = FormworkComponent.AllowableShearStress ?? new()
-    };
-
-    public virtual Length MaximumDeflection => FormworkComponent.ElasticModulus is Pressure elasticModulus ?
-        ContinuousBeam.ThreeEqualSpans.AllSpansLoaded.Δmax(
-            UniformlyDistributedLoad,
-            SupportSpacing,
-            elasticModulus,
-            FormworkComponent.CrossSection.MomentOfInertia) : new();
 }
 
 public record class FormworkTieRodLayerCheck : FormworkLayerCheck<FormworkTieRod>
