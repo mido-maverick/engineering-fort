@@ -336,4 +336,10 @@
   <data name="VerticalSpacing" xml:space="preserve">
     <value>垂直間距</value>
   </data>
+  <data name="TributaryHeight" xml:space="preserve">
+    <value>載重高度</value>
+  </data>
+  <data name="TributaryArea" xml:space="preserve">
+    <value>載重面積</value>
+  </data>
 </root>

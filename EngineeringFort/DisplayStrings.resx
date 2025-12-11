@@ -336,4 +336,10 @@
   <data name="VerticalSpacing" xml:space="preserve">
     <value>Vertical Spacing</value>
   </data>
+  <data name="TributaryHeight" xml:space="preserve">
+    <value>Tributary Height</value>
+  </data>
+  <data name="TributaryArea" xml:space="preserve">
+    <value>Tributary Area</value>
+  </data>
 </root>

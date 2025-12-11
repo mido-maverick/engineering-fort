@@ -619,6 +619,24 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tributary Area.
+        /// </summary>
+        public static string TributaryArea {
+            get {
+                return ResourceManager.GetString("TributaryArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tributary Height.
+        /// </summary>
+        public static string TributaryHeight {
+            get {
+                return ResourceManager.GetString("TributaryHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tributary Width.
         /// </summary>
         public static string TributaryWidth {
