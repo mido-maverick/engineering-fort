@@ -26,6 +26,7 @@ public record class BeamCheck : Check
     {
         (ForcePerLength udl, BeamForm.Simple) => SimpleBeam.UniformlyDistributedLoad.Mmax(udl, Length),
         (ForcePerLength udl, BeamForm.Cantilever) => CantileverBeam.UniformlyDistributedLoad.Mmax(udl, Length),
+        (ForcePerLength udl, BeamForm.Continuous) => ContinuousBeam.ThreeEqualSpans.AllSpansLoaded.Mmax(udl, Length),
         _ => new(),
     };
 
@@ -57,6 +58,7 @@ public record class BeamCheck : Check
     {
         (ForcePerLength udl, BeamForm.Simple) => SimpleBeam.UniformlyDistributedLoad.Vmax(udl, Length),
         (ForcePerLength udl, BeamForm.Cantilever) => CantileverBeam.UniformlyDistributedLoad.Vmax(udl, Length),
+        (ForcePerLength udl, BeamForm.Continuous) => ContinuousBeam.ThreeEqualSpans.AllSpansLoaded.Vmax(udl, Length),
         _ => new(),
     };
 
@@ -84,8 +86,12 @@ public record class BeamCheck : Check
 
     public virtual Length MaximumDeflection => (UniformlyDistributedLoad, BeamForm, CrossSection) switch
     {
-        (ForcePerLength udl, BeamForm.Simple, ICrossSection cs) => SimpleBeam.UniformlyDistributedLoad.Δmax(udl, Length, ElasticModulus, cs.MomentOfInertia),
-        (ForcePerLength udl, BeamForm.Cantilever, ICrossSection cs) => CantileverBeam.UniformlyDistributedLoad.Δmax(udl, Length, ElasticModulus, cs.MomentOfInertia),
+        (ForcePerLength udl, BeamForm.Simple, ICrossSection cs) =>
+            SimpleBeam.UniformlyDistributedLoad.Δmax(udl, Length, ElasticModulus, cs.MomentOfInertia),
+        (ForcePerLength udl, BeamForm.Cantilever, ICrossSection cs) =>
+            CantileverBeam.UniformlyDistributedLoad.Δmax(udl, Length, ElasticModulus, cs.MomentOfInertia),
+        (ForcePerLength udl, BeamForm.Continuous, ICrossSection cs) =>
+            ContinuousBeam.ThreeEqualSpans.AllSpansLoaded.Δmax(udl, Length, ElasticModulus, cs.MomentOfInertia),
         _ => new(),
     };
 
