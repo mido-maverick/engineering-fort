@@ -187,6 +187,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Continuous Beam Check.
+        /// </summary>
+        public static string ContinuousBeamCheck {
+            get {
+                return ResourceManager.GetString("ContinuousBeamCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cross Section.
         /// </summary>
         public static string CrossSection {

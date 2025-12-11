@@ -327,4 +327,7 @@
   <data name="ShearStressSafetyFactor" xml:space="preserve">
     <value>剪應力安全係數</value>
   </data>
+  <data name="ContinuousBeamCheck" xml:space="preserve">
+    <value>連續梁檢核</value>
+  </data>
 </root>

@@ -327,4 +327,7 @@
   <data name="ShearStressSafetyFactor" xml:space="preserve">
     <value>Shear Stress Safety Factor</value>
   </data>
+  <data name="ContinuousBeamCheck" xml:space="preserve">
+    <value>Continuous Beam Check</value>
+  </data>
 </root>
