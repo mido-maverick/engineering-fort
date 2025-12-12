@@ -174,6 +174,17 @@ public static class 木構造建築物設計及施工技術規範
             /// </summary>
             public static Pressure 垂直方向之短期容許拉應力(Length 厚度, 合板等級 等級) => 2 * 垂直方向之長期容許拉應力(厚度, 等級);
 
+            public static Pressure 長期容許應力(受力類型 受力類型, 合板等級 合板等級) =>
+                Pressure.FromKilogramsForcePerSquareCentimeter((受力類型, 合板等級) switch
+                {
+                    (受力類型.剪, 合板等級.A) => 14,
+                    (受力類型.剪, 合板等級.B) => 13,
+                    (受力類型.剪, 合板等級.C) => 12,
+                    _ => 0
+                });
+
+            public static Pressure 短期容許應力(受力類型 受力類型, 合板等級 合板等級) => 2 * 長期容許應力(受力類型, 合板等級);
+
             Pressure Formwork.IFormworkSheathingMaterial.AllowableBendingStress(Length thickness) => 垂直方向之短期容許拉應力(thickness, 等級);
 
             public Pressure ElasticModulus(Length thickness) => Flag ?
