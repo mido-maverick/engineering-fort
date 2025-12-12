@@ -57,7 +57,7 @@ public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkShe
     public virtual QuantityCheck<Pressure> BendingStressCheck => new()
     {
         Value = MaximumBendingStress,
-        Limit = FormworkComponent.AllowableBendingStress ?? new()
+        Limit = FormworkComponent.AllowableBendingStress ?? Pressure.Zero
     };
 
     public virtual Force MaximumShearForce => SimpleBeam.UniformlyDistributedLoad.Vmax(UniformlyDistributedLoad, SupportSpacing);
@@ -81,7 +81,8 @@ public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkShe
 
     public virtual QuantityCheck<Pressure> ShearStressCheck => new()
     {
-        Value = MaximumShearStress
+        Value = MaximumShearStress,
+        Limit = FormworkComponent.AllowableShearStress ?? Pressure.Zero
     };
 
     public virtual Length MaximumDeflection => FormworkComponent.ElasticModulus is Pressure elasticModulus ?
@@ -90,6 +91,12 @@ public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkShe
             SupportSpacing,
             elasticModulus,
             UnitStripMomentOfInertia) : new();
+
+    public virtual QuantityCheck<Length> DeflectionCheck => new()
+    {
+        Value = MaximumDeflection,
+        Limit = Length.Zero
+    };
 
     public override IEnumerable<ICheck> SubChecks => [];
 }
