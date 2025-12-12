@@ -88,6 +88,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Applied Force Check.
+        /// </summary>
+        public static string AppliedForceCheck {
+            get {
+                return ResourceManager.GetString("AppliedForceCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Beam.
         /// </summary>
         public static string Beam {

@@ -351,4 +351,7 @@
   <data name="TensileStress" xml:space="preserve">
     <value>拉應力</value>
   </data>
+  <data name="AppliedForceCheck" xml:space="preserve">
+    <value>受力檢核</value>
+  </data>
 </root>

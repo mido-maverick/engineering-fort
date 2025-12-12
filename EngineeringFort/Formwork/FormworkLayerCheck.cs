@@ -187,5 +187,11 @@ public record class FormworkTieRodLayerCheck : FormworkLayerCheck<FormworkTieRod
     /// </summary>
     public virtual Force MaximumAppliedForce => Pressure * TributaryArea;
 
+    public virtual QuantityCheck<Force> AppliedForceCheck => new()
+    {
+        Value = MaximumAppliedForce,
+        Limit = FormworkComponent.AllowableTensileForce
+    };
+
     public override IEnumerable<ICheck> SubChecks => [];
 }
