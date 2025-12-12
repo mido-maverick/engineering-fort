@@ -134,9 +134,10 @@ public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSuppo
         BeamForm = BeamForm.Cantilever,
         Length = CantileverLength,
         CrossSection = FormworkComponent.CrossSection,
-        ElasticModulus = FormworkComponent.ElasticModulus ?? new(),
-        AllowableBendingStress = FormworkComponent.AllowableBendingStress ?? new(),
-        AllowableShearStress = FormworkComponent.AllowableShearStress ?? new(),
+        ElasticModulus = FormworkComponent.ElasticModulus ?? Pressure.Zero,
+        ShearStressSafetyFactor = ShearStressSafetyFactor,
+        AllowableBendingStress = FormworkComponent.AllowableBendingStress ?? Pressure.Zero,
+        AllowableShearStress = FormworkComponent.AllowableShearStress ?? Pressure.Zero,
         AllowableDeflection = FormworkComponent.AllowableDeflection
     } : null;
 
