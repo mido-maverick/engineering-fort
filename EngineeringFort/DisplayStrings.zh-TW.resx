@@ -345,4 +345,10 @@
   <data name="MaximumAppliedForce" xml:space="preserve">
     <value>最大受力</value>
   </data>
+  <data name="TensileForce" xml:space="preserve">
+    <value>拉力</value>
+  </data>
+  <data name="TensileStress" xml:space="preserve">
+    <value>拉應力</value>
+  </data>
 </root>

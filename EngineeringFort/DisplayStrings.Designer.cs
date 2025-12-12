@@ -619,6 +619,24 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tensile Force.
+        /// </summary>
+        public static string TensileForce {
+            get {
+                return ResourceManager.GetString("TensileForce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tensile Stress.
+        /// </summary>
+        public static string TensileStress {
+            get {
+                return ResourceManager.GetString("TensileStress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thickness.
         /// </summary>
         public static string Thickness {

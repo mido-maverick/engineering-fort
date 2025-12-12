@@ -345,4 +345,10 @@
   <data name="MaximumAppliedForce" xml:space="preserve">
     <value>Maximum Applied Force</value>
   </data>
+  <data name="TensileForce" xml:space="preserve">
+    <value>Tensile Force</value>
+  </data>
+  <data name="TensileStress" xml:space="preserve">
+    <value>Tensile Stress</value>
+  </data>
 </root>
