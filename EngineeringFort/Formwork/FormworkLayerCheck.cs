@@ -15,6 +15,8 @@ public abstract record class FormworkLayerCheck<T> : FormworkLayerCheck where T 
 
 public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkSheathing>
 {
+    public override FormworkSheathing FormworkComponent => base.FormworkComponent;
+
     public virtual Length UnitStripWidth { get; set; }
 
     public virtual Length SupportSpacing { get; set; }
@@ -94,6 +96,8 @@ public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkShe
 
 public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSupport>
 {
+    public override FormworkSupport FormworkComponent => base.FormworkComponent;
+
     public Orientation Orientation { get; set; }
 
     public virtual Length TributaryWidth { get; set; }
@@ -146,6 +150,8 @@ public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSuppo
 
 public record class FormworkTieRodLayerCheck : FormworkLayerCheck<FormworkTieRod>
 {
+    public override FormworkTieRod FormworkComponent => base.FormworkComponent;
+
     public virtual Length HorizontalSpacing { get; set; }
 
     public virtual Length VerticalSpacing { get; set; }
