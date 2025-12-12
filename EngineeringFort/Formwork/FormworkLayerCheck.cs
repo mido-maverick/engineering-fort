@@ -98,7 +98,15 @@ public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkShe
         Limit = Length.Zero
     };
 
-    public override IEnumerable<ICheck> SubChecks => [];
+    public override IEnumerable<ICheck> SubChecks
+    {
+        get
+        {
+            yield return BendingStressCheck;
+            yield return ShearStressCheck;
+            yield return DeflectionCheck;
+        }
+    }
 }
 
 public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSupport>
