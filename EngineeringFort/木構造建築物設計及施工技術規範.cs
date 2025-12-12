@@ -187,6 +187,8 @@ public static class 木構造建築物設計及施工技術規範
 
             Pressure Formwork.IFormworkSheathingMaterial.AllowableBendingStress(Length thickness) => 垂直方向之短期容許拉應力(thickness, 等級);
 
+            Pressure Formwork.IFormworkSheathingMaterial.AllowableShearStress() => 長期容許應力(受力類型.剪, 等級);
+
             public Pressure ElasticModulus(Length thickness) => Flag ?
                 Pressure.FromKilogramsForcePerSquareCentimeter(50000) :
                 Pressure.FromKilogramsForcePerSquareCentimeter(70000);
