@@ -15,7 +15,15 @@ public record class SideFormworkDesign : FormworkDesign, ISideFormworkDesign
 
     public virtual Length MaximumHeight { get; set; }
 
-    public virtual Pressure MaximumSidePressure { get; set; }
+    public virtual Pressure MaximumSidePressure
+    {
+        get;
+        set
+        {
+            field = value;
+            foreach (var formworkLayerCheck in FormworkLayerChecks) formworkLayerCheck?.Pressure = value;
+        }
+    }
 
     [Display(Name = nameof(FormworkLayerCheck), ResourceType = typeof(DisplayStrings))]
     public FormworkLayerCheck?[] FormworkLayerChecks { get; init; } = new FormworkLayerCheck?[5]; // TODO: limit length
