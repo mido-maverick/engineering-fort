@@ -5,7 +5,6 @@ using SS = DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using WP = DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Logging;
 
 namespace EngineeringFort.OpenXml;
 

@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Using Include="Microsoft.Extensions.Logging" />
     <Using Include="System.ComponentModel.DataAnnotations" />
     <Using Include="System.Reflection" />
     <Using Include="UnitsNet" />
