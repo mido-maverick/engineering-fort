@@ -4,9 +4,9 @@ public record class FormworkSupport : FormworkComponent
 {
     public override string Name { get => base.Name; set => base.Name = value; }
 
-    public virtual ICrossSection CrossSection { get; } = new RectangularCrossSection();
-
     public virtual IFormworkSupportMaterial? Material { get; set; }
+
+    public virtual ICrossSection CrossSection { get; } = new RectangularCrossSection();
 
     public virtual Pressure? AllowableBendingStress => Material?.AllowableBendingStress();
 

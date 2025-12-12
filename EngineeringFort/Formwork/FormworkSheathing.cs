@@ -4,9 +4,9 @@ public record class FormworkSheathing : FormworkComponent
 {
     public override string Name { get => base.Name; set => base.Name = value; }
 
-    public virtual Length Thickness { get; set; }
-
     public virtual IFormworkSheathingMaterial? Material { get; set; }
+
+    public virtual Length Thickness { get; set; }
 
     public virtual Pressure? AllowableBendingStress => Material?.AllowableBendingStress(Thickness);
 
