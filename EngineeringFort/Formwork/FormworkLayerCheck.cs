@@ -92,10 +92,12 @@ public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkShe
             elasticModulus,
             UnitStripMomentOfInertia) : new();
 
+    public virtual Length AllowableDeflection { get; set; }
+
     public virtual QuantityCheck<Length> DeflectionCheck => new()
     {
         Value = MaximumDeflection,
-        Limit = Length.Zero
+        Limit = AllowableDeflection
     };
 
     public override IEnumerable<ICheck> SubChecks
