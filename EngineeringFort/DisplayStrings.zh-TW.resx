@@ -354,4 +354,7 @@
   <data name="AppliedForceCheck" xml:space="preserve">
     <value>受力檢核</value>
   </data>
+  <data name="AllowableTensileForce" xml:space="preserve">
+    <value>容許拉力</value>
+  </data>
 </root>

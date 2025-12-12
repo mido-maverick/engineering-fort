@@ -354,4 +354,7 @@
   <data name="AppliedForceCheck" xml:space="preserve">
     <value>Applied Force Check</value>
   </data>
+  <data name="AllowableTensileForce" xml:space="preserve">
+    <value>Allowable Tensile Force</value>
+  </data>
 </root>
