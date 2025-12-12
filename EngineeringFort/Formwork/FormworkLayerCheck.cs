@@ -193,5 +193,11 @@ public record class FormworkTieRodLayerCheck : FormworkLayerCheck<FormworkTieRod
         Limit = FormworkComponent.AllowableTensileForce
     };
 
-    public override IEnumerable<ICheck> SubChecks => [];
+    public override IEnumerable<ICheck> SubChecks
+    {
+        get
+        {
+            yield return AppliedForceCheck;
+        }
+    }
 }
