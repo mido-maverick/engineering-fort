@@ -357,4 +357,10 @@
   <data name="AllowableTensileForce" xml:space="preserve">
     <value>Allowable Tensile Force</value>
   </data>
+  <data name="Concrete" xml:space="preserve">
+    <value>Concrete</value>
+  </data>
+  <data name="LateralPressure" xml:space="preserve">
+    <value>Lateral Pressure</value>
+  </data>
 </root>

@@ -357,4 +357,10 @@
   <data name="AllowableTensileForce" xml:space="preserve">
     <value>容許拉力</value>
   </data>
+  <data name="Concrete" xml:space="preserve">
+    <value>混凝土</value>
+  </data>
+  <data name="LateralPressure" xml:space="preserve">
+    <value>側壓力</value>
+  </data>
 </root>

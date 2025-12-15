@@ -29,6 +29,7 @@ What's included:
 |柱|Column||
 |**壓**|Compression||
 |壓應力|Compressive Stress|$\sigma$|
+|混凝土|Concrete||
 |連續梁|Continuous Beam||
 |臨界|Critical||
 |斷面|Cross Section||
@@ -46,6 +47,7 @@ What's included:
 |螺桿|Formwork Tie Rod||
 |主梁|Girder||
 |接頭|Joint||
+|側壓力|Lateral Pressure||
 |載重|Load||
 |慣性矩|Moment of Inertia|$I$|
 |平面圖|Plan||

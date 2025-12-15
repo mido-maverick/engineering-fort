@@ -196,6 +196,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Concrete.
+        /// </summary>
+        public static string Concrete {
+            get {
+                return ResourceManager.GetString("Concrete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Continuous Beam.
         /// </summary>
         public static string ContinuousBeam {
@@ -390,6 +399,15 @@ namespace EngineeringFort {
         public static string IsValid {
             get {
                 return ResourceManager.GetString("IsValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lateral Pressure.
+        /// </summary>
+        public static string LateralPressure {
+            get {
+                return ResourceManager.GetString("LateralPressure", resourceCulture);
             }
         }
         
