@@ -1,4 +1,4 @@
-namespace EngineeringFort;
+namespace EngineeringFort.Construction;
 
 public record class Floor : IRegexPatternProvider<Floor>, ILabelable
 {

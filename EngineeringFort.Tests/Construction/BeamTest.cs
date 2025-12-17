@@ -1,6 +1,7 @@
+using EngineeringFort.Construction;
 using System.Text.RegularExpressions;
 
-namespace EngineeringFort.Tests;
+namespace EngineeringFort.Tests.Construction;
 
 public class BeamTest
 {
