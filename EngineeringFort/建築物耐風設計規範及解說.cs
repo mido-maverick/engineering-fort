@@ -1,4 +1,4 @@
-﻿namespace EngineeringFort;
+namespace EngineeringFort;
 
 /// <summary>
 /// </summary>
@@ -20,7 +20,7 @@ public static class 建築物耐風設計規範及解說
 {
     /// <remarks>
     ///     <see href="https://www.nlma.gov.tw/uploads/files/ed1498837647323cbd8cd287ce939972.pdf">
-    ///         木構造建築物設計及施工技術規範 第二章 建築物設計風力之計算
+    ///         建築物耐風設計規範及解說 第二章 建築物設計風力之計算
     ///     </see>
     /// </remarks>
     public static class 建築物設計風力之計算
