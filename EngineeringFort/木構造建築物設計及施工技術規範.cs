@@ -166,8 +166,6 @@ public static class 木構造建築物設計及施工技術規範
         {
             public 合板等級 等級 { get; set; }
 
-            public bool Flag { get; set; }
-
             /// <summary>
             /// 面板纖維垂直方向之長期容許拉應力 Lft⟂
             /// </summary>
@@ -197,9 +195,11 @@ public static class 木構造建築物設計及施工技術規範
 
             Pressure Formwork.IFormworkSheathingMaterial.AllowableShearStress() => 長期容許應力(受力類型.剪, 等級);
 
-            public Pressure ElasticModulus(Length thickness) => Flag ?
-                Pressure.FromKilogramsForcePerSquareCentimeter(50000) :
-                Pressure.FromKilogramsForcePerSquareCentimeter(70000);
+            public Pressure ElasticModulus(Length thickness) => Pressure.FromKilogramsForcePerSquareCentimeter(thickness.Millimeters switch
+            {
+                15 => 50_000,
+                _ => 0
+            });
         }
     }
 }
