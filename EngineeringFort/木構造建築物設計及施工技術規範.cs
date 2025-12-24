@@ -27,6 +27,8 @@ public static class 木構造建築物設計及施工技術規範
     /// </remarks>
     public static class 材料及容許應力
     {
+        public const double 經常濕潤增減係數 = 0.7;
+
         public enum 樹種
         {
             // 針葉樹Ⅰ~Ⅳ類
@@ -50,7 +52,7 @@ public static class 木構造建築物設計及施工技術規範
         /// <summary>
         /// 結構用木材 (Timber)
         /// </summary>
-        public record class 木材 : 結構用材料, Formwork.IFormworkSupportMaterial
+        public record class 木材 : 結構用材料, Formwork.IFormworkSupportMaterial, Formwork.IFormworkSheathingMaterial
         {
             public 樹種 樹種 { get; set; }
 
@@ -149,6 +151,12 @@ public static class 木構造建築物設計及施工技術規範
             Pressure Formwork.IFormworkSupportMaterial.AllowableShearStress() => 短期容許剪應力;
 
             public Pressure ElasticModulus() => 纖維方向之彈性模數;
+
+            Pressure Formwork.IFormworkSheathingMaterial.AllowableBendingStress(Length thickness) => 經常濕潤增減係數 * 短期容許彎應力;
+
+            Pressure Formwork.IFormworkSheathingMaterial.AllowableShearStress() => 經常濕潤增減係數 * 短期容許剪應力;
+
+            Pressure Formwork.IFormworkSheathingMaterial.ElasticModulus(Length thickness) => 纖維方向之彈性模數;
         }
 
         /// <summary>
