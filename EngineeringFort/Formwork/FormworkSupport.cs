@@ -6,7 +6,7 @@ public record class FormworkSupport : FormworkComponent
 
     public virtual IFormworkSupportMaterial? Material { get; set; }
 
-    public virtual ICrossSection CrossSection { get; } = new RectangularCrossSection();
+    public virtual ICrossSection CrossSection { get; init; } = new RectangularCrossSection();
 
     public virtual Pressure? AllowableBendingStress => Material?.AllowableBendingStress();
 
