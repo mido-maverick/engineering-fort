@@ -50,7 +50,7 @@ public static class 木構造建築物設計及施工技術規範
         public abstract record class 結構用材料;
 
         /// <summary>
-        /// 結構用木材 (Timber)
+        /// 結構用木材 (Lumber or Timber)
         /// </summary>
         public record class 木材 : 結構用材料, Formwork.IFormworkSupportMaterial, Formwork.IFormworkSheathingMaterial
         {
