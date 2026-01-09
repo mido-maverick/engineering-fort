@@ -7,7 +7,7 @@
     <IsPackable>True</IsPackable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Engineering Fort</Title>
-    <Version>0.6.0</Version>
+    <Version>0.6.1</Version>
     <Authors>Mido Maverick</Authors>
     <Description>A .NET class library for engineering design, analysis, and automation.</Description>
     <ReleaseNotes></ReleaseNotes>
