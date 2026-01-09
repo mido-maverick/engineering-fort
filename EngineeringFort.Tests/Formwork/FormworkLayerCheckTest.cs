@@ -13,7 +13,7 @@ public class FormworkLayerCheckTest
             Length.FromCentimeters(1.0),
             Length.FromCentimeters(26.4),
             Length.FromCentimeters(1.5),
-            new 木構造建築物設計及施工技術規範.材料及容許應力.合板() { Flag = true }
+            new 木構造建築物設計及施工技術規範.材料及容許應力.合板()
         ],
         [
             Length.FromCentimeters(0.13507),
@@ -21,7 +21,7 @@ public class FormworkLayerCheckTest
             Length.FromCentimeters(1.0),
             Length.FromCentimeters(25.5),
             Length.FromCentimeters(1.5),
-            new 木構造建築物設計及施工技術規範.材料及容許應力.合板() { Flag = false }
+            new 木構造建築物設計及施工技術規範.材料及容許應力.木材() { 樹種 = 木構造建築物設計及施工技術規範.材料及容許應力.樹種.柳桉 }
         ],
         [
             Length.FromCentimeters(0.18994),
@@ -29,7 +29,7 @@ public class FormworkLayerCheckTest
             Length.FromCentimeters(1.0),
             Length.FromCentimeters(30.0),
             Length.FromCentimeters(1.5),
-            new 木構造建築物設計及施工技術規範.材料及容許應力.合板() { Flag = false }
+            new 木構造建築物設計及施工技術規範.材料及容許應力.木材() { 樹種 = 木構造建築物設計及施工技術規範.材料及容許應力.樹種.柳桉 }
         ]
     ];
 
