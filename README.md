@@ -40,6 +40,7 @@ What's included:
 |彈性模數|Elastic Modulus|$E$|
 |立面圖|Elevation||
 |係數|Factor||
+|支撐架|Falsework||
 |力|Force|$F$|
 |模板|Formwork||
 |擱柵|Formwork Joist||

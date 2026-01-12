@@ -268,6 +268,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Falsework.
+        /// </summary>
+        public static string Falsework {
+            get {
+                return ResourceManager.GetString("Falsework", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Floor.
         /// </summary>
         public static string Floor {

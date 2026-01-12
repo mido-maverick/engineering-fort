@@ -363,4 +363,7 @@
   <data name="LateralPressure" xml:space="preserve">
     <value>側壓力</value>
   </data>
+  <data name="Falsework" xml:space="preserve">
+    <value>支撐架</value>
+  </data>
 </root>
