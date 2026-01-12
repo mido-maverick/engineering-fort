@@ -30,6 +30,9 @@ public record class BeamCheck : Check
         _ => new(),
     };
 
+    /// <summary>
+    /// Mmax / S
+    /// </summary>
     public virtual Pressure MaximumBendingStress
     {
         get
@@ -64,6 +67,9 @@ public record class BeamCheck : Check
 
     public virtual double ShearStressSafetyFactor { get; set; } = 1;
 
+    /// <summary>
+    /// Vmax / A
+    /// </summary>
     public virtual Pressure MaximumShearStress
     {
         get
