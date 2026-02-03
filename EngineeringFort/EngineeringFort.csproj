@@ -46,7 +46,6 @@
   <ItemGroup>
     <EmbeddedResource Update="DisplayStrings.zh-TW.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.zh-TW.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="DisplayStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
