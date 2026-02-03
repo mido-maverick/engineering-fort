@@ -5,6 +5,7 @@
 |容許|Allowable||
 |面積|Area|$A$|
 |梁|Beam||
+|基準點|Benchmark||
 |**彎**|Bending||
 |彎矩|Bending Moment|$M$|
 |挫屈|Buckling||

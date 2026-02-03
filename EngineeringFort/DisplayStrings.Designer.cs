@@ -133,6 +133,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Benchmark.
+        /// </summary>
+        public static string Benchmark {
+            get {
+                return ResourceManager.GetString("Benchmark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bending Stress Check.
         /// </summary>
         public static string BendingStressCheck {

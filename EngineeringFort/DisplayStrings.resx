@@ -366,4 +366,7 @@
   <data name="Falsework" xml:space="preserve">
     <value>Falsework</value>
   </data>
+  <data name="Benchmark" xml:space="preserve">
+    <value>Benchmark</value>
+  </data>
 </root>

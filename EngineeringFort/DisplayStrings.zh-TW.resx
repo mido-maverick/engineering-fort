@@ -366,4 +366,7 @@
   <data name="Falsework" xml:space="preserve">
     <value>支撐架</value>
   </data>
+  <data name="Benchmark" xml:space="preserve">
+    <value>基準點</value>
+  </data>
 </root>
