@@ -727,6 +727,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Truss.
+        /// </summary>
+        public static string Truss {
+            get {
+                return ResourceManager.GetString("Truss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uniformly Distributed Load.
         /// </summary>
         public static string UniformlyDistributedLoad {

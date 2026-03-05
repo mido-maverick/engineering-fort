@@ -54,6 +54,7 @@
 |拉應力|Tensile Stress|$\sigma$|
 |**扭**|Torsion||
 |扭力|Torque||
+|桁架|Truss||
 |無支撐長度|Unbraced Length||
 |均佈載重|Uniformly Distributed Load|$w$|
 |降伏|Yield||

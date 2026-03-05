@@ -369,4 +369,7 @@
   <data name="Benchmark" xml:space="preserve">
     <value>基準點</value>
   </data>
+  <data name="Truss" xml:space="preserve">
+    <value>桁架</value>
+  </data>
 </root>

@@ -369,4 +369,7 @@
   <data name="Benchmark" xml:space="preserve">
     <value>Benchmark</value>
   </data>
+  <data name="Truss" xml:space="preserve">
+    <value>Truss</value>
+  </data>
 </root>
