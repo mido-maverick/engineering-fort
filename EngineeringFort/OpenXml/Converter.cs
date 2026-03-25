@@ -334,6 +334,9 @@ public class Converter
                 var localizedName = DisplayStrings.ResourceManager.GetString(displayName ?? enumName);
                 Set(sdtElement, localizedName ?? displayName ?? enumName);
                 break;
+            case char c:
+                Set(sdtElement, c.ToString());
+                break;
             case string s:
                 Set(sdtElement, s);
                 break;
