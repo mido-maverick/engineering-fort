@@ -171,6 +171,23 @@ public class Converter
         };
     }
 
+    private void InjectIndex(SdtElement itemSdtElement, int index, string indexTag = "Index")
+    {
+        var indexSdtElement = itemSdtElement.Descendants<SdtElement>().FirstOrDefault(sdt => sdt.SdtProperties?.GetFirstChild<Tag>()?.Val == indexTag);
+        var indexText = index.ToString();
+
+        switch (indexSdtElement)
+        {
+            case SdtRun or SdtCell:
+                Set(indexSdtElement, indexText);
+                break;
+            case null:
+                throw new InvalidOperationException();
+            default:
+                throw new NotSupportedException();
+        }
+    }
+
     protected TElement[] GenerateElements<TElement>(TElement template, IEnumerable<object> objects)
         where TElement : OpenXmlCompositeElement
     {
