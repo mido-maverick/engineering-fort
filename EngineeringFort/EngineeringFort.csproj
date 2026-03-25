@@ -7,13 +7,13 @@
     <IsPackable>True</IsPackable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Engineering Fort</Title>
-    <Version>0.6.1</Version>
+    <Version>0.7.0</Version>
     <Authors>Mido Maverick</Authors>
     <Description>A .NET class library for engineering design, analysis, and automation.</Description>
     <ReleaseNotes></ReleaseNotes>
     <RepositoryUrl>https://github.com/mido-maverick/engineering-fort</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Copyright>Copyright © 2025 Mido Maverick</Copyright>
+    <Copyright>Copyright © 2026 Mido Maverick</Copyright>
     <PackageProjectUrl>https://github.com/mido-maverick/engineering-fort</PackageProjectUrl>
     <PackageTags>civil;engineering;structural;taiwan</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
