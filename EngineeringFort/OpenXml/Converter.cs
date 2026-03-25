@@ -192,8 +192,12 @@ public class Converter
     protected TElement[] GenerateElements<TElement>(TElement[] templates, IEnumerable<object> objects)
         where TElement : OpenXmlCompositeElement
     {
-        var elements = objects.Select(obj =>
+        var objectArray = objects.ToArray();
+        var elements = new TElement[objectArray.Length];
+        var previousElement = templates.Last();
+        for (var i = 0; i < objectArray.Length; i++)
         {
+            var obj = objectArray[i];
             var type = obj.GetType();
             var name = type.Name;
             var displayName = type.GetCustomAttribute<DisplayAttribute>()?.Name;
@@ -204,14 +208,11 @@ public class Converter
                 var tagValue = sdt.SdtProperties?.GetFirstChild<Tag>()?.Val?.Value;
                 return tagValue == name || tagValue == displayName || tagValue == localizedName || tagValue == localizedDisplayName;
             }) as OpenXmlCompositeElement ?? templates.First();
-            return (TElement)template.Clone();
-        }).ToArray();
-        var previousElement = templates.Last();
-        foreach (var (element, obj) in elements.Zip(objects))
-        {
+            var element = (TElement)template.Clone();
             previousElement.InsertAfterSelf(element);
             if (element is SdtElement sdtElement) Set(sdtElement, obj);
             previousElement = element;
+            elements[i] = element;
         }
         templates.ToList().ForEach(t => t.Remove());
         return elements;
