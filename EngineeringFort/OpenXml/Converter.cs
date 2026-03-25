@@ -174,13 +174,16 @@ public class Converter
     protected TElement[] GenerateElements<TElement>(TElement template, IEnumerable<object> objects)
         where TElement : OpenXmlCompositeElement
     {
-        var elements = objects.Select(_ => (TElement)template.Clone()).ToArray();
+        var objectArray = objects.ToArray();
+        var elements = new TElement[objectArray.Length];
         var previousElement = template;
-        foreach (var (element, obj) in elements.Zip(objects))
+        for (var i = 0; i < objectArray.Length; i++)
         {
+            var element = (TElement)template.Clone();
             previousElement.InsertAfterSelf(element);
-            if (element is SdtElement sdtElement) Set(sdtElement, obj);
+            if (element is SdtElement sdtElement) Set(sdtElement, objectArray[i]);
             previousElement = element;
+            elements[i] = element;
         }
         template.Remove();
         return elements;
