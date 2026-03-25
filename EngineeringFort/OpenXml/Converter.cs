@@ -188,7 +188,9 @@ public class Converter
         }
     }
 
-    protected TElement[] GenerateElements<TElement>(TElement template, IEnumerable<object> objects)
+    /// <param name="indexTag">Tag value identifying the index content control to populate within each generated element. Skipped if not found.</param>
+    /// <param name="indexStart">The number assigned to the first generated element's index content control. Subsequent elements increment by 1.</param>
+    protected TElement[] GenerateElements<TElement>(TElement template, IEnumerable<object> objects, string indexTag = "Index", int indexStart = 1)
         where TElement : OpenXmlCompositeElement
     {
         var objectArray = objects.ToArray();
@@ -198,7 +200,12 @@ public class Converter
         {
             var element = (TElement)template.Clone();
             previousElement.InsertAfterSelf(element);
-            if (element is SdtElement sdtElement) Set(sdtElement, objectArray[i]);
+            if (element is SdtElement sdtElement)
+            {
+                Set(sdtElement, objectArray[i]);
+                try { InjectIndex(sdtElement, indexStart + i, indexTag); }
+                catch (Exception e) when (e is InvalidOperationException or NotSupportedException) { }
+            }
             previousElement = element;
             elements[i] = element;
         }
@@ -206,7 +213,9 @@ public class Converter
         return elements;
     }
 
-    protected TElement[] GenerateElements<TElement>(TElement[] templates, IEnumerable<object> objects)
+    /// <param name="indexTag">Tag value identifying the index content control to populate within each generated element. Skipped if not found.</param>
+    /// <param name="indexStart">The number assigned to the first generated element's index content control. Subsequent elements increment by 1.</param>
+    protected TElement[] GenerateElements<TElement>(TElement[] templates, IEnumerable<object> objects, string indexTag = "Index", int indexStart = 1)
         where TElement : OpenXmlCompositeElement
     {
         var objectArray = objects.ToArray();
@@ -227,7 +236,12 @@ public class Converter
             }) as OpenXmlCompositeElement ?? templates.First();
             var element = (TElement)template.Clone();
             previousElement.InsertAfterSelf(element);
-            if (element is SdtElement sdtElement) Set(sdtElement, obj);
+            if (element is SdtElement sdtElement)
+            {
+                Set(sdtElement, obj);
+                try { InjectIndex(sdtElement, indexStart + i, indexTag); }
+                catch (Exception e) when (e is InvalidOperationException or NotSupportedException) { }
+            }
             previousElement = element;
             elements[i] = element;
         }
