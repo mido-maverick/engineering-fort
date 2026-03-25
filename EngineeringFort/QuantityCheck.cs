@@ -7,6 +7,7 @@ public record class QuantityCheck<TQuantity> : Check
 {
     public virtual TQuantity Value { get; set; } = new();
     public virtual TQuantity Limit { get; set; } = new();
+    public char Comparison => Value < Limit ? '<' : '≥';
     public override bool IsValid => Value < Limit;
     public override IEnumerable<ICheck> SubChecks => [];
 }
