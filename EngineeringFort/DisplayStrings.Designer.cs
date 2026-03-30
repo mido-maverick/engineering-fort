@@ -637,7 +637,7 @@ namespace EngineeringFort {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Side Formwork Design.
+        ///   Looks up a localized string similar to Side Formwork Calculation.
         /// </summary>
         public static string SideFormworkDesign {
             get {

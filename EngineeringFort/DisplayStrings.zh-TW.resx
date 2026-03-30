@@ -163,7 +163,7 @@
     <value>檢核狀態</value>
   </data>
   <data name="SideFormworkDesign" xml:space="preserve">
-    <value>側向模板設計</value>
+    <value>側向模板計算</value>
   </data>
   <data name="FormworkSheathingLayerCheck" xml:space="preserve">
     <value>襯板層檢核</value>
