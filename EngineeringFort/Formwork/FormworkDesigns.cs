@@ -11,7 +11,7 @@ public interface IBottomFormworkDesign
 
 public record class SideFormworkDesign : FormworkDesign, ISideFormworkDesign
 {
-    public virtual string Name { get; set; } = DisplayStrings.SideFormworkDesign;
+    public virtual string Name { get; set; } = DisplayStrings.SideFormworkCalculation;
 
     public virtual Length MaximumHeight { get; set; }
 
