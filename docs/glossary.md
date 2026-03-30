@@ -9,7 +9,7 @@
 |**彎**|Bending||
 |彎矩|Bending Moment|$M$|
 |挫屈|Buckling||
-|計算|Calculations||
+|計算|Calculation(s)||
 |懸臂梁|Cantilever Beam||
 |柱|Column||
 |**壓**|Compression||

@@ -372,4 +372,7 @@
   <data name="Truss" xml:space="preserve">
     <value>桁架</value>
   </data>
+  <data name="Calculation" xml:space="preserve">
+    <value>計算</value>
+  </data>
 </root>
