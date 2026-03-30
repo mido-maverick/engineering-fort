@@ -375,4 +375,7 @@
   <data name="Calculation" xml:space="preserve">
     <value>計算</value>
   </data>
+  <data name="SideFormworkCalculation" xml:space="preserve">
+    <value>側向模板計算</value>
+  </data>
 </root>

@@ -639,6 +639,16 @@ namespace EngineeringFort {
         /// <summary>
         ///   Looks up a localized string similar to Side Formwork Calculation.
         /// </summary>
+        public static string SideFormworkCalculation {
+            get {
+                return ResourceManager.GetString("SideFormworkCalculation", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Side Formwork Calculation.
+        /// </summary>
+        [Obsolete]
         public static string SideFormworkDesign {
             get {
                 return ResourceManager.GetString("SideFormworkDesign", resourceCulture);

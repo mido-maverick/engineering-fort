@@ -375,4 +375,7 @@
   <data name="Calculation" xml:space="preserve">
     <value>Calculation</value>
   </data>
+  <data name="SideFormworkCalculation" xml:space="preserve">
+    <value>Side Formwork Calculation</value>
+  </data>
 </root>
