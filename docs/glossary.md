@@ -27,7 +27,7 @@
 |支撐架|Falsework||
 |力|Force|$F$|
 |模板|Formwork||
-|擱柵|Formwork Joist||
+|~~擱~~櫊柵|Formwork Joist||
 |襯板|Formwork Sheathing||
 |貫材|Formwork Stringer||
 |螺桿|Formwork Tie Rod||
