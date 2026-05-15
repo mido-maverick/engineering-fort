@@ -42,6 +42,7 @@
 |安全係數|Safety Factor||
 |剖面圖|Section||
 |斷面模數|Section Modulus|$S$|
+|自重|Self-Weight|$W$|
 |**剪**|Shear||
 |剪力|Shear Force|$V$|
 |剪應力|Shear Stress|$\tau$|

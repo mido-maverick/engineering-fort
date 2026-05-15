@@ -384,4 +384,7 @@
   <data name="DeadLoad" xml:space="preserve">
     <value>靜載重</value>
   </data>
+  <data name="SelfWeight" xml:space="preserve">
+    <value>自重</value>
+  </data>
 </root>

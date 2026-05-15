@@ -637,6 +637,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Self-Weight.
+        /// </summary>
+        public static string SelfWeight {
+            get {
+                return ResourceManager.GetString("SelfWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shear Stress Check.
         /// </summary>
         public static string ShearStressCheck {

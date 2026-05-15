@@ -384,4 +384,7 @@
   <data name="DeadLoad" xml:space="preserve">
     <value>Dead Load</value>
   </data>
+  <data name="SelfWeight" xml:space="preserve">
+    <value>Self-Weight</value>
+  </data>
 </root>
