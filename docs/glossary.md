@@ -39,7 +39,7 @@
 |載重|Load|$L$|
 |慣性矩|Moment of Inertia|$I$|
 |平面圖|Plan||
-|安全係數|Safety Factor||
+|安全係數|Safety Factor|$\mathit{SF}$|
 |剖面圖|Section||
 |斷面模數|Section Modulus|$S$|
 |自重|Self-Weight|$W$|
@@ -51,7 +51,7 @@
 |細長|Slender||
 |間距|Spacing||
 |勁度|Stiffness||
-|強度|Strength||
+|強度|Strength|$f$|
 |應力|Stress||
 |**拉**|Tension||
 |拉應力|Tensile Stress|$\sigma$|
