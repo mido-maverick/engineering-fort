@@ -378,4 +378,10 @@
   <data name="SideFormworkCalculation" xml:space="preserve">
     <value>Side Formwork Calculation</value>
   </data>
+  <data name="LiveLoad" xml:space="preserve">
+    <value>Live Load</value>
+  </data>
+  <data name="DeadLoad" xml:space="preserve">
+    <value>Dead Load</value>
+  </data>
 </root>

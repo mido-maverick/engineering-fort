@@ -259,6 +259,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dead Load.
+        /// </summary>
+        public static string DeadLoad {
+            get {
+                return ResourceManager.GetString("DeadLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Deflection Check.
         /// </summary>
         public static string DeflectionCheck {
@@ -457,6 +466,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Live Load.
+        /// </summary>
+        public static string LiveLoad {
+            get {
+                return ResourceManager.GetString("LiveLoad", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Material.
         /// </summary>
         public static string Material {
@@ -644,7 +662,7 @@ namespace EngineeringFort {
                 return ResourceManager.GetString("SideFormworkCalculation", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Side Formwork Calculation.
         /// </summary>

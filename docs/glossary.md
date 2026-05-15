@@ -19,6 +19,7 @@
 |臨界|Critical||
 |斷面|Cross Section||
 |斷面積|Cross-Sectional Area|$A$|
+|靜載重|Dead Load|$L_D$|
 |撓度|Deflection|$\delta$|
 |有效|Effective||
 |彈性模數|Elastic Modulus|$E$|
@@ -34,7 +35,8 @@
 |主梁|Girder||
 |接頭|Joint||
 |側壓力|Lateral Pressure||
-|載重|Load||
+|活載重|Live Load|$L_L$|
+|載重|Load|$L$|
 |慣性矩|Moment of Inertia|$I$|
 |平面圖|Plan||
 |安全係數|Safety Factor||
@@ -58,3 +60,8 @@
 |無支撐長度|Unbraced Length||
 |均佈載重|Uniformly Distributed Load|$w$|
 |降伏|Yield||
+
+## 參考
+
+- [建築物混凝土結構設計規範](https://www.nlma.gov.tw/ch/legislation/regsearch/6874)
+[PDF](https://www.nlma.gov.tw/uploads/files/011d9249cac7d6c5547786aa348e352a.pdf)

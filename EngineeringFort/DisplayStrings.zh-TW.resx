@@ -378,4 +378,10 @@
   <data name="SideFormworkCalculation" xml:space="preserve">
     <value>側向模板計算</value>
   </data>
+  <data name="LiveLoad" xml:space="preserve">
+    <value>活載重</value>
+  </data>
+  <data name="DeadLoad" xml:space="preserve">
+    <value>靜載重</value>
+  </data>
 </root>
