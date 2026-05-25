@@ -126,7 +126,7 @@ public class Converter
         if (SdtBlocks is null) throw new InvalidOperationException();
         foreach (var section in sections)
         {
-            var templateBlock = SdtBlocks.FirstOrDefault(sdt => sdt.SdtProperties?.GetFirstChild<Tag>()?.Val == section.tag);
+            var templateBlock = SdtBlocks.FirstOrDefault(sdt => sdt.SdtProperties?.GetFirstChild<Tag>()?.Val?.Value == section.tag);
             if (templateBlock is null) continue;
             var generatedBlocks = GenerateElements(templateBlock, section.dataModels);
         }
@@ -173,7 +173,7 @@ public class Converter
 
     private void InjectIndex(SdtElement itemSdtElement, int index, string indexTag = "Index")
     {
-        var indexSdtElement = itemSdtElement.Descendants<SdtElement>().FirstOrDefault(sdt => sdt.SdtProperties?.GetFirstChild<Tag>()?.Val == indexTag);
+        var indexSdtElement = itemSdtElement.Descendants<SdtElement>().FirstOrDefault(sdt => sdt.SdtProperties?.GetFirstChild<Tag>()?.Val?.Value == indexTag);
         var indexText = index.ToString();
 
         switch (indexSdtElement)
@@ -278,7 +278,8 @@ public class Converter
         if (!runs.Any()) throw new InvalidOperationException();
         foreach (var run in runs.Skip(1).ToList()) run.Remove();
 
-        var textElements = runs.First().Elements<WP.Text>();
+        var firstRun = runs.First();
+        var textElements = firstRun.Elements<WP.Text>();
         if (!textElements.Any()) throw new InvalidOperationException();
         foreach (var textElement in textElements.Skip(1).ToList()) textElement.Remove();
 
@@ -299,7 +300,8 @@ public class Converter
         if (!runs.Any()) throw new InvalidOperationException();
         foreach (var run in runs.Skip(1).ToList()) run.Remove();
 
-        var textElements = runs.First().Elements<WP.Text>();
+        var firstRun = runs.First();
+        var textElements = firstRun.Elements<WP.Text>();
         if (!textElements.Any()) throw new InvalidOperationException();
         foreach (var textElement in textElements.Skip(1).ToList()) textElement.Remove();
 
