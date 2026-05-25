@@ -262,6 +262,9 @@ public class Converter
             case SdtCell sdtCell:
                 Set(sdtCell, text);
                 break;
+            case SdtBlock sdtBlock:
+                Set(sdtBlock, text);
+                break;
             default:
                 throw new NotSupportedException();
         }
@@ -306,6 +309,44 @@ public class Converter
         foreach (var textElement in textElements.Skip(1).ToList()) textElement.Remove();
 
         textElements.First().Text = text;
+    }
+
+    /// <exception cref="InvalidOperationException" />
+    protected void Set(SdtBlock sdtBlock, string text)
+    {
+        var sdtContentBlock = sdtBlock.SdtContentBlock ?? throw new InvalidOperationException();
+
+        var paragraphs = sdtContentBlock.Elements<Paragraph>();
+        if (!paragraphs.Any()) throw new InvalidOperationException();
+        foreach (var paragraph in paragraphs.Skip(1).ToList()) paragraph.Remove();
+
+        var runs = paragraphs.First().Elements<WP.Run>();
+        if (!runs.Any()) throw new InvalidOperationException();
+        foreach (var run in runs.Skip(1).ToList()) run.Remove();
+
+        var firstRun = runs.First();
+        var textElements = firstRun.Elements<WP.Text>();
+        if (!textElements.Any()) throw new InvalidOperationException();
+        foreach (var textElement in textElements.Skip(1).ToList()) textElement.Remove();
+
+        SetMultiLine(firstRun, textElements.First(), text);
+    }
+
+    private static void SetMultiLine(WP.Run run, WP.Text firstText, string text)
+    {
+        var lines = (text ?? string.Empty).Replace("\r\n", "\n").Split('\n');
+        firstText.Text = lines[0];
+        firstText.Space = SpaceProcessingModeValues.Preserve;
+
+        OpenXmlElement anchor = firstText;
+        for (var i = 1; i < lines.Length; i++)
+        {
+            var br = run.InsertAfter(new WP.Break(), anchor);
+            var t = run.InsertAfter(
+                new WP.Text(lines[i]) { Space = SpaceProcessingModeValues.Preserve },
+                br);
+            anchor = t;
+        }
     }
 
     protected void Set(SdtBlock sdtBlock, Array array)
