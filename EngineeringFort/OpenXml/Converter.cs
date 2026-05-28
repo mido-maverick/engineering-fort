@@ -402,6 +402,9 @@ public class Converter
             case DateOnly d:
                 Set(sdtElement, d, format);
                 break;
+            case DateTime dt:
+                Set(sdtElement, DateOnly.FromDateTime(dt), format);
+                break;
             case Enum e:
                 var enumName = e.ToString();
                 var enumType = e.GetType();
