@@ -349,6 +349,37 @@ public class Converter
         }
     }
 
+    /// <summary>
+    /// Writes <paramref name="date"/> into the SDT, both as displayed text and (if the SDT is
+    /// configured as a date-picker via <see cref="SdtContentDate"/>) as the control's stored
+    /// <c>FullDate</c> metadata so Word's picker UI round-trips correctly.
+    /// </summary>
+    /// <param name="format">
+    /// <list type="bullet">
+    /// <item><c>"roc-long"</c>: ROC year long form, e.g. <c>115年5月28日</c>.</item>
+    /// <item><c>"roc-short"</c> or <c>null</c>: ROC year short form, e.g. <c>115/5/28</c>.</item>
+    /// <item>any other value: passed through to <see cref="DateOnly.ToString(string)"/> (Gregorian year).</item>
+    /// </list>
+    /// </param>
+    protected void Set(SdtElement sdtElement, DateOnly date, string? format = null)
+    {
+        var sdtContentDate = sdtElement.SdtProperties?.GetFirstChild<SdtContentDate>();
+        if (sdtContentDate is not null)
+        {
+            var dateTime = date.ToDateTime(TimeOnly.MinValue);
+            if (sdtContentDate.FullDate is null) sdtContentDate.FullDate = new DateTimeValue(dateTime);
+            else sdtContentDate.FullDate.Value = dateTime;
+        }
+
+        var text = format switch
+        {
+            "roc-long" => $"{date.Year - 1911}年{date.Month}月{date.Day}日",
+            "roc-short" or null => $"{date.Year - 1911}/{date.Month}/{date.Day}",
+            _ => date.ToString(format),
+        };
+        Set(sdtElement, text);
+    }
+
     protected void Set(SdtBlock sdtBlock, Array array)
     {
         var table = sdtBlock.SdtContentBlock!.GetFirstChild<WP.Table>();
@@ -367,6 +398,9 @@ public class Converter
                 throw new NotImplementedException();
             case int or double or IQuantity:
                 Set(sdtElement, Format(obj, format));
+                break;
+            case DateOnly d:
+                Set(sdtElement, d, format);
                 break;
             case Enum e:
                 var enumName = e.ToString();
