@@ -59,25 +59,98 @@ public class Converter
     #endregion
 
     #region Methods
+    /// <summary>Extracts every named Excel Table found across the workbook's worksheets, keyed by table name.</summary>
     public Dictionary<string, Dictionary<string, string>[]> ExtractStringData(Stream stream)
     {
-        throw new NotImplementedException();
+        using (SpreadsheetDocument = SpreadsheetDocument.Open(stream, isEditable: false))
+        {
+            var data = new Dictionary<string, Dictionary<string, string>[]>();
+            foreach (var worksheetPart in WorksheetParts ?? throw new InvalidOperationException("WorksheetParts not found."))
+            {
+                var worksheet = worksheetPart.Worksheet;
+                foreach (var table in worksheetPart.TableDefinitionParts.Select(tdp => tdp.Table))
+                {
+                    var tableName = table.Name?.Value ?? throw new InvalidOperationException("Table name not found.");
+                    data[tableName] = ExtractStringData(worksheet, table);
+                }
+            }
+            return data;
+        }
     }
 
     private Dictionary<string, string>[] ExtractStringData(Worksheet worksheet, SS.Table table)
     {
-        throw new NotImplementedException();
+        var sheetData = worksheet.GetFirstChild<SheetData>() ?? throw new InvalidOperationException("SheetData not found.");
+
+        var tableReference = table.Reference?.Value ?? throw new InvalidOperationException("Table Reference not found.");
+        var rangeParts = tableReference.Split(':');
+        var startRowIndex = GetRowIndex(rangeParts[0]);
+        var endRowIndex = GetRowIndex(rangeParts[^1]);
+
+        var tableColumns = table.TableColumns?.Elements<TableColumn>() ?? throw new InvalidOperationException("TableColumns not found.");
+
+        var rows = sheetData.Elements<Row>()
+            .Where(r => startRowIndex < (r.RowIndex ?? throw new InvalidOperationException(nameof(r.RowIndex))) && r.RowIndex <= endRowIndex);
+
+        return [.. rows.Select(row => ExtractStringData(row, tableColumns))];
     }
 
     private Dictionary<string, string> ExtractStringData(Row row, IEnumerable<TableColumn> tableColumns)
     {
-        throw new NotImplementedException();
+        var rowData = new Dictionary<string, string>();
+
+        var cells = row.Elements<Cell>();
+        foreach (var (tableColumn, cell) in tableColumns.Zip(cells))
+        {
+            var tableColumnName = tableColumn.Name?.Value ?? throw new InvalidOperationException("Table column name not found.");
+            rowData[tableColumnName] = ExtractStringData(cell);
+        }
+
+        return rowData;
     }
 
     private string ExtractStringData(Cell cell)
     {
-        throw new NotImplementedException();
+        var cellDataType = cell.DataType;
+
+        var cellFormat = GetCellFormat(cell);
+        var cellNumberFormatId = cellFormat?.NumberFormatId;
+        var cellNumberingFormat = cellNumberFormatId is not null ? GetNumberingFormat(cellNumberFormatId) : null;
+
+        var cellText = cell.CellValue?.Text ?? "";
+
+        if (cellDataType is not null)
+        {
+            if (cellDataType.Value == CellValues.SharedString)
+                return SharedStringTable?.ElementAt(int.Parse(cellText)).InnerText ?? "";
+            if (cellDataType.Value == CellValues.Boolean)
+                return (cellText is "1").ToString();
+            return cellText;
+        }
+
+        if (cellNumberingFormat is not null)
+        {
+            var obj = ExtractData(cellText, cellNumberingFormat);
+            var formatCode = cellNumberingFormat.FormatCode?.Value;
+            if (obj is not null && formatCode is not null)
+            {
+                formatCode = formatCode.Replace("_ ", "");
+                return obj switch
+                {
+                    int i => i.ToString(formatCode),
+                    double d => d.ToString(formatCode),
+                    DateOnly date => date.ToString(formatCode),
+                    _ => obj.ToString() ?? "",
+                };
+            }
+            return obj?.ToString() ?? "";
+        }
+
+        return cellText;
     }
+
+    private static uint GetRowIndex(string cellReference) =>
+        uint.Parse(new string([.. cellReference.Where(char.IsDigit)]));
 
     private static object? ExtractData(string text, SS.NumberingFormat numberingFormat)
     {
@@ -86,13 +159,23 @@ public class Converter
         var format = numberingFormat.FormatCode?.Value;
         return format switch
         {
-            "0_ " or
-            "#,##0_ " => int.Parse(text),
+            "#,##0_" or
+            "#,##0_ " or
+            "# ##0_" or
+            "# ##0_ " or 
+            "0_" or
+            "0_ "=> int.Parse(text.Split('.')[0]),
+            "0.0_" or
             "0.0_ " or
+            "0.00_" or
             "0.00_ " or
+            "0.000_" or
             "0.000_ " or
+            "0.0000_" or
             "0.0000_ " or
+            "0.00000_" or
             "0.00000_ " => double.Parse(text),
+            "[$-800404]e/m/d;@" => DateOnly.FromDateTime(DateTime.FromOADate(double.Parse(text))),
             null => text,
             _ => throw new NotSupportedException($"Unsupported format: '{format}'."),
         };
