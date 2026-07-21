@@ -86,23 +86,35 @@ public class Converter
         var rangeParts = tableReference.Split(':');
         var startRowIndex = GetRowIndex(rangeParts[0]);
         var endRowIndex = GetRowIndex(rangeParts[^1]);
+        var startColumnIndex = GetColumnIndex(rangeParts[0]);
 
-        var tableColumns = table.TableColumns?.Elements<TableColumn>() ?? throw new InvalidOperationException("TableColumns not found.");
+        var tableColumns = table.TableColumns?.Elements<TableColumn>().ToArray()
+            ?? throw new InvalidOperationException("TableColumns not found.");
 
         var rows = sheetData.Elements<Row>()
             .Where(r => startRowIndex < (r.RowIndex ?? throw new InvalidOperationException(nameof(r.RowIndex))) && r.RowIndex <= endRowIndex);
 
-        return [.. rows.Select(row => ExtractStringData(row, tableColumns))];
+        return [.. rows.Select(row => ExtractStringData(row, tableColumns, startColumnIndex))];
     }
 
-    private Dictionary<string, string> ExtractStringData(Row row, IEnumerable<TableColumn> tableColumns)
+    private Dictionary<string, string> ExtractStringData(Row row, TableColumn[] tableColumns, uint startColumnIndex)
     {
         var rowData = new Dictionary<string, string>();
-
-        var cells = row.Elements<Cell>();
-        foreach (var (tableColumn, cell) in tableColumns.Zip(cells))
+        foreach (var tableColumn in tableColumns)
         {
             var tableColumnName = tableColumn.Name?.Value ?? throw new InvalidOperationException("Table column name not found.");
+            rowData[tableColumnName] = "";
+        }
+
+        foreach (var cell in row.Elements<Cell>())
+        {
+            var cellReference = cell.CellReference?.Value;
+            if (cellReference is null) continue;
+
+            var offset = (int)GetColumnIndex(cellReference) - (int)startColumnIndex;
+            if (offset < 0 || offset >= tableColumns.Length) continue; // belongs to another table on this row
+
+            var tableColumnName = tableColumns[offset].Name?.Value ?? throw new InvalidOperationException("Table column name not found.");
             rowData[tableColumnName] = ExtractStringData(cell);
         }
 
@@ -151,6 +163,15 @@ public class Converter
 
     private static uint GetRowIndex(string cellReference) =>
         uint.Parse(new string([.. cellReference.Where(char.IsDigit)]));
+
+    /// <summary>1-based column index from a cell reference's column letters (A=1, Z=26, AA=27, ...).</summary>
+    private static uint GetColumnIndex(string cellReference)
+    {
+        uint index = 0;
+        foreach (var c in cellReference.TakeWhile(char.IsLetter))
+            index = index * 26 + (uint)(char.ToUpperInvariant(c) - 'A' + 1);
+        return index;
+    }
 
     private static object? ExtractData(string text, SS.NumberingFormat numberingFormat)
     {
