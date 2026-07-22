@@ -417,4 +417,7 @@
   <data name="Elevation" xml:space="preserve">
     <value>高程</value>
   </data>
+  <data name="Building" xml:space="preserve">
+    <value>建築物</value>
+  </data>
 </root>

@@ -417,4 +417,7 @@
   <data name="Elevation" xml:space="preserve">
     <value>Elevation</value>
   </data>
+  <data name="Building" xml:space="preserve">
+    <value>Building</value>
+  </data>
 </root>

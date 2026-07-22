@@ -169,6 +169,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Building.
+        /// </summary>
+        public static string Building {
+            get {
+                return ResourceManager.GetString("Building", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Calculation.
         /// </summary>
         public static string Calculation {
