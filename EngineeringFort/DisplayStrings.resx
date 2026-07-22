@@ -414,4 +414,7 @@
   <data name="Southwest" xml:space="preserve">
     <value>Southwest</value>
   </data>
+  <data name="Elevation" xml:space="preserve">
+    <value>Elevation</value>
+  </data>
 </root>

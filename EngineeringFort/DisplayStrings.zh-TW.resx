@@ -414,4 +414,7 @@
   <data name="Southwest" xml:space="preserve">
     <value>西南</value>
   </data>
+  <data name="Elevation" xml:space="preserve">
+    <value>高程</value>
+  </data>
 </root>

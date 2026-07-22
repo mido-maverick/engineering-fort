@@ -25,7 +25,8 @@
 |東|East||
 |有效|Effective||
 |彈性模數|Elastic Modulus|$E$|
-|立面圖|Elevation||
+|高程|Elevation||
+|立面圖|Elevation (Drawing)||
 |係數|Factor||
 |支撐架|Falsework||
 |力|Force|$F$|
