@@ -387,4 +387,31 @@
   <data name="SelfWeight" xml:space="preserve">
     <value>自重</value>
   </data>
+  <data name="Direction" xml:space="preserve">
+    <value>方位</value>
+  </data>
+  <data name="North" xml:space="preserve">
+    <value>北</value>
+  </data>
+  <data name="South" xml:space="preserve">
+    <value>南</value>
+  </data>
+  <data name="East" xml:space="preserve">
+    <value>東</value>
+  </data>
+  <data name="West" xml:space="preserve">
+    <value>西</value>
+  </data>
+  <data name="Northeast" xml:space="preserve">
+    <value>東北</value>
+  </data>
+  <data name="Northwest" xml:space="preserve">
+    <value>西北</value>
+  </data>
+  <data name="Southeast" xml:space="preserve">
+    <value>東南</value>
+  </data>
+  <data name="Southwest" xml:space="preserve">
+    <value>西南</value>
+  </data>
 </root>

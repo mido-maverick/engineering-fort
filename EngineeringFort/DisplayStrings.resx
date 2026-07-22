@@ -387,4 +387,31 @@
   <data name="SelfWeight" xml:space="preserve">
     <value>Self-Weight</value>
   </data>
+  <data name="Direction" xml:space="preserve">
+    <value>Direction</value>
+  </data>
+  <data name="North" xml:space="preserve">
+    <value>North</value>
+  </data>
+  <data name="South" xml:space="preserve">
+    <value>South</value>
+  </data>
+  <data name="East" xml:space="preserve">
+    <value>East</value>
+  </data>
+  <data name="West" xml:space="preserve">
+    <value>West</value>
+  </data>
+  <data name="Northeast" xml:space="preserve">
+    <value>Northeast</value>
+  </data>
+  <data name="Northwest" xml:space="preserve">
+    <value>Northwest</value>
+  </data>
+  <data name="Southeast" xml:space="preserve">
+    <value>Southeast</value>
+  </data>
+  <data name="Southwest" xml:space="preserve">
+    <value>Southwest</value>
+  </data>
 </root>

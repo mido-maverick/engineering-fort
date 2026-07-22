@@ -21,6 +21,8 @@
 |斷面積|Cross-Sectional Area|$A$|
 |靜載重|Dead Load|$L_D$|
 |撓度|Deflection|$\delta$|
+|方位|Direction||
+|東|East||
 |有效|Effective||
 |彈性模數|Elastic Modulus|$E$|
 |立面圖|Elevation||
@@ -38,6 +40,9 @@
 |活載重|Live Load|$L_L$|
 |載重|Load|$L$|
 |慣性矩|Moment of Inertia|$I$|
+|北|North||
+|東北|Northeast||
+|西北|Northwest||
 |平面圖|Plan||
 |安全係數|Safety Factor|$\mathit{SF}$|
 |剖面圖|Section||
@@ -49,6 +54,9 @@
 |簡支梁|Simple Beam||
 |版|Slab||
 |細長|Slender||
+|南|South||
+|東南|Southeast||
+|西南|Southwest||
 |間距|Spacing||
 |勁度|Stiffness||
 |強度|Strength|$f$|
@@ -60,6 +68,7 @@
 |桁架|Truss||
 |無支撐長度|Unbraced Length||
 |均佈載重|Uniformly Distributed Load|$w$|
+|西|West||
 |降伏|Yield||
 
 ## 參考

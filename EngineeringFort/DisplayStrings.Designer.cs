@@ -286,6 +286,24 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Direction.
+        /// </summary>
+        public static string Direction {
+            get {
+                return ResourceManager.GetString("Direction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to East.
+        /// </summary>
+        public static string East {
+            get {
+                return ResourceManager.GetString("East", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Elastic Modulus.
         /// </summary>
         public static string ElasticModulus {
@@ -574,6 +592,33 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to North.
+        /// </summary>
+        public static string North {
+            get {
+                return ResourceManager.GetString("North", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Northeast.
+        /// </summary>
+        public static string Northeast {
+            get {
+                return ResourceManager.GetString("Northeast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Northwest.
+        /// </summary>
+        public static string Northwest {
+            get {
+                return ResourceManager.GetString("Northwest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Orientation.
         /// </summary>
         public static string Orientation {
@@ -697,6 +742,33 @@ namespace EngineeringFort {
         public static string Slab {
             get {
                 return ResourceManager.GetString("Slab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to South.
+        /// </summary>
+        public static string South {
+            get {
+                return ResourceManager.GetString("South", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Southeast.
+        /// </summary>
+        public static string Southeast {
+            get {
+                return ResourceManager.GetString("Southeast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Southwest.
+        /// </summary>
+        public static string Southwest {
+            get {
+                return ResourceManager.GetString("Southwest", resourceCulture);
             }
         }
         
@@ -859,6 +931,15 @@ namespace EngineeringFort {
         public static string VerticalSpacing {
             get {
                 return ResourceManager.GetString("VerticalSpacing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to West.
+        /// </summary>
+        public static string West {
+            get {
+                return ResourceManager.GetString("West", resourceCulture);
             }
         }
         
