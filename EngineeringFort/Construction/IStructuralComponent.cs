@@ -1,9 +1,9 @@
 namespace EngineeringFort.Construction;
 
-readonly record struct GridAxis(string Name);
-readonly record struct GridRange(GridAxis Start, GridAxis End);
-readonly record struct LevelReference(string Name);
-readonly record struct LevelRange(LevelReference Start, LevelReference End);
+public readonly record struct GridAxis(string Name);
+public readonly record struct GridRange(GridAxis Start, GridAxis End);
+public readonly record struct LevelReference(string Name);
+public readonly record struct LevelRange(LevelReference Start, LevelReference End);
 
 interface IStructuralComponent
 {
