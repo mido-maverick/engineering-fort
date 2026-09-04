@@ -125,4 +125,51 @@ public static class SteelConstructionManual
             }
         }
     }
+
+    public static class SteelSpecs
+    {
+        public record Steel : IMaterial;
+
+        public record SteelBeam(ICrossSection CrossSection, ForcePerLength WeightPerLength);
+
+        public static readonly Dictionary<string, SteelBeam> Presets = new()
+        {
+            {
+                "H150×75×5×7",
+                new SteelBeam(
+                    new HSection()
+                    {
+                        CrossSectionalArea = Area.FromSquareCentimeters(17.85),
+                        SectionModulus = Volume.FromCubicCentimeters(88.8),
+                        MomentOfInertia = AreaMomentOfInertia.FromCentimetersToTheFourth(666),
+                    },
+                    ForcePerLength.FromKilogramsForcePerMeter(14)
+                )
+            },
+            {
+                "H200×100×5.5×8",
+                new SteelBeam(
+                    new HSection()
+                    {
+                        CrossSectionalArea = Area.FromSquareCentimeters(26.67),
+                        SectionModulus = Volume.FromCubicCentimeters(181),
+                        MomentOfInertia = AreaMomentOfInertia.FromCentimetersToTheFourth(1810),
+                    },
+                    ForcePerLength.FromKilogramsForcePerMeter(20.9)
+                )
+            },
+            {
+                "C100×50×5×7.5",
+                new SteelBeam(
+                    new CSection()
+                    {
+                        CrossSectionalArea = Area.FromSquareCentimeters(11.92),
+                        SectionModulus = Volume.FromCubicCentimeters(37.6),
+                        MomentOfInertia = AreaMomentOfInertia.FromCentimetersToTheFourth(188),
+                    },
+                    ForcePerLength.FromKilogramsForcePerMeter(9.36)
+                )
+            },
+        };
+    }
 }
