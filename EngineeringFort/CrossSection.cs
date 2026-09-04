@@ -20,3 +20,17 @@ public record class RectangularCrossSection : ICrossSection
     public Volume SectionModulus => CalculateSectionModulus(Width, Height);
     public AreaMomentOfInertia MomentOfInertia => CalculateMomentOfInertia(Width, Height);
 }
+
+public record class HSection : ICrossSection
+{
+    public Area CrossSectionalArea { get; init; }
+    public Volume SectionModulus { get; init; }
+    public AreaMomentOfInertia MomentOfInertia { get; init; }
+}
+
+public record class CSection : ICrossSection
+{
+    public Area CrossSectionalArea { get; init; }
+    public Volume SectionModulus { get; init; }
+    public AreaMomentOfInertia MomentOfInertia { get; init; }
+}
