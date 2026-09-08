@@ -1,15 +1,15 @@
 namespace EngineeringFort.Formwork;
 
-public interface ISideFormworkDesign
+public interface ISideFormworkCalculation
 {
     Pressure MaximumSidePressure { get; set; }
 }
 
-public interface IBottomFormworkDesign
+public interface IBottomFormworkCalculation
 {
 }
 
-public record class SideFormworkDesign : FormworkDesign, ISideFormworkDesign
+public record class SideFormworkCalculation : FormworkCalculation, ISideFormworkCalculation
 {
     public virtual string Name { get; set; } = DisplayStrings.SideFormworkCalculation;
 
