@@ -43,6 +43,20 @@ public class UnitSystemService
         }
     }
 
+    /// <summary>The format configured for <paramref name="memberInfo"/>, or the default.</summary>
+    /// <remarks>
+    ///     Only the first of a member's formats is read. The rest are spellings of the same value
+    ///     kept for reference; <see cref="QuantityFormat"/> decides the abbreviation instead.
+    /// </remarks>
+    public QuantityFormat GetFormat(MemberInfo memberInfo) => new(GetFormats(memberInfo)?.FirstOrDefault());
+
+    /// <param name="member">A property of <paramref name="owner"/>. Unknown names take the default.</param>
+    public QuantityFormat GetFormat(Type owner, string member) =>
+        owner.GetProperty(member) is { } property ? GetFormat(property) : default;
+
+    /// <inheritdoc cref="GetFormat(Type, string)" />
+    public QuantityFormat GetFormat<TOwner>(string member) => GetFormat(typeof(TOwner), member);
+
     public string[]? GetFormats(MemberInfo memberInfo)
     {
         if (QuantityMemberFormats.TryGetValue(memberInfo, out var formats)) return formats;
