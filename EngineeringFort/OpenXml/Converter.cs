@@ -541,27 +541,9 @@ public class Converter
     private static string Format(object obj, string? format = null) => obj switch
     {
         int i => i.ToString(format ?? "G"),
-        double d => d.ToString(format ?? "0.0##"),
+        double d => d.ToString(format ?? QuantityFormat.DefaultPrecision),
         Enum e => e.ToString(format ?? "G"),
-        IQuantity q =>
-            format is null ? q.ToString("0.0##", formatProvider: null) :
-            // TODO: refactor
-            format.EndsWith(" omit") ? ((Func<string>)(() =>
-            {
-                var formatParts = format.Split(' ');
-                switch (formatParts.Length)
-                {
-                    case 2:
-                        return q.Value.ToString(formatParts[0], formatProvider: null);
-                    case 3:
-                        var unit = UnitParser.Default.Parse(formatParts[1], q.Unit.GetType());
-                        var value = q.As(unit);
-                        return value.ToString(formatParts[0]);
-                    default:
-                        throw new InvalidOperationException();
-                }
-            }))() :
-            q.ToString(format, formatProvider: null),
+        IQuantity q => new QuantityFormat(format).Format(q),
         _ => obj.ToString() ?? string.Empty,
     };
 

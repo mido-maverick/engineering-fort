@@ -7,7 +7,7 @@ public class ConverterTest
     [Theory]
     [InlineData(123.0, "0.0", "123.0 kgf/cm²")]
     [InlineData(123.456789, null, "123.457 kgf/cm²")]
-    //[InlineData(123.456789, "G6", "123.457 kgf/cm²")]
+    [InlineData(123.456789, "G6", "123.457 kgf/cm²")]
     [InlineData(123.456789, "F6", "123.456789 kgf/cm²")]
     [InlineData(123.456789, "0.0 omit", "123.5")]
     [InlineData(123.456789, "0.0# omit", "123.46")]
