@@ -42,5 +42,7 @@ public record class BottomFormworkCalculation : FormworkCalculation, IBottomForm
 {
     public virtual string Name { get; set; } = DisplayStrings.BottomFormworkCalculation;
 
+    public Pressure Load { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
     public override IEnumerable<ICheck> SubChecks => throw new NotImplementedException();
 }
