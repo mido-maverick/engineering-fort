@@ -34,3 +34,14 @@ public record class CSection : ICrossSection
     public Volume SectionModulus { get; init; }
     public AreaMomentOfInertia MomentOfInertia { get; init; }
 }
+
+/// <summary>
+/// Square or rectangular hollow section.
+/// A square tube is the B = H case.
+/// </summary>
+public record class BoxSection : ICrossSection
+{
+    public Area CrossSectionalArea { get; init; }
+    public Volume SectionModulus { get; init; }
+    public AreaMomentOfInertia MomentOfInertia { get; init; }
+}

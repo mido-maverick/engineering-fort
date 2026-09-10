@@ -170,6 +170,18 @@ public static class SteelConstructionManual
                     ForcePerLength.FromKilogramsForcePerMeter(9.36)
                 )
             },
+            {
+                "□100×100×3.2",
+                new SteelBeam(
+                    new BoxSection()
+                    {
+                        CrossSectionalArea = Area.FromSquareCentimeters(12.13),
+                        SectionModulus = Volume.FromCubicCentimeters(37.5),
+                        MomentOfInertia = AreaMomentOfInertia.FromCentimetersToTheFourth(187),
+                    },
+                    ForcePerLength.FromKilogramsForcePerMeter(9.52)
+                )
+            },
         };
     }
 }
