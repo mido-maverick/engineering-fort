@@ -2,11 +2,12 @@ namespace EngineeringFort.Formwork;
 
 public interface ISideFormworkCalculation
 {
-    Pressure MaximumSidePressure { get; set; }
+    Pressure MaximumLateralPressure { get; set; }
 }
 
 public interface IBottomFormworkCalculation
 {
+    Pressure Load { get; set; }
 }
 
 public record class SideFormworkCalculation : FormworkCalculation, ISideFormworkCalculation
@@ -15,7 +16,7 @@ public record class SideFormworkCalculation : FormworkCalculation, ISideFormwork
 
     public virtual Length MaximumHeight { get; set; }
 
-    public virtual Pressure MaximumSidePressure
+    public virtual Pressure MaximumLateralPressure
     {
         get;
         set
@@ -35,4 +36,11 @@ public record class SideFormworkCalculation : FormworkCalculation, ISideFormwork
     public FormworkLayerCheck?[] FormworkLayerChecks { get; init; } = new FormworkLayerCheck?[5]; // TODO: limit length
 
     public override IEnumerable<ICheck> SubChecks => FormworkLayerChecks.OfType<ICheck>();
+}
+
+public record class BottomFormworkCalculation : FormworkCalculation, IBottomFormworkCalculation
+{
+    public virtual string Name { get; set; } = DisplayStrings.BottomFormworkCalculation;
+
+    public override IEnumerable<ICheck> SubChecks => throw new NotImplementedException();
 }

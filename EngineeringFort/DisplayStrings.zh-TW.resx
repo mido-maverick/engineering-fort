@@ -420,4 +420,10 @@
   <data name="Building" xml:space="preserve">
     <value>建築物</value>
   </data>
+  <data name="BottomFormworkCalculation" xml:space="preserve">
+    <value>底部模板計算</value>
+  </data>
+  <data name="MaximumLateralPressure" xml:space="preserve">
+    <value>最大側壓力</value>
+  </data>
 </root>

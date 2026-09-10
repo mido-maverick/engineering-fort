@@ -175,7 +175,7 @@
     <value>Name</value>
   </data>
   <data name="MaximumSidePressure" xml:space="preserve">
-    <value>Maximum Side Pressure</value>
+    <value>Maximum Lateral Pressure</value>
   </data>
   <data name="UnitStripWidth" xml:space="preserve">
     <value>Unit Strip Width</value>
@@ -419,5 +419,11 @@
   </data>
   <data name="Building" xml:space="preserve">
     <value>Building</value>
+  </data>
+  <data name="BottomFormworkCalculation" xml:space="preserve">
+    <value>Bottom Formwork Calculation</value>
+  </data>
+  <data name="MaximumLateralPressure" xml:space="preserve">
+    <value>Maximum Lateral Pressure</value>
   </data>
 </root>

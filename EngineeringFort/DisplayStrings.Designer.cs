@@ -169,6 +169,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bottom Formwork Calculation.
+        /// </summary>
+        public static string BottomFormworkCalculation {
+            get {
+                return ResourceManager.GetString("BottomFormworkCalculation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Building.
         /// </summary>
         public static string Building {
@@ -565,6 +574,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maximum Lateral Pressure.
+        /// </summary>
+        public static string MaximumLateralPressure {
+            get {
+                return ResourceManager.GetString("MaximumLateralPressure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Maximum Shear Force.
         /// </summary>
         public static string MaximumShearForce {
@@ -583,7 +601,7 @@ namespace EngineeringFort {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Maximum Side Pressure.
+        ///   Looks up a localized string similar to Maximum Lateral Pressure.
         /// </summary>
         public static string MaximumSidePressure {
             get {
