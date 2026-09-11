@@ -128,7 +128,11 @@ public static class SteelConstructionManual
 
     public static class SteelSpecs
     {
-        public record Steel : IMaterial;
+        public record class Steel : IMaterial
+        {
+            /// <summary>Yield strength</summary>
+            public Pressure Fy { get; set; } = Pressure.FromTonnesForcePerSquareCentimeter(2.52);
+        }
 
         public record SteelBeam(ICrossSection CrossSection, ForcePerLength WeightPerLength);
 
