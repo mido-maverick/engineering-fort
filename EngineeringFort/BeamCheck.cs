@@ -77,7 +77,7 @@ public record class BeamCheck : Check
             if (CrossSection is null) return new();
             try
             {
-                return ShearStressSafetyFactor * MaximumShearForce / CrossSection.CrossSectionalArea;
+                return ShearStressSafetyFactor * MaximumShearForce / CrossSection.ShearArea;
             }
             catch (ArgumentException)
             {

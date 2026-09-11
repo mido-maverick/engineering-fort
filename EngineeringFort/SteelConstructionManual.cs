@@ -157,6 +157,8 @@ public static class SteelConstructionManual
                         CrossSectionalArea = Area.FromSquareCentimeters(17.85),
                         SectionModulus = Volume.FromCubicCentimeters(88.8),
                         MomentOfInertia = AreaMomentOfInertia.FromCentimetersToTheFourth(666),
+                        Height = Length.FromMillimeters(150),
+                        WebThickness = Length.FromMillimeters(5),
                     },
                     ForcePerLength.FromKilogramsForcePerMeter(14)
                 )
@@ -169,6 +171,8 @@ public static class SteelConstructionManual
                         CrossSectionalArea = Area.FromSquareCentimeters(26.67),
                         SectionModulus = Volume.FromCubicCentimeters(181),
                         MomentOfInertia = AreaMomentOfInertia.FromCentimetersToTheFourth(1810),
+                        Height = Length.FromMillimeters(200),
+                        WebThickness = Length.FromMillimeters(5.5),
                     },
                     ForcePerLength.FromKilogramsForcePerMeter(20.9)
                 )
@@ -181,6 +185,8 @@ public static class SteelConstructionManual
                         CrossSectionalArea = Area.FromSquareCentimeters(11.92),
                         SectionModulus = Volume.FromCubicCentimeters(37.6),
                         MomentOfInertia = AreaMomentOfInertia.FromCentimetersToTheFourth(188),
+                        Height = Length.FromMillimeters(100),
+                        WebThickness = Length.FromMillimeters(5),
                     },
                     ForcePerLength.FromKilogramsForcePerMeter(9.36)
                 )
@@ -193,6 +199,8 @@ public static class SteelConstructionManual
                         CrossSectionalArea = Area.FromSquareCentimeters(12.13),
                         SectionModulus = Volume.FromCubicCentimeters(37.5),
                         MomentOfInertia = AreaMomentOfInertia.FromCentimetersToTheFourth(187),
+                        Height = Length.FromMillimeters(100),
+                        Thickness = Length.FromMillimeters(3.2),
                     },
                     ForcePerLength.FromKilogramsForcePerMeter(9.52)
                 )
