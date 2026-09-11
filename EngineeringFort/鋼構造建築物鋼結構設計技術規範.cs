@@ -25,6 +25,17 @@ public static class 鋼構造建築物鋼結構設計技術規範
     public static class 鋼結構容許應力設計法
     {
         /// <remarks>
+        ///     <see href="https://www.nlma.gov.tw/uploads/files/8ae5941ebdedd0b3dd2d96de11943dfe.pdf">
+        ///         鋼結構容許應力設計法 第五章 受拉構材
+        ///     </see>
+        /// </remarks>
+        public static class 受拉構材
+        {
+            /// <summary>Allowable tensile stress Ft on the gross section</summary>
+            public static Pressure 容許拉應力(Pressure Fy) => 0.60 * Fy;
+        }
+
+        /// <remarks>
         ///     <see href="https://www.nlma.gov.tw/uploads/files/e139e8d278188c817090a2510017202e.pdf">
         ///         鋼結構容許應力設計法 第六章 受壓構材
         ///     </see>
@@ -62,7 +73,8 @@ public static class 鋼構造建築物鋼結構設計技術規範
         /// </remarks>
         public static class 撓曲構材
         {
-
+            /// <summary>Allowable shear stress Fv on the web area</summary>
+            public static Pressure 容許剪應力(Pressure Fy) => 0.40 * Fy;
         }
     }
 }
