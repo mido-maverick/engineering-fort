@@ -130,6 +130,9 @@ public static class SteelConstructionManual
     {
         public record class Steel : IMaterial
         {
+            /// <summary>Elastic modulus</summary>
+            public Pressure E { get; set; } = Pressure.FromTonnesForcePerSquareCentimeter(2.04e3);
+
             /// <summary>Yield strength</summary>
             public Pressure Fy { get; set; } = Pressure.FromTonnesForcePerSquareCentimeter(2.52);
         }
