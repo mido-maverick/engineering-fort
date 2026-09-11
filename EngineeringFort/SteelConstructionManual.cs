@@ -128,13 +128,21 @@ public static class SteelConstructionManual
 
     public static class SteelSpecs
     {
-        public record class Steel : IMaterial
+        public record class Steel : IMaterial, Formwork.IFormworkSupportMaterial
         {
             /// <summary>Elastic modulus</summary>
             public Pressure E { get; set; } = Pressure.FromTonnesForcePerSquareCentimeter(2.04e3);
 
             /// <summary>Yield strength</summary>
             public Pressure Fy { get; set; } = Pressure.FromTonnesForcePerSquareCentimeter(2.52);
+
+            public Pressure AllowableBendingStress() =>
+                鋼構造建築物鋼結構設計技術規範.鋼結構容許應力設計法.受拉構材.容許拉應力(Fy); // Fb ≈ Ft
+
+            public Pressure AllowableShearStress() =>
+                鋼構造建築物鋼結構設計技術規範.鋼結構容許應力設計法.撓曲構材.容許剪應力(Fy);
+
+            public Pressure ElasticModulus() => E;
         }
 
         public record SteelBeam(ICrossSection CrossSection, ForcePerLength WeightPerLength);
