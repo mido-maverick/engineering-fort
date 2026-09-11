@@ -54,5 +54,15 @@ public static class 鋼構造建築物鋼結構設計技術規範
                 return (1 - ratio * ratio / 2) * Fy / factor;
             }
         }
+
+        /// <remarks>
+        ///     <see href="https://www.nlma.gov.tw/uploads/files/91bbcbd01a38582e6c5b1f00dd367683.pdf">
+        ///         鋼結構容許應力設計法 第七章 撓曲構材
+        ///     </see>
+        /// </remarks>
+        public static class 撓曲構材
+        {
+
+        }
     }
 }
