@@ -31,6 +31,9 @@
   <ItemGroup>
     <Using Include="Microsoft.Extensions.Logging" />
     <Using Include="System.ComponentModel.DataAnnotations" />
+    <Using Include="System.Math">
+      <Static>True</Static>
+    </Using>
     <Using Include="System.Reflection" />
     <Using Include="UnitsNet" />
   </ItemGroup>

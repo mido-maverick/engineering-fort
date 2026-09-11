@@ -57,7 +57,7 @@ public static class SteelConstructionManual
                     var eiNewtonSquareMeters = E.Pascals * I.MetersToTheFourth;
                     if (eiNewtonSquareMeters is 0) return Length.Zero;
 
-                    return Length.FromMeters((5 * w.NewtonsPerMeter * Math.Pow(l.Meters, 4)) / (384 * eiNewtonSquareMeters));
+                    return Length.FromMeters((5 * w.NewtonsPerMeter * Pow(l.Meters, 4)) / (384 * eiNewtonSquareMeters));
                 }
             }
         }
@@ -87,7 +87,7 @@ public static class SteelConstructionManual
                     var eiNewtonSquareMeters = E.Pascals * I.MetersToTheFourth;
                     if (eiNewtonSquareMeters is 0) return Length.Zero;
 
-                    return Length.FromMeters((w.NewtonsPerMeter * Math.Pow(l.Meters, 4)) / (8 * eiNewtonSquareMeters));
+                    return Length.FromMeters((w.NewtonsPerMeter * Pow(l.Meters, 4)) / (8 * eiNewtonSquareMeters));
                 }
             }
         }
@@ -119,7 +119,7 @@ public static class SteelConstructionManual
                         var eiNewtonSquareMeters = E.Pascals * I.MetersToTheFourth;
                         if (eiNewtonSquareMeters is 0) return Length.Zero;
 
-                        return Length.FromMeters((w.NewtonsPerMeter * Math.Pow(l.Meters, 4)) / (145 * eiNewtonSquareMeters));
+                        return Length.FromMeters((w.NewtonsPerMeter * Pow(l.Meters, 4)) / (145 * eiNewtonSquareMeters));
                     }
                 }
             }
