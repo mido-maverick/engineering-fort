@@ -10,12 +10,13 @@ public abstract record class FormworkLayerCheck : Check
 
 public abstract record class FormworkLayerCheck<T> : FormworkLayerCheck where T : FormworkComponent, new()
 {
-    public virtual T FormworkComponent { get; } = new();
+    /// <summary>The component this layer is checked for.</summary>
+    public virtual T FormworkComponent { get; init; } = new();
 }
 
 public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkSheathing>
 {
-    public override FormworkSheathing FormworkComponent => base.FormworkComponent;
+    public override FormworkSheathing FormworkComponent { get => base.FormworkComponent; init => base.FormworkComponent = value; }
 
     public virtual Length UnitStripWidth { get; set; }
 
@@ -113,7 +114,7 @@ public record class FormworkSheathingLayerCheck : FormworkLayerCheck<FormworkShe
 
 public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSupport>
 {
-    public override FormworkSupport FormworkComponent => base.FormworkComponent;
+    public override FormworkSupport FormworkComponent { get => base.FormworkComponent; init => base.FormworkComponent = value; }
 
     public Orientation Orientation { get; set; }
 
@@ -168,7 +169,7 @@ public record class FormworkSupportLayerCheck : FormworkLayerCheck<FormworkSuppo
 
 public record class FormworkTieRodLayerCheck : FormworkLayerCheck<FormworkTieRod>
 {
-    public override FormworkTieRod FormworkComponent => base.FormworkComponent;
+    public override FormworkTieRod FormworkComponent { get => base.FormworkComponent; init => base.FormworkComponent = value; }
 
     public virtual Length HorizontalSpacing { get; set; }
 

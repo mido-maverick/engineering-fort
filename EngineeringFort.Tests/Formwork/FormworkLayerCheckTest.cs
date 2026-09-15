@@ -55,4 +55,28 @@ public class FormworkLayerCheckTest
         // Assert
         Assert.Equal(expextedMaxDeflection.Centimeters, maxDeflection.Centimeters, 5);
     }
+
+    [Fact]
+    public void FormworkSupportLayerCheck_AssignedComponent_ShouldCarryItsCrossSection()
+    {
+        // Arrange
+        var (name, beam) = SteelConstructionManual.SteelSpecs.Presets.First();
+        var steel = new SteelConstructionManual.SteelSpecs.Steel();
+        var check = new FormworkSupportLayerCheck
+        {
+            FormworkComponent = new FormworkSupport
+            {
+                Name = name,
+                Material = steel,
+                CrossSection = beam.CrossSection,
+            },
+        };
+
+        // Act
+        var beamCheck = check.ContinuousBeamCheck;
+
+        // Assert
+        Assert.Same(beam.CrossSection, beamCheck.CrossSection);
+        Assert.Equal(steel.E, beamCheck.ElasticModulus);
+    }
 }
