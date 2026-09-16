@@ -349,6 +349,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fixed Suppport.
+        /// </summary>
+        public static string FixedSupport {
+            get {
+                return ResourceManager.GetString("FixedSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Floor.
         /// </summary>
         public static string Floor {
@@ -769,6 +778,15 @@ namespace EngineeringFort {
         public static string SimpleBeam {
             get {
                 return ResourceManager.GetString("SimpleBeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simple Support.
+        /// </summary>
+        public static string SimpleSupport {
+            get {
+                return ResourceManager.GetString("SimpleSupport", resourceCulture);
             }
         }
         

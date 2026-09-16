@@ -426,4 +426,10 @@
   <data name="MaximumLateralPressure" xml:space="preserve">
     <value>Maximum Lateral Pressure</value>
   </data>
+  <data name="FixedSupport" xml:space="preserve">
+    <value>Fixed Suppport</value>
+  </data>
+  <data name="SimpleSupport" xml:space="preserve">
+    <value>Simple Support</value>
+  </data>
 </root>

@@ -426,4 +426,10 @@
   <data name="MaximumLateralPressure" xml:space="preserve">
     <value>最大側壓力</value>
   </data>
+  <data name="FixedSupport" xml:space="preserve">
+    <value>固定</value>
+  </data>
+  <data name="SimpleSupport" xml:space="preserve">
+    <value>簡支</value>
+  </data>
 </root>
