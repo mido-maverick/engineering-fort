@@ -22,23 +22,30 @@ public class UnitSystemService
         }
     }
 
-    private static MemberInfo? GetMemberInfo(string str)
+    /// <param name="str">
+    ///     <c>"Type.Member"</c>, with a nested type written the way the runtime names it,
+    ///     <c>"Outer+Nested.Member"</c>, since further dots are kept for property paths.
+    /// </param>
+    static MemberInfo? GetMemberInfo(string str)
     {
         var parts = str.Split('.');
         switch (parts.Length)
         {
             case 1:
+                // A bare member name, for that member on any type; not supported yet.
                 return null;
             case 2:
+                var names = parts[0].Split('+');
                 // TODO: Optimize
                 var type = AppDomain.CurrentDomain
                     .GetAssemblies()
                     .SelectMany(assembly => assembly.GetTypes())
-                    .FirstOrDefault(type => type.Name == parts[0]);
+                    .FirstOrDefault(type => type.Name == names[0] && !type.IsNested);
+                foreach (var nested in names[1..])
+                    type = type?.GetNestedType(nested);
                 return type?.GetMember(parts[1]).FirstOrDefault();
-            case > 2:
-                return null;
             default:
+                // A property path, such as a member of a member's type; not supported yet.
                 return null;
         }
     }
