@@ -11,9 +11,10 @@ namespace EngineeringFort;
 /// result is exact too and nothing is sampled until something is drawn. The analysis runs in SI.
 /// </para>
 /// <para>
-/// Positions run from the left end. Loads and deflections are positive downward, reactions positive
-/// upward, and reaction moments positive counter-clockwise. Shear is the net upward force left of a
-/// section and moment is positive in sagging, so that dM/dx = V.
+/// Positions run from the left end. Every force and displacement is positive upward and every moment
+/// and rotation positive counter-clockwise, so gravity loads are negative and θ = dδ/dx. Shear is the
+/// net upward force left of a section and moment is positive in sagging, so that dV/dx = q and
+/// dM/dx = V.
 /// </para>
 /// </remarks>
 public sealed record ElasticBeam(
@@ -37,7 +38,7 @@ public sealed record ElasticBeam(
     /// </summary>
     const double SingularityTolerance = 1e-12;
 
-    /// <summary>Every load added up, point and distributed alike; the reactions must add up to the same.</summary>
+    /// <summary>Every load added up, point and distributed alike; the reactions add up to its opposite.</summary>
     public Force TotalLoad => Force.FromNewtons(
         PointLoads.Sum(load => load.Force.Newtons) + DistributedLoads.Sum(load => load.Resultant.Newtons));
 
@@ -105,8 +106,8 @@ public sealed record ElasticBeam(
 
         var displacements = Solve(stiffness, loads, restrained);
 
-        // What each support exerts on the beam along its degree of freedom: downward, and clockwise
-        // for a rotation, since the rotation is dδ/dx with δ downward.
+        // What each support exerts on the beam along its degree of freedom: upward, and counter-clockwise
+        // for a rotation.
         var supportForces = new double[loads.Length];
         for (var row = 0; row < loads.Length; row++)
         {
@@ -122,15 +123,15 @@ public sealed record ElasticBeam(
         var (shear, moment) = (0d, 0d);
         for (var element = 0; element < segments.Length; element++)
         {
-            // Crossing a node, its reaction pushes the shear up and its point load down, and a
-            // counter-clockwise reaction moment takes as much off the sagging moment.
-            shear -= supportForces[2 * element] + pointForces[element];
-            moment += supportForces[2 * element + 1];
+            // Crossing a node, its reaction and its point load step the shear by their upward force, and
+            // a counter-clockwise reaction moment takes as much off the sagging moment.
+            shear += supportForces[2 * element] + pointForces[element];
+            moment -= supportForces[2 * element + 1];
 
             var (start, end) = (nodes[element], nodes[element + 1]);
-            var shearLine = shear - lineLoads[element].Integral();
+            var shearLine = shear + lineLoads[element].Integral();
             var momentLine = moment + shearLine.Integral();
-            var rotation = displacements[2 * element + 1] - momentLine.Integral() / Rigidity;
+            var rotation = displacements[2 * element + 1] + momentLine.Integral() / Rigidity;
             var deflection = displacements[2 * element] + rotation.Integral();
             segments[element] = new(Length.FromMeters(start), Length.FromMeters(end), shearLine, momentLine, rotation, deflection);
 
@@ -142,8 +143,8 @@ public sealed record ElasticBeam(
             .Where(node => restrained[2 * node])
             .Select(node => new Reaction(
                 Length.FromMeters(nodes[node]),
-                Force.FromNewtons(-supportForces[2 * node]),
-                Torque.FromNewtonMeters(restrained[2 * node + 1] ? -supportForces[2 * node + 1] : 0)))]);
+                Force.FromNewtons(supportForces[2 * node]),
+                Torque.FromNewtonMeters(restrained[2 * node + 1] ? supportForces[2 * node + 1] : 0)))]);
     }
 
     /// <summary>
@@ -322,12 +323,12 @@ public sealed record ElasticBeam(
 
     public sealed record Support(Length Position, SupportKind Kind = SupportKind.Simple);
 
-    /// <param name="Force">Positive downward.</param>
+    /// <param name="Force">Positive upward, so gravity loads are negative.</param>
     public sealed record PointLoad(Length Position, Force Force);
 
     /// <summary>
     /// A load per length, varying linearly from <see cref="StartIntensity"/> at <see cref="Start"/> to
-    /// <see cref="EndIntensity"/> at <see cref="End"/>; positive downward. Either end may be the left one.
+    /// <see cref="EndIntensity"/> at <see cref="End"/>; positive upward. Either end may be the left one.
     /// </summary>
     public sealed record DistributedLoad(Length Start, Length End, ForcePerLength StartIntensity, ForcePerLength EndIntensity)
     {
@@ -376,9 +377,10 @@ public sealed record ElasticBeam(
     /// for <see cref="Deflection"/>.
     /// </summary>
     /// <param name="Rotation">
-    /// dδ/dx under the small-rotation assumption the analysis rests on; positive clockwise, where the beam
-    /// falls to the right.
+    /// dδ/dx under the small-rotation assumption the analysis rests on; positive counter-clockwise, where
+    /// the beam rises to the right.
     /// </param>
+    /// <param name="Deflection">Positive upward, so a beam sagging under gravity deflects negative.</param>
     public sealed record Segment(
         Length Start, Length End, Polynomial Shear, Polynomial Moment, Polynomial Rotation, Polynomial Deflection)
     {
