@@ -4,6 +4,8 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using SS = DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using WP = DocumentFormat.OpenXml.Wordprocessing;
+using DRW = DocumentFormat.OpenXml.Drawing;
+using DRWW = DocumentFormat.OpenXml.Drawing.Wordprocessing;
 using Microsoft.Extensions.FileProviders;
 
 namespace EngineeringFort.OpenXml;
@@ -546,6 +548,127 @@ public class Converter
         IQuantity q => new QuantityFormat(format).Format(q),
         _ => obj.ToString() ?? string.Empty,
     };
+
+    /// <summary>
+    ///     Replaces the picture in <paramref name="sdtElement"/> with <paramref name="image"/>, a PNG or JPEG read from its
+    ///     current position, as large as the picture's box allows in the image's own proportions: the template's picture is
+    ///     the box, so how large an image may be is the template's to set. The picture replaced is dropped from the package
+    ///     once nothing shows it, as a template's placeholder is once every block cloned from it has its own.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">No document is open, or <paramref name="sdtElement"/> holds no picture.</exception>
+    /// <exception cref="NotSupportedException"><paramref name="image"/> is neither PNG nor JPEG.</exception>
+    protected void SetImage(SdtElement sdtElement, Stream image)
+    {
+        var mainDocumentPart = MainDocumentPart ?? throw new InvalidOperationException();
+        var blip = sdtElement.Descendants<DRW.Blip>().FirstOrDefault() ?? throw new InvalidOperationException();
+        var type = ImageTypeOf(image) ?? throw new NotSupportedException("The image is neither PNG nor JPEG.");
+        if (TryGetImageAspect(image, out var heightOverWidth)) FitImage(sdtElement, heightOverWidth);
+
+        var replaced = blip.Embed?.Value;
+        var part = mainDocumentPart.AddImagePart(type);
+        part.FeedData(image);
+        blip.Embed = mainDocumentPart.GetIdOfPart(part);
+
+        if (replaced is not null && Document is { } document && document.Descendants<DRW.Blip>().All(other => other.Embed?.Value != replaced))
+            mainDocumentPart.DeletePart(replaced);
+    }
+
+    /// <summary>What <paramref name="image"/> is by its signature, rather than by a name it was given; its position is kept.</summary>
+    private static PartTypeInfo? ImageTypeOf(Stream image)
+    {
+        Span<byte> signature = stackalloc byte[2];
+        var start = image.Position;
+        var read = image.Read(signature);
+        image.Position = start;
+        return read < 2 ? null : (signature[0], signature[1]) switch
+        {
+            (0x89, 0x50) => ImagePartType.Png,
+            (0xFF, 0xD8) => ImagePartType.Jpeg,
+            _ => null,
+        };
+    }
+
+    /// <summary>
+    ///     A PNG's or JPEG's height over its width in pixels, read from its header from its current position, which is
+    ///     kept, so it can still be fed after.
+    /// </summary>
+    private static bool TryGetImageAspect(Stream image, out double heightOverWidth)
+    {
+        heightOverWidth = 0;
+        if (!image.CanSeek) return false;
+        var start = image.Position;
+        try
+        {
+            Span<byte> signature = stackalloc byte[8];
+            if (image.Read(signature) < 8) return false;
+
+            // PNG: the signature, then the IHDR chunk: length(4) type(4) width(4) height(4), big-endian.
+            if (signature[0] == 0x89 && signature[1] == 0x50 && signature[2] == 0x4E && signature[3] == 0x47)
+            {
+                Span<byte> ihdr = stackalloc byte[16];
+                if (image.Read(ihdr) < 16) return false;
+                var width = (ihdr[8] << 24) | (ihdr[9] << 16) | (ihdr[10] << 8) | ihdr[11];
+                var height = (ihdr[12] << 24) | (ihdr[13] << 16) | (ihdr[14] << 8) | ihdr[15];
+                if (width <= 0) return false;
+                heightOverWidth = (double)height / width;
+                return true;
+            }
+
+            // JPEG: the markers after SOI, to a start of frame (C0–CF but DHT, JPG and DAC): precision(1) height(2) width(2), big-endian.
+            if (signature[0] == 0xFF && signature[1] == 0xD8)
+            {
+                image.Position = start + 2;
+                Span<byte> marker = stackalloc byte[2];
+                Span<byte> length = stackalloc byte[2];
+                Span<byte> frame = stackalloc byte[5];
+                while (image.Position < image.Length - 4)
+                {
+                    if (image.Read(marker) < 2) break;
+                    if (marker[0] != 0xFF) { image.Position--; continue; }
+
+                    var type = marker[1];
+                    if (type is 0xD8 or 0xD9 or >= 0xD0 and <= 0xD7) continue;
+
+                    if (image.Read(length) < 2) break;
+                    if (type is >= 0xC0 and <= 0xCF and not (0xC4 or 0xC8 or 0xCC))
+                    {
+                        if (image.Read(frame) < 5) break;
+                        var height = (frame[1] << 8) | frame[2];
+                        var width = (frame[3] << 8) | frame[4];
+                        if (width <= 0) return false;
+                        heightOverWidth = (double)height / width;
+                        return true;
+                    }
+                    image.Position += ((length[0] << 8) | length[1]) - 2;
+                }
+            }
+
+            return false;
+        }
+        finally
+        {
+            image.Position = start;
+        }
+    }
+
+    /// <summary>Shrinks the picture's box in <paramref name="sdtElement"/> to <paramref name="heightOverWidth"/>, within the box it was.</summary>
+    private static void FitImage(SdtElement sdtElement, double heightOverWidth)
+    {
+        if (heightOverWidth <= 0) return;
+        if (sdtElement.Descendants<DRWW.Extent>().FirstOrDefault() is not { Cx: { } cx, Cy: { } cy } extent) return;
+
+        long width = cx, height = cy;
+        if (width * heightOverWidth > height) width = (long)Round(height / heightOverWidth);
+        else height = (long)Round(width * heightOverWidth);
+
+        extent.Cx = width;
+        extent.Cy = height;
+        if (sdtElement.Descendants<DRW.Extents>().FirstOrDefault() is { } shape)
+        {
+            shape.Cx = width;
+            shape.Cy = height;
+        }
+    }
 
     protected void Populate(SdtElement container, object dataModel)
     {

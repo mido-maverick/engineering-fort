@@ -28,4 +28,32 @@ public class ConverterTest
         // Assert
         Assert.Equal(expectedResult, actualResult);
     }
+
+    public static TheoryData<byte[]> Images400By300 => new()
+    {
+        // PNG: signature, IHDR length and type, width 400, height 300.
+        { [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0, 0, 0, 0x0D, 0x49, 0x48, 0x44, 0x52, 0, 0, 0x01, 0x90, 0, 0, 0x01, 0x2C] },
+        // JPEG: SOI, an APP0 to skip, SOF0 with precision, height 300, width 400, then the rest of the frame.
+        { [0xFF, 0xD8, 0xFF, 0xE0, 0, 0x06, 0, 0, 0, 0, 0xFF, 0xC0, 0, 0x11, 0x08, 0x01, 0x2C, 0x01, 0x90, 0x03, 0, 0, 0, 0, 0] },
+    };
+
+    [Theory]
+    [MemberData(nameof(Images400By300))]
+    public void Converter_TryGetImageAspect_ShouldReadHeaderFromCurrentPosition(byte[] header)
+    {
+        // Arrange
+        byte[] before = [1, 2, 3];
+        using var stream = new MemoryStream([.. before, .. header]);
+        stream.Position = before.Length;
+        var method = typeof(Converter).GetMethod("TryGetImageAspect", BindingFlags.NonPublic | BindingFlags.Static)!;
+        object?[] arguments = [stream, null];
+
+        // Act
+        var read = (bool)method.Invoke(obj: null, parameters: arguments)!;
+
+        // Assert
+        Assert.True(read);
+        Assert.Equal(0.75, (double)arguments[1]!, precision: 6);
+        Assert.Equal(before.Length, stream.Position);
+    }
 }
