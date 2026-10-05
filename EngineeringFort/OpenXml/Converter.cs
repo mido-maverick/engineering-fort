@@ -573,6 +573,19 @@ public class Converter
             mainDocumentPart.DeletePart(replaced);
     }
 
+    /// <summary>
+    ///     Numbers every drawing of the document afresh, across its parts. A block cloned carries its drawings' ids, which
+    ///     a document must not repeat: Word reports it as unreadable. Call once the document is generated.
+    /// </summary>
+    protected void RenumberDrawings()
+    {
+        if (MainDocumentPart is not { } mainDocumentPart) return;
+        IEnumerable<OpenXmlPart> parts = [mainDocumentPart, .. mainDocumentPart.Parts.Select(pair => pair.OpenXmlPart)];
+        uint id = 0;
+        foreach (var properties in parts.Select(part => part.RootElement).OfType<OpenXmlPartRootElement>().SelectMany(root => root.Descendants<DRWW.DocProperties>()))
+            properties.Id = ++id;
+    }
+
     /// <summary>What <paramref name="image"/> is by its signature, rather than by a name it was given; its position is kept.</summary>
     private static PartTypeInfo? ImageTypeOf(Stream image)
     {
