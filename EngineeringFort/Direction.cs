@@ -3,11 +3,11 @@ namespace EngineeringFort;
 public enum Direction
 {
     North,
-    South,
-    East,
-    West,
     Northeast,
+    East,
     Southeast,
-    Northwest,
-    Southwest
+    South,
+    Southwest,
+    West,
+    Northwest
 }
