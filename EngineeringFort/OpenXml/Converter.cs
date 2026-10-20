@@ -494,7 +494,9 @@ public class Converter
         var table = sdtBlock.SdtContentBlock!.GetFirstChild<WP.Table>();
         var templates = table is not null ? table.Elements<SdtRow>().ToArray() : sdtBlock.SdtContentBlock!.Elements<SdtElement>().ToArray();
         var objects = array.OfType<object>(); // TODO: use array.Cast<object>() instead to include null elements (sparse array)
-        GenerateElements(templates, objects);
+        // A block with no item of its own inside is the item: it repeats itself, as a row does.
+        if (templates.Length == 0) GenerateElements(sdtBlock, objects);
+        else GenerateElements(templates, objects);
     }
 
     /// <exception cref="NotImplementedException" />

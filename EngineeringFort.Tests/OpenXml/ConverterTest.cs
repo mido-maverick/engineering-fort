@@ -100,6 +100,26 @@ public class ConverterTest
         Assert.Equal(["x", "y"], table.Elements<SdtRow>().Select(row => row.InnerText));
     }
 
+    [Fact]
+    public void Converter_Set_ShouldRepeatABlockWithoutItemsForEachOfAnArray()
+    {
+        // Arrange: a page, its table's cells tagged but not its rows
+        var template = new SdtBlock(
+            new SdtProperties(new Tag { Val = "Pages" }),
+            new SdtContentBlock(new Table(new TableRow(new SdtCell(
+                new SdtProperties(new Tag { Val = "A" }),
+                new SdtContentCell(new TableCell(new Paragraph(new Run(new Text("")))))))));
+        var body = new Body(template);
+        object[] objects = [new { A = "x" }, new { A = "y" }];
+        var method = typeof(Converter).GetMethod("Set", BindingFlags.NonPublic | BindingFlags.Instance, [typeof(SdtElement), typeof(object), typeof(string)])!;
+
+        // Act
+        method.Invoke(new Converter(), [template, objects, null]);
+
+        // Assert
+        Assert.Equal(["x", "y"], body.Elements<SdtBlock>().Select(block => block.InnerText));
+    }
+
     private static SdtRow Row(params (string Tag, string Text)[] cells) => new(
         new SdtContentRow(new TableRow(cells.Select(cell => new SdtCell(
             new SdtProperties(new Tag { Val = cell.Tag }),
