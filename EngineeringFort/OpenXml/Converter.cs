@@ -545,7 +545,16 @@ public class Converter
                 }
                 break;
             case Array a:
-                if (sdtElement is SdtBlock sdtBlock) Set(sdtBlock, a);
+                switch (sdtElement)
+                {
+                    case SdtBlock sdtBlock:
+                        Set(sdtBlock, a);
+                        break;
+                    // A row of a table repeats itself, as a block of rows does.
+                    case SdtRow sdtRow:
+                        GenerateElements(sdtRow, a.OfType<object>());
+                        break;
+                }
                 break;
             case object when obj.GetType().IsClass:
                 Populate(sdtElement, obj);

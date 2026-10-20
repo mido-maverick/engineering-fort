@@ -84,6 +84,22 @@ public class ConverterTest
         Assert.All(cells, row => Assert.Null(row[1].TableCellProperties?.VerticalMerge));
     }
 
+    [Fact]
+    public void Converter_Set_ShouldRepeatARowForEachOfAnArray()
+    {
+        // Arrange
+        var template = Row(("A", ""));
+        var table = new Table(template);
+        object[] objects = [new { A = "x" }, new { A = "y" }];
+        var method = typeof(Converter).GetMethod("Set", BindingFlags.NonPublic | BindingFlags.Instance, [typeof(SdtElement), typeof(object), typeof(string)])!;
+
+        // Act
+        method.Invoke(new Converter(), [template, objects, null]);
+
+        // Assert
+        Assert.Equal(["x", "y"], table.Elements<SdtRow>().Select(row => row.InnerText));
+    }
+
     private static SdtRow Row(params (string Tag, string Text)[] cells) => new(
         new SdtContentRow(new TableRow(cells.Select(cell => new SdtCell(
             new SdtProperties(new Tag { Val = cell.Tag }),
