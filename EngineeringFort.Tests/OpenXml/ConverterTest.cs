@@ -1,4 +1,5 @@
-﻿using EngineeringFort.OpenXml;
+using DocumentFormat.OpenXml.Wordprocessing;
+using EngineeringFort.OpenXml;
 
 namespace EngineeringFort.Tests.OpenXml;
 
@@ -56,4 +57,35 @@ public class ConverterTest
         Assert.Equal(0.75, (double)arguments[1]!, precision: 6);
         Assert.Equal(before.Length, stream.Position);
     }
+
+    [Fact]
+    public void Converter_MergeRows_ShouldMergeRunsOfAGroupAndUnwrapTheRows()
+    {
+        // Arrange: three rows, the first two of one group; column B merges by nothing they share.
+        int[] groups = [1, 1, 2];
+        SdtRow[] rows = [.. groups.Select((group, i) => Row(("A", $"a{group}"), ("B", $"b{i}")))];
+        var table = new Table(rows);
+        (string, Func<int, object?>)[] merges = [("A", group => group), ("B", _ => new object()), ("C", group => group)];
+        var method = typeof(Converter).GetMethod("MergeRows", BindingFlags.NonPublic | BindingFlags.Static)!.MakeGenericMethod(typeof(int));
+
+        // Act
+        method.Invoke(obj: null, parameters: [rows, groups, merges]);
+
+        // Assert
+        Assert.Empty(table.Descendants<SdtElement>());
+        var cells = table.Elements<TableRow>().Select(row => row.Elements<TableCell>().ToArray()).ToArray();
+        Assert.Equal(3, cells.Length);
+        Assert.Equal(MergedCellValues.Restart, cells[0][0].TableCellProperties?.VerticalMerge?.Val?.Value);
+        Assert.Equal("a1", cells[0][0].InnerText);
+        Assert.NotNull(cells[1][0].TableCellProperties?.VerticalMerge);
+        Assert.Null(cells[1][0].TableCellProperties?.VerticalMerge?.Val);
+        Assert.Equal("", cells[1][0].InnerText);
+        Assert.Null(cells[2][0].TableCellProperties?.VerticalMerge);
+        Assert.All(cells, row => Assert.Null(row[1].TableCellProperties?.VerticalMerge));
+    }
+
+    private static SdtRow Row(params (string Tag, string Text)[] cells) => new(
+        new SdtContentRow(new TableRow(cells.Select(cell => new SdtCell(
+            new SdtProperties(new Tag { Val = cell.Tag }),
+            new SdtContentCell(new TableCell(new Paragraph(new Run(new Text(cell.Text))))))))));
 }

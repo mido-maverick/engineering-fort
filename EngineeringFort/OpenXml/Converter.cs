@@ -277,6 +277,9 @@ public class Converter
         };
     }
 
+    /// <summary>The tag that names <paramref name="sdtElement"/>, if it has one.</summary>
+    protected static string? TagOf(SdtElement sdtElement) => sdtElement.SdtProperties?.GetFirstChild<Tag>()?.Val?.Value;
+
     private void InjectIndex(SdtElement itemSdtElement, int index, string indexTag = "Index")
     {
         var indexSdtElement = itemSdtElement.Descendants<SdtElement>().FirstOrDefault(sdt => sdt.SdtProperties?.GetFirstChild<Tag>()?.Val?.Value == indexTag);
@@ -548,6 +551,71 @@ public class Converter
         IQuantity q => new QuantityFormat(format).Format(q),
         _ => obj.ToString() ?? string.Empty,
     };
+
+    /// <summary>
+    ///     Makes <paramref name="rows"/>, rows generated for <paramref name="objects"/> in the same order, plain table rows,
+    ///     and down each column of <paramref name="merges"/> merges the cells of consecutive rows whose objects share its
+    ///     group, the first of them keeping its text. A group is told by <see cref="object.Equals(object?, object?)"/>, not
+    ///     by what the cells show, so two neighbours that only happen to read the same stay apart. A column not tagged in
+    ///     the rows is left as it is.
+    /// </summary>
+    /// <param name="merges">Each column by the tag of its cell, and what of a row's object its cells merge by.</param>
+    protected static void MergeRows<T>(IReadOnlyList<SdtRow> rows, IReadOnlyList<T> objects, IEnumerable<(string Tag, Func<T, object?> Group)> merges)
+    {
+        if (rows.Count != objects.Count) throw new ArgumentException("Rows and objects differ in number.", nameof(objects));
+
+        var cells = rows.Select(Unwrap).ToArray();
+        foreach (var (tag, group) in merges)
+        {
+            if (cells.Length == 0 || !cells[0].ContainsKey(tag)) continue;
+            for (int start = 0, end; start < cells.Length; start = end)
+            {
+                var key = group(objects[start]);
+                for (end = start + 1; end < cells.Length && Equals(group(objects[end]), key); end++) { }
+                if (end - start < 2) continue;
+                MergeDown(cells[start][tag], restart: true);
+                for (var i = start + 1; i < end; i++) MergeDown(cells[i][tag], restart: false);
+            }
+        }
+    }
+
+    /// <summary>
+    ///     Puts the table row of <paramref name="sdtRow"/> and its cells where their content controls were: Word merges the
+    ///     plain cells of plain rows, and a document has no use for the controls once filled.
+    /// </summary>
+    /// <returns>The row's cells that had content controls, by their tags.</returns>
+    protected static Dictionary<string, TableCell> Unwrap(SdtRow sdtRow)
+    {
+        Dictionary<string, TableCell> cells = [];
+        foreach (var sdtCell in sdtRow.Descendants<SdtCell>().ToList())
+        {
+            if (sdtCell.SdtContentCell?.GetFirstChild<TableCell>() is not { } cell) continue;
+            cell.Remove();
+            sdtCell.InsertBeforeSelf(cell);
+            sdtCell.Remove();
+            if (TagOf(sdtCell) is { } tag) cells[tag] = cell;
+        }
+        foreach (var child in sdtRow.SdtContentRow?.ChildElements.ToList() ?? [])
+        {
+            child.Remove();
+            sdtRow.InsertBeforeSelf(child);
+        }
+        sdtRow.Remove();
+        return cells;
+    }
+
+    /// <summary>Starts a merge down at <paramref name="cell"/>, or merges it into the cell above, leaving it empty.</summary>
+    private static void MergeDown(TableCell cell, bool restart)
+    {
+        var properties = cell.TableCellProperties ??= new TableCellProperties();
+        properties.VerticalMerge = restart ? new VerticalMerge { Val = MergedCellValues.Restart } : new VerticalMerge();
+        if (restart) return;
+
+        // A cell merged into the one above shows nothing of its own, but must still hold a paragraph.
+        var paragraphProperties = cell.GetFirstChild<Paragraph>()?.ParagraphProperties?.CloneNode(true);
+        cell.RemoveAllChildren<Paragraph>();
+        cell.AppendChild(paragraphProperties is null ? new Paragraph() : new Paragraph(paragraphProperties));
+    }
 
     /// <summary>
     ///     Replaces the picture in <paramref name="sdtElement"/> with <paramref name="image"/>, a PNG or JPEG read from its
