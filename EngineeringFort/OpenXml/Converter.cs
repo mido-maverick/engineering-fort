@@ -499,6 +499,7 @@ public class Converter
 
     /// <exception cref="NotImplementedException" />
     /// <exception cref="NotSupportedException" />
+    /// <exception cref="InvalidDataException">An image is neither PNG nor JPEG.</exception>
     protected void Set(SdtElement sdtElement, object? obj, string? format = null)
     {
         switch (obj)
@@ -531,6 +532,17 @@ public class Converter
                 break;
             case null:
                 sdtElement.Remove();
+                break;
+            case Stream image:
+                try
+                {
+                    SetImage(sdtElement, image);
+                }
+                catch (NotSupportedException e)
+                {
+                    // Not to be skipped as an unsupported member is: a page without its picture reads as done.
+                    throw new InvalidDataException($"The image for '{TagOf(sdtElement)}' is neither PNG nor JPEG.", e);
+                }
                 break;
             case Array a:
                 if (sdtElement is SdtBlock sdtBlock) Set(sdtBlock, a);
