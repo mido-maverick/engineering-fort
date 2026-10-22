@@ -1,12 +1,15 @@
 name: Publish to NuGet (Trusted)
 
 on:
-  release:
-    types: [published]
-  workflow_dispatch:
+  push:
+    tags: ['v*']
 
 jobs:
-  build-and-publish:
+  ci:
+    uses: ./.github/workflows/ci.yml
+
+  publish:
+    needs: ci
     runs-on: ubuntu-latest
 
     permissions:
@@ -22,17 +25,16 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
-      - name: Restore dependencies
-        run: dotnet restore engineering-fort.sln
-
-      - name: Build project
-        run: dotnet build engineering-fort.sln --configuration Release --no-restore
-
-      - name: Run tests
-        run: dotnet test EngineeringFort.Tests/EngineeringFort.Tests.csproj --configuration Release --no-build --verbosity normal
+      - name: Check tag against version
+        run: |
+          version=$(dotnet msbuild EngineeringFort/EngineeringFort.csproj -getProperty:Version)
+          if [ "${GITHUB_REF_NAME#v}" != "$version" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match <Version> $version."
+            exit 1
+          fi
 
       - name: Pack NuGet package
-        run: dotnet pack EngineeringFort/EngineeringFort.csproj --configuration Release --no-build -o ./artifacts
+        run: dotnet pack EngineeringFort/EngineeringFort.csproj --configuration Release -o ./artifacts
 
       # 🔑 GitHub → NuGet OIDC authentication
       - name: NuGet login (OIDC → temp API key)
@@ -40,7 +42,7 @@ jobs:
         id: login
         with:
           user: ${{ secrets.NUGET_USER }}
-    
+
       # 🚀 Publish package to NuGet.org
       - name: NuGet push
-        run: dotnet nuget push artifacts/*.nupkg --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push artifacts/*.nupkg --api-key ${{ steps.login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
