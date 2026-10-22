@@ -108,7 +108,7 @@ public class ConverterTest
             new SdtProperties(new Tag { Val = "Pages" }),
             new SdtContentBlock(new Table(new TableRow(new SdtCell(
                 new SdtProperties(new Tag { Val = "A" }),
-                new SdtContentCell(new TableCell(new Paragraph(new Run(new Text("")))))))));
+                new SdtContentCell(new TableCell(new Paragraph(new Run(new Text(""))))))))));
         var body = new Body(template);
         object[] objects = [new { A = "x" }, new { A = "y" }];
         var method = typeof(Converter).GetMethod("Set", BindingFlags.NonPublic | BindingFlags.Instance, [typeof(SdtElement), typeof(object), typeof(string)])!;
