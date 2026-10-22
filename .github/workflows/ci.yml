@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore engineering-fort.sln
+
+      - name: Build solution
+        run: dotnet build engineering-fort.sln --configuration Release --no-restore
+
+      - name: Run tests
+        run: dotnet test EngineeringFort.Tests/EngineeringFort.Tests.csproj --configuration Release --no-build --verbosity normal
