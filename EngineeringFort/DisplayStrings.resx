@@ -432,4 +432,16 @@
   <data name="SimpleSupport" xml:space="preserve">
     <value>Simple Support</value>
   </data>
+  <data name="Interior" xml:space="preserve">
+    <value>Interior</value>
+  </data>
+  <data name="Exterior" xml:space="preserve">
+    <value>Exterior</value>
+  </data>
+  <data name="Tilt" xml:space="preserve">
+    <value>Tilt</value>
+  </data>
+  <data name="Measurement" xml:space="preserve">
+    <value>Measurement</value>
+  </data>
 </root>

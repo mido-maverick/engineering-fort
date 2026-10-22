@@ -340,6 +340,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exterior.
+        /// </summary>
+        public static string Exterior {
+            get {
+                return ResourceManager.GetString("Exterior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Falsework.
         /// </summary>
         public static string Falsework {
@@ -484,6 +493,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Interior.
+        /// </summary>
+        public static string Interior {
+            get {
+                return ResourceManager.GetString("Interior", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Is Valid.
         /// </summary>
         public static string IsValid {
@@ -615,6 +633,15 @@ namespace EngineeringFort {
         public static string MaximumSidePressure {
             get {
                 return ResourceManager.GetString("MaximumSidePressure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Measurement.
+        /// </summary>
+        public static string Measurement {
+            get {
+                return ResourceManager.GetString("Measurement", resourceCulture);
             }
         }
         
@@ -868,6 +895,15 @@ namespace EngineeringFort {
         public static string Thickness {
             get {
                 return ResourceManager.GetString("Thickness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tilt.
+        /// </summary>
+        public static string Tilt {
+            get {
+                return ResourceManager.GetString("Tilt", resourceCulture);
             }
         }
         

@@ -28,6 +28,7 @@
 |彈性模數|Elastic Modulus|$E$|
 |高程|Elevation||
 |立面圖|Elevation (Drawing)||
+|外部|Exterior||
 |係數|Factor||
 |支撐架|Falsework||
 |力|Force|$F$|
@@ -37,10 +38,12 @@
 |貫材|Formwork Stringer||
 |螺桿|Formwork Tie Rod||
 |主梁|Girder||
+|內部|Interior||
 |接頭|Joint||
 |側壓力|Lateral Pressure||
 |活載重|Live Load|$L_L$|
 |載重|Load|$L$|
+|測量|Measurement||
 |慣性矩|Moment of Inertia|$I$|
 |北|North||
 |東北|Northeast||
@@ -65,6 +68,7 @@
 |應力|Stress||
 |**拉**|Tension||
 |拉應力|Tensile Stress|$\sigma$|
+|傾斜|Tilt||
 |**扭**|Torsion||
 |扭力|Torque||
 |桁架|Truss||

@@ -432,4 +432,16 @@
   <data name="SimpleSupport" xml:space="preserve">
     <value>簡支</value>
   </data>
+  <data name="Interior" xml:space="preserve">
+    <value>內部</value>
+  </data>
+  <data name="Exterior" xml:space="preserve">
+    <value>外部</value>
+  </data>
+  <data name="Tilt" xml:space="preserve">
+    <value>傾斜</value>
+  </data>
+  <data name="Measurement" xml:space="preserve">
+    <value>測量</value>
+  </data>
 </root>
