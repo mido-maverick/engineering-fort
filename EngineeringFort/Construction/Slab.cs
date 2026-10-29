@@ -1,8 +1,13 @@
 namespace EngineeringFort.Construction;
 
-public record class Slab : IRegexPatternProvider<Slab>, ILabelable
+/// <summary>A flat slab (IfcSlab) over a closed boundary; its thickness is its <see cref="SlabType"/>'s.</summary>
+public record class Slab : BuildingElement
 {
-    public static string RegexPattern { get; } = @"C?S\d{1,3}[a-z]?";
+    /// <summary>Its corners in order, not repeating the first (IfcArbitraryClosedProfileDef).</summary>
+    public virtual IReadOnlyList<Placement> Boundary { get; set; } = [];
 
-    public virtual string Label { get; set; } = string.Empty;
+    /// <summary>Its top from the floor's elevation; negative when dropped.</summary>
+    public virtual Length TopOffset { get; set; }
+
+    public virtual IReadOnlyList<SlabOpening> Openings { get; set; } = [];
 }

@@ -64,6 +64,7 @@
 |西南|Southwest||
 |間距|Spacing||
 |勁度|Stiffness||
+|樓層|Storey||
 |強度|Strength|$f$|
 |應力|Stress||
 |**拉**|Tension||

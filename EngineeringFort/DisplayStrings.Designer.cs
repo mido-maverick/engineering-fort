@@ -367,11 +367,11 @@ namespace EngineeringFort {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Floor.
+        ///   Looks up a localized string similar to Storey.
         /// </summary>
-        public static string Floor {
+        public static string Storey {
             get {
-                return ResourceManager.GetString("Floor", resourceCulture);
+                return ResourceManager.GetString("Storey", resourceCulture);
             }
         }
         

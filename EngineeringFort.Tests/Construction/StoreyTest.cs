@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace EngineeringFort.Tests.Construction;
 
-public class FloorTest
+public class StoreyTest
 {
     [Theory]
     [InlineData(false, "")]
@@ -19,8 +19,8 @@ public class FloorTest
     [InlineData(true, "RRF")]
     [InlineData(true, "PRF")]
     [InlineData(true, "B1FL/1FL")]
-    public void Floor_RegexPattern_ShouldBeCorrect(bool expected, string str)
+    public void Storey_RegexPattern_ShouldBeCorrect(bool expected, string str)
     {
-        Assert.Equal(expected, Regex.Match(str, Floor.RegexPattern).Success);
+        Assert.Equal(expected, Regex.Match(str, Storey.RegexPattern).Success);
     }
 }

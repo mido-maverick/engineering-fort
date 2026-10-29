@@ -150,7 +150,7 @@
   <data name="CrossSection" xml:space="preserve">
     <value>斷面</value>
   </data>
-  <data name="Floor" xml:space="preserve">
+  <data name="Storey" xml:space="preserve">
     <value>樓層</value>
   </data>
   <data name="QuantityCheck" xml:space="preserve">

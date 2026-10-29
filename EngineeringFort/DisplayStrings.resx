@@ -150,8 +150,8 @@
   <data name="CrossSection" xml:space="preserve">
     <value>Cross Section</value>
   </data>
-  <data name="Floor" xml:space="preserve">
-    <value>Floor</value>
+  <data name="Storey" xml:space="preserve">
+    <value>Storey</value>
   </data>
   <data name="QuantityCheck" xml:space="preserve">
     <value>Quantity Check</value>

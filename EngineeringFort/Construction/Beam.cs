@@ -1,8 +1,12 @@
 namespace EngineeringFort.Construction;
 
-public record class Beam : IRegexPatternProvider<Beam>, ILabelable
+/// <summary>A straight beam (IfcBeam) along its centreline; its section is its <see cref="BeamType"/>'s.</summary>
+public record class Beam : BuildingElement
 {
-    public static string RegexPattern { get; } = @"C?[GgBb]\d{1,3}[a-z]?";
+    public virtual Placement Start { get; set; }
 
-    public virtual string Label { get; set; } = string.Empty;
+    public virtual Placement End { get; set; }
+
+    /// <summary>Its top from the floor's elevation; negative when dropped.</summary>
+    public virtual Length TopOffset { get; set; }
 }
