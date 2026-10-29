@@ -33,8 +33,13 @@ jobs:
             exit 1
           fi
 
+      # Build first and pack without building: packing a GeneratePackageOnBuild project in one step
+      # looks for the satellite resource assemblies before they are built (NU5026).
+      - name: Build project
+        run: dotnet build EngineeringFort/EngineeringFort.csproj --configuration Release
+
       - name: Pack NuGet package
-        run: dotnet pack EngineeringFort/EngineeringFort.csproj --configuration Release -o ./artifacts
+        run: dotnet pack EngineeringFort/EngineeringFort.csproj --configuration Release --no-build -o ./artifacts
 
       # 🔑 GitHub → NuGet OIDC authentication
       - name: NuGet login (OIDC → temp API key)
