@@ -19,6 +19,6 @@ public class SlabTest
     [InlineData(true, "S1a")]
     public void Slab_RegexPattern_ShouldBeCorrect(bool expected, string str)
     {
-        Assert.Equal(expected, Regex.Match(str, Slab.RegexPattern).Success);
+        Assert.Equal(expected, Regex.Match(str, SlabType.RegexPattern).Success);
     }
 }

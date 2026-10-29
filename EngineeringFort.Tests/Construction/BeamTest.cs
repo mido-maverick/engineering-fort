@@ -25,6 +25,6 @@ public class BeamTest
     [InlineData(true, "G1-1")]
     public void Beam_RegexPattern_ShouldBeCorrect(bool expected, string str)
     {
-        Assert.Equal(expected, Regex.Match(str, Beam.RegexPattern).Success);
+        Assert.Equal(expected, Regex.Match(str, BeamType.RegexPattern).Success);
     }
 }
