@@ -29,6 +29,15 @@ public record class Building : ILabelable
 
     public virtual IReadOnlyList<OpeningType> OpeningTypes { get; set; } = [];
 
+    /// <summary>
+    /// The storey with the elements it holds: those of the storey it is <see cref="Storey.SameAs"/>, or
+    /// its own when it repeats none or the one it names isn't listed.
+    /// </summary>
+    public Storey Resolve(Storey storey) =>
+        storey.SameAs is { } label && Floors.FirstOrDefault(f => f.Label == label) is { } typical
+            ? storey with { Columns = typical.Columns, Walls = typical.Walls, Beams = typical.Beams, Slabs = typical.Slabs }
+            : storey;
+
     /// <summary>Where a placement is in the building's coordinates, or why it can't be worked out.</summary>
     public (CartesianPoint? Point, string? Problem) Locate(Placement placement)
     {
@@ -89,8 +98,14 @@ public record class Building : ILabelable
                     problems.Add($"Storey {storey.Label} is not above {below!.Label}.");
                 below = storey;
             }
+            if (storey.SameAs is { } label)
+            {
+                // Its elements are checked where they are listed, once.
+                CheckRepeat(storey, label, problems);
+                continue;
+            }
             Length? height = i + 1 < Floors.Count ? Floors[i + 1].Elevation - storey.Elevation : null;
-            Check(storey, i > 0 ? Floors[i - 1] : null, height, catalogue, problem => problems.Add($"{storey.Label} {problem}"));
+            Check(storey, i > 0 ? Resolve(Floors[i - 1]) : null, height, catalogue, problem => problems.Add($"{storey.Label} {problem}"));
         }
         return problems;
     }
@@ -115,10 +130,23 @@ public record class Building : ILabelable
         if (sills > 0)
             unknowns.Add($"{sills} wall openings: sill height.");
         // The roof is a floor too: list it, empty, and the floor below gets its height.
-        if (Floors.LastOrDefault() is { } top &&
+        if (Floors.LastOrDefault() is { } last && Resolve(last) is var top &&
             (top.Columns.Count > 0 || top.Walls.Any(w => w.Height is null)))
             unknowns.Add($"{top.Label}: no floor above, so its columns' and walls' height.");
         return unknowns;
+    }
+
+    void CheckRepeat(Storey storey, string label, List<string> problems)
+    {
+        var typical = Floors.FirstOrDefault(f => f.Label == label);
+        if (label == storey.Label)
+            problems.Add($"Storey {storey.Label}: the same as itself.");
+        else if (typical is null)
+            problems.Add($"Storey {storey.Label}: the same as {label}, which isn't listed.");
+        else if (typical.SameAs is not null)
+            problems.Add($"Storey {storey.Label}: the same as {label}, which repeats {typical.SameAs}; name {typical.SameAs} instead.");
+        if (storey.Columns.Count + storey.Walls.Count + storey.Beams.Count + storey.Slabs.Count > 0)
+            problems.Add($"Storey {storey.Label}: the same as {label}, yet lists elements of its own.");
     }
 
     /// <summary>The types by label, looked up once for every storey.</summary>

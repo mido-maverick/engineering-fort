@@ -13,6 +13,12 @@ public record class Storey : IRegexPatternProvider<Storey>, ILabelable
     /// <summary>Where its elevation came from.</summary>
     public virtual DocumentReference? Source { get; set; }
 
+    /// <summary>
+    /// The label of the storey whose elements this one repeats, as one typical plan stands for several
+    /// storeys; its own lists stay empty. See <see cref="Building.Resolve"/>.
+    /// </summary>
+    public virtual string? SameAs { get; set; }
+
     public virtual IReadOnlyList<Column> Columns { get; set; } = [];
 
     public virtual IReadOnlyList<Wall> Walls { get; set; } = [];

@@ -73,6 +73,7 @@
 |**扭**|Torsion||
 |扭力|Torque||
 |桁架|Truss||
+|標準層|Typical Storey||
 |無支撐長度|Unbraced Length||
 |均佈載重|Uniformly Distributed Load|$w$|
 |西|West||

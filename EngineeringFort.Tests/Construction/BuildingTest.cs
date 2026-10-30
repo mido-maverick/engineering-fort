@@ -168,6 +168,43 @@ public class BuildingTest
         ], building.Validate());
     }
 
+    [Fact]
+    public void Validate_StoreysRepeatingOthers_AreChecked()
+    {
+        var building = new Building
+        {
+            Floors =
+            [
+                new Storey { Label = "1F", Elevation = Cm(0) },
+                new Storey { Label = "2F", Elevation = Cm(320), SameAs = "2F" },
+                new Storey { Label = "3F", Elevation = Cm(640), SameAs = "9F" },
+                new Storey { Label = "4F", Elevation = Cm(960), SameAs = "5F" },
+                new Storey { Label = "5F", Elevation = Cm(1280), SameAs = "1F", Walls = [Wall()] },
+            ],
+        };
+
+        Assert.Equal(
+        [
+            "Storey 2F: the same as itself.",
+            "Storey 3F: the same as 9F, which isn't listed.",
+            "Storey 4F: the same as 5F, which repeats 1F; name 1F instead.",
+            "Storey 5F: the same as 1F, yet lists elements of its own.",
+        ], building.Validate());
+    }
+
+    [Fact]
+    public void Resolve_StoreyRepeatingAnother_HoldsItsElements()
+    {
+        var typical = new Storey { Label = "4F", Elevation = Cm(960), Walls = [Wall()] };
+        var building = new Building { Floors = [typical, new Storey { Label = "5F", Elevation = Cm(1280), SameAs = "4F" }] };
+
+        var resolved = building.Resolve(building.Floors[1]);
+
+        Assert.Equal("5F", resolved.Label);
+        Assert.Equal(Cm(1280), resolved.Elevation);
+        Assert.Same(typical.Walls, resolved.Walls);
+    }
+
     /// <summary>A 600 × 500 rectangle between axes 1–2 and A–B.</summary>
     static readonly Placement[] Rectangle = [Grid("1", "A"), Grid("2", "A"), Grid("2", "B"), Grid("1", "B")];
 
