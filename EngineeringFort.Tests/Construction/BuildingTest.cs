@@ -137,6 +137,37 @@ public class BuildingTest
         Assert.Equal(["The column type C1: has both a diameter and sides."], building.Validate());
     }
 
+    [Fact]
+    public void Validate_BeamEndingOffEverySupport_IsFound()
+    {
+        // 2F's beams rest on 1F's columns: #1 between their faces, #2 along axis B on nothing.
+        var building = Building() with
+        {
+            ColumnTypes = [new ColumnType { Label = "C60", XDim = Cm(60), YDim = Cm(60) }],
+            BeamTypes = [new BeamType { Label = "B40", Width = Cm(40) }],
+            Floors =
+            [
+                new Storey { Label = "1F", Elevation = Cm(0), Columns = [new Column { Type = "C60", Position = Grid("1", "A") }, new Column { Type = "C60", Position = Grid("2", "A") }] },
+                new Storey
+                {
+                    Label = "2F",
+                    Elevation = Cm(320),
+                    Beams =
+                    [
+                        new Beam { Type = "B40", Start = Grid("1", "A", 30, 0), End = Grid("2", "A", -30, 0) },
+                        new Beam { Type = "B40", Start = Grid("1", "B"), End = Grid("2", "B") },
+                    ],
+                },
+            ],
+        };
+
+        Assert.Equal(
+        [
+            "2F beam #2 (B40): its start rests on no column, wall or beam.",
+            "2F beam #2 (B40): its end rests on no column, wall or beam.",
+        ], building.Validate());
+    }
+
     /// <summary>A 600 × 500 rectangle between axes 1–2 and A–B.</summary>
     static readonly Placement[] Rectangle = [Grid("1", "A"), Grid("2", "A"), Grid("2", "B"), Grid("1", "B")];
 

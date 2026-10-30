@@ -90,7 +90,7 @@ public record class Building : ILabelable
                 below = storey;
             }
             Length? height = i + 1 < Floors.Count ? Floors[i + 1].Elevation - storey.Elevation : null;
-            Check(storey, height, catalogue, problem => problems.Add($"{storey.Label} {problem}"));
+            Check(storey, i > 0 ? Floors[i - 1] : null, height, catalogue, problem => problems.Add($"{storey.Label} {problem}"));
         }
         return problems;
     }
@@ -129,8 +129,9 @@ public record class Building : ILabelable
         IReadOnlyDictionary<string, SlabType> Slabs,
         IReadOnlyDictionary<string, OpeningType> Openings);
 
+    /// <param name="under">The storey listed below, whose columns and walls may carry this one's beams.</param>
     /// <param name="height">Up to the next floor; <see langword="null"/> on the top one or where an elevation is unknown.</param>
-    void Check(Storey storey, Length? height, Catalogue types, Action<string> report)
+    void Check(Storey storey, Storey? under, Length? height, Catalogue types, Action<string> report)
     {
         CartesianPoint? At(Placement placement, string name)
         {
@@ -182,6 +183,32 @@ public record class Building : ILabelable
         }
         foreach (var (a, b) in Twins(beams, SameLine))
             report($"{Name("beam", storey.Beams[a], a)} and #{b + 1} run between the same points.");
+
+        // A beam rests on a column or wall, of its storey or the one below (plans draw either), or on
+        // another beam. A support of unknown size may carry it, so only known sizes can rule one out.
+        var posts = storey.Columns.Concat(under?.Columns ?? [])
+            .Select(c => (Column: c, At: Locate(c.Position).Point))
+            .Where(c => c.At is not null)
+            .ToList();
+        var bearingWalls = storey.Walls.Concat(under?.Walls ?? [])
+            .Select(w => (Wall: w, Start: Locate(w.Start).Point, End: Locate(w.End).Point))
+            .Where(w => w.Start is not null && w.End is not null)
+            .ToList();
+        for (var i = 0; i < beams.Count; i++)
+        {
+            if (beams[i] is not ({ } start, { } end))
+                continue;
+            foreach (var (which, p) in new[] { ("start", start), ("end", end) })
+            {
+                var rests =
+                    posts.Any(c => OnSection(p, c.At!.Value, c.Column.Rotation, types.Columns.GetValueOrDefault(c.Column.Type))) ||
+                    bearingWalls.Any(w => OnLine(p, w.Start!.Value, w.End!.Value, types.Walls.GetValueOrDefault(w.Wall.Type)?.Thickness)) ||
+                    Enumerable.Range(0, beams.Count).Any(j => j != i && beams[j] is ({ } a, { } b) &&
+                        OnLine(p, a, b, types.Beams.GetValueOrDefault(storey.Beams[j].Type)?.Width));
+                if (!rests)
+                    report($"{Name("beam", storey.Beams[i], i)}: its {which} rests on no column, wall or beam.");
+            }
+        }
 
         // Its corners when they all locate and enclose something; null otherwise.
         IReadOnlyList<CartesianPoint>? Enclosing(IReadOnlyList<Placement> boundary, string name)
@@ -416,6 +443,26 @@ public record class Building : ILabelable
 
     static IEnumerable<(CartesianPoint A, CartesianPoint B)> Edges(IReadOnlyList<CartesianPoint> polygon) =>
         polygon.Select((p, i) => (p, polygon[(i + 1) % polygon.Count]));
+
+    /// <summary>Whether <paramref name="p"/> lies on a column's section; one of unknown section may hold it.</summary>
+    static bool OnSection(CartesianPoint p, CartesianPoint centre, Angle rotation, ColumnType? type)
+    {
+        double dx = p.X.Meters - centre.X.Meters, dy = p.Y.Meters - centre.Y.Meters, tolerance = Tolerance.Meters;
+        switch (type)
+        {
+            case { Diameter: { } diameter }:
+                return Sqrt(dx * dx + dy * dy) <= diameter.Meters / 2 + tolerance;
+            case { XDim: { } x, YDim: { } y }:
+                double cos = Cos(rotation.Radians), sin = Sin(rotation.Radians);
+                return Abs(dx * cos + dy * sin) <= x.Meters / 2 + tolerance && Abs(dy * cos - dx * sin) <= y.Meters / 2 + tolerance;
+            default:
+                return true;
+        }
+    }
+
+    /// <summary>Whether <paramref name="p"/> lies on a wall or beam along a–b; one of unknown width may hold it.</summary>
+    static bool OnLine(CartesianPoint p, CartesianPoint a, CartesianPoint b, Length? width) =>
+        width is not { } w || Distance(p, a, b) <= w.Meters / 2 + Tolerance.Meters;
 
     /// <summary>Of the area a boundary encloses; the boundary must enclose some.</summary>
     static CartesianPoint Centroid(IReadOnlyList<CartesianPoint> corners)
