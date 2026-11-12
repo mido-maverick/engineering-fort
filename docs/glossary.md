@@ -4,6 +4,7 @@
 |-|-|-|
 |容許|Allowable||
 |面積|Area|$A$|
+|軸|Axis||
 |梁|Beam||
 |基準點|Benchmark||
 |**彎**|Bending||
@@ -22,7 +23,9 @@
 |斷面積|Cross-Sectional Area|$A$|
 |靜載重|Dead Load|$L_D$|
 |撓度|Deflection|$\delta$|
+|深度|Depth||
 |方位|Direction||
+|門|Door||
 |東|East||
 |有效|Effective||
 |彈性模數|Elastic Modulus|$E$|
@@ -31,6 +34,7 @@
 |外部|Exterior||
 |係數|Factor||
 |支撐架|Falsework||
+|樓層|Floor||
 |力|Force|$F$|
 |模板|Formwork||
 |~~擱~~櫊柵|Formwork Joist||
@@ -76,7 +80,9 @@
 |標準層|Typical Storey||
 |無支撐長度|Unbraced Length||
 |均佈載重|Uniformly Distributed Load|$w$|
+|牆|Wall||
 |西|West||
+|窗|Window||
 |降伏|Yield||
 
 ## 參考

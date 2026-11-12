@@ -126,6 +126,9 @@
   <data name="Design" xml:space="preserve">
     <value>設計</value>
   </data>
+  <data name="Depth" xml:space="preserve">
+    <value>深度</value>
+  </data>
   <data name="FormworkSupport" xml:space="preserve">
     <value>模板支撐材</value>
   </data>
@@ -147,6 +150,9 @@
   <data name="Beam" xml:space="preserve">
     <value>梁</value>
   </data>
+  <data name="Beams" xml:space="preserve">
+    <value>梁</value>
+  </data>
   <data name="CrossSection" xml:space="preserve">
     <value>斷面</value>
   </data>
@@ -157,6 +163,9 @@
     <value>數值檢核</value>
   </data>
   <data name="Slab" xml:space="preserve">
+    <value>版</value>
+  </data>
+  <data name="Slabs" xml:space="preserve">
     <value>版</value>
   </data>
   <data name="CheckStatus" xml:space="preserve">
@@ -234,6 +243,9 @@
   <data name="Width" xml:space="preserve">
     <value>寬度</value>
   </data>
+  <data name="Window" xml:space="preserve">
+    <value>窗</value>
+  </data>
   <data name="Height" xml:space="preserve">
     <value>高度</value>
   </data>
@@ -251,6 +263,9 @@
   </data>
   <data name="FormworkTieRodLayerCheck" xml:space="preserve">
     <value>模板螺桿層檢核</value>
+  </data>
+  <data name="Grid" xml:space="preserve">
+    <value>網格</value>
   </data>
   <data name="Orientation" xml:space="preserve">
     <value>方向</value>
@@ -354,11 +369,23 @@
   <data name="AppliedForceCheck" xml:space="preserve">
     <value>受力檢核</value>
   </data>
+  <data name="Axis" xml:space="preserve">
+    <value>軸</value>
+  </data>
+  <data name="Axes" xml:space="preserve">
+    <value>軸</value>
+  </data>
   <data name="AllowableTensileForce" xml:space="preserve">
     <value>容許拉力</value>
   </data>
   <data name="Concrete" xml:space="preserve">
     <value>混凝土</value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value>柱</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>柱</value>
   </data>
   <data name="LateralPressure" xml:space="preserve">
     <value>側壓力</value>
@@ -390,6 +417,9 @@
   <data name="Direction" xml:space="preserve">
     <value>方位</value>
   </data>
+  <data name="Door" xml:space="preserve">
+    <value>門</value>
+  </data>
   <data name="North" xml:space="preserve">
     <value>北</value>
   </data>
@@ -401,6 +431,12 @@
   </data>
   <data name="West" xml:space="preserve">
     <value>西</value>
+  </data>
+  <data name="Wall" xml:space="preserve">
+    <value>牆</value>
+  </data>
+  <data name="Walls" xml:space="preserve">
+    <value>牆</value>
   </data>
   <data name="Northeast" xml:space="preserve">
     <value>東北</value>
@@ -428,6 +464,12 @@
   </data>
   <data name="FixedSupport" xml:space="preserve">
     <value>固定</value>
+  </data>
+  <data name="Floor" xml:space="preserve">
+    <value>樓層</value>
+  </data>
+  <data name="Floors" xml:space="preserve">
+    <value>樓層</value>
   </data>
   <data name="SimpleSupport" xml:space="preserve">
     <value>簡支</value>
