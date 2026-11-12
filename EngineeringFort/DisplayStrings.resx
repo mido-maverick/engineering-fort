@@ -168,6 +168,9 @@
   <data name="Slabs" xml:space="preserve">
     <value>Slabs</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
   <data name="CheckStatus" xml:space="preserve">
     <value>Check Status</value>
   </data>
@@ -222,6 +225,9 @@
   <data name="IsValid" xml:space="preserve">
     <value>Is Valid</value>
   </data>
+  <data name="Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
   <data name="SubChecks" xml:space="preserve">
     <value>Sub-Checks</value>
   </data>
@@ -266,6 +272,9 @@
   </data>
   <data name="Grid" xml:space="preserve">
     <value>Grid</value>
+  </data>
+  <data name="Grids" xml:space="preserve">
+    <value>Grids</value>
   </data>
   <data name="Orientation" xml:space="preserve">
     <value>Orientation</value>
@@ -398,6 +407,9 @@
   </data>
   <data name="Truss" xml:space="preserve">
     <value>Truss</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
   </data>
   <data name="Calculation" xml:space="preserve">
     <value>Calculation</value>

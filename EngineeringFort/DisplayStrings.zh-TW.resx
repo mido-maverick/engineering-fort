@@ -168,6 +168,9 @@
   <data name="Slabs" xml:space="preserve">
     <value>版</value>
   </data>
+  <data name="Source" xml:space="preserve">
+    <value>來源</value>
+  </data>
   <data name="CheckStatus" xml:space="preserve">
     <value>檢核狀態</value>
   </data>
@@ -222,6 +225,9 @@
   <data name="IsValid" xml:space="preserve">
     <value>檢核有效</value>
   </data>
+  <data name="Label" xml:space="preserve">
+    <value>標籤</value>
+  </data>
   <data name="SubChecks" xml:space="preserve">
     <value>子檢核</value>
   </data>
@@ -265,6 +271,9 @@
     <value>模板螺桿層檢核</value>
   </data>
   <data name="Grid" xml:space="preserve">
+    <value>網格</value>
+  </data>
+  <data name="Grids" xml:space="preserve">
     <value>網格</value>
   </data>
   <data name="Orientation" xml:space="preserve">
@@ -398,6 +407,9 @@
   </data>
   <data name="Truss" xml:space="preserve">
     <value>桁架</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>類型</value>
   </data>
   <data name="Calculation" xml:space="preserve">
     <value>計算</value>

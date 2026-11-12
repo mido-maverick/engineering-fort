@@ -538,6 +538,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Grids.
+        /// </summary>
+        public static string Grids {
+            get {
+                return ResourceManager.GetString("Grids", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Height.
         /// </summary>
         public static string Height {
@@ -588,6 +597,15 @@ namespace EngineeringFort {
         public static string IsValid {
             get {
                 return ResourceManager.GetString("IsValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label.
+        /// </summary>
+        public static string Label {
+            get {
+                return ResourceManager.GetString("Label", resourceCulture);
             }
         }
         
@@ -917,6 +935,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Source.
+        /// </summary>
+        public static string Source {
+            get {
+                return ResourceManager.GetString("Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to South.
         /// </summary>
         public static string South {
@@ -1039,6 +1066,15 @@ namespace EngineeringFort {
         public static string Truss {
             get {
                 return ResourceManager.GetString("Truss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type.
+        /// </summary>
+        public static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
             }
         }
         
