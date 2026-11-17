@@ -117,155 +117,158 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Check" xml:space="preserve">
-    <value>檢核</value>
+  <data name="AllowableBendingStress" xml:space="preserve">
+    <value>容許彎應力</value>
   </data>
-  <data name="FormworkComponent" xml:space="preserve">
-    <value>模板構件</value>
+  <data name="AllowableDeflection" xml:space="preserve">
+    <value>容許撓度</value>
   </data>
-  <data name="Design" xml:space="preserve">
-    <value>設計</value>
+  <data name="AllowableShearStress" xml:space="preserve">
+    <value>容許剪應力</value>
   </data>
-  <data name="Depth" xml:space="preserve">
-    <value>深度</value>
+  <data name="AllowableTensileForce" xml:space="preserve">
+    <value>容許拉力</value>
   </data>
-  <data name="FormworkSupport" xml:space="preserve">
-    <value>模板支撐材</value>
+  <data name="AppliedForceCheck" xml:space="preserve">
+    <value>受力檢核</value>
   </data>
-  <data name="Material" xml:space="preserve">
-    <value>材料</value>
+  <data name="Axes" xml:space="preserve">
+    <value>軸</value>
   </data>
-  <data name="FormworkSheathing" xml:space="preserve">
-    <value>襯板</value>
-  </data>
-  <data name="FormworkTieRod" xml:space="preserve">
-    <value>模板螺桿</value>
-  </data>
-  <data name="FormworkLayerCheck" xml:space="preserve">
-    <value>模板分層檢核</value>
-  </data>
-  <data name="Formwork" xml:space="preserve">
-    <value>模板</value>
+  <data name="Axis" xml:space="preserve">
+    <value>軸</value>
   </data>
   <data name="Beam" xml:space="preserve">
     <value>梁</value>
   </data>
+  <data name="BeamCheck" xml:space="preserve">
+    <value>梁檢核</value>
+  </data>
+  <data name="BeamForm" xml:space="preserve">
+    <value>梁形式</value>
+  </data>
   <data name="Beams" xml:space="preserve">
     <value>梁</value>
   </data>
-  <data name="CrossSection" xml:space="preserve">
-    <value>斷面</value>
-  </data>
-  <data name="Storey" xml:space="preserve">
-    <value>樓層</value>
-  </data>
-  <data name="QuantityCheck" xml:space="preserve">
-    <value>數值檢核</value>
-  </data>
-  <data name="Slab" xml:space="preserve">
-    <value>版</value>
-  </data>
-  <data name="Slabs" xml:space="preserve">
-    <value>版</value>
-  </data>
-  <data name="Source" xml:space="preserve">
-    <value>來源</value>
-  </data>
-  <data name="CheckStatus" xml:space="preserve">
-    <value>檢核狀態</value>
-  </data>
-  <data name="SideFormworkDesign" xml:space="preserve">
-    <value>側向模板計算</value>
-  </data>
-  <data name="FormworkSheathingLayerCheck" xml:space="preserve">
-    <value>襯板層檢核</value>
-  </data>
-  <data name="FormworkSupportLayerCheck" xml:space="preserve">
-    <value>模板支撐層檢核</value>
-  </data>
-  <data name="Name" xml:space="preserve">
-    <value>名稱</value>
-  </data>
-  <data name="MaximumSidePressure" xml:space="preserve">
-    <value>最大側壓力</value>
-  </data>
-  <data name="UnitStripWidth" xml:space="preserve">
-    <value>單位寬度</value>
-  </data>
-  <data name="ElasticModulus" xml:space="preserve">
-    <value>彈性模數</value>
-  </data>
-  <data name="SupportSpacing" xml:space="preserve">
-    <value>支撐間距</value>
-  </data>
-  <data name="UnitStripSectionModulus" xml:space="preserve">
-    <value>單位斷面模數</value>
-  </data>
-  <data name="UniformlyDistributedLoad" xml:space="preserve">
-    <value>均佈載重</value>
-  </data>
-  <data name="MaximumBendingMoment" xml:space="preserve">
-    <value>最大彎矩</value>
-  </data>
-  <data name="MaximumBendingStress" xml:space="preserve">
-    <value>最大彎應力</value>
-  </data>
-  <data name="MaximumDeflection" xml:space="preserve">
-    <value>最大撓度</value>
-  </data>
-  <data name="Pressure" xml:space="preserve">
-    <value>壓力</value>
-  </data>
-  <data name="Thickness" xml:space="preserve">
-    <value>厚度</value>
-  </data>
-  <data name="AllowableBendingStress" xml:space="preserve">
-    <value>容許彎應力</value>
-  </data>
-  <data name="IsValid" xml:space="preserve">
-    <value>檢核有效</value>
-  </data>
-  <data name="Label" xml:space="preserve">
-    <value>標籤</value>
-  </data>
-  <data name="SubChecks" xml:space="preserve">
-    <value>子檢核</value>
-  </data>
-  <data name="UnitStripMomentOfInertia" xml:space="preserve">
-    <value>單位慣性矩</value>
+  <data name="Benchmark" xml:space="preserve">
+    <value>基準點</value>
   </data>
   <data name="BendingStressCheck" xml:space="preserve">
     <value>彎應力檢核</value>
   </data>
-  <data name="Value" xml:space="preserve">
-    <value>值</value>
+  <data name="BétonBrut" xml:space="preserve">
+    <value>清水模</value>
   </data>
-  <data name="Limit" xml:space="preserve">
-    <value>限制</value>
+  <data name="BottomCantileverBeamCheck" xml:space="preserve">
+    <value>底部懸臂梁檢核</value>
   </data>
-  <data name="TributaryWidth" xml:space="preserve">
-    <value>載重寬度</value>
+  <data name="BottomFormworkCalculation" xml:space="preserve">
+    <value>底部模板計算</value>
   </data>
-  <data name="Width" xml:space="preserve">
-    <value>寬度</value>
+  <data name="Building" xml:space="preserve">
+    <value>建築物</value>
   </data>
-  <data name="Window" xml:space="preserve">
-    <value>窗</value>
+  <data name="Calculation" xml:space="preserve">
+    <value>計算</value>
   </data>
-  <data name="Height" xml:space="preserve">
-    <value>高度</value>
+  <data name="CantileverBeam" xml:space="preserve">
+    <value>懸臂梁</value>
+  </data>
+  <data name="CantileverLength" xml:space="preserve">
+    <value>懸臂長度</value>
+  </data>
+  <data name="Check" xml:space="preserve">
+    <value>檢核</value>
+  </data>
+  <data name="CheckStatus" xml:space="preserve">
+    <value>檢核狀態</value>
+  </data>
+  <data name="Column" xml:space="preserve">
+    <value>柱</value>
+  </data>
+  <data name="Columns" xml:space="preserve">
+    <value>柱</value>
+  </data>
+  <data name="Concrete" xml:space="preserve">
+    <value>混凝土</value>
+  </data>
+  <data name="ContinuousBeam" xml:space="preserve">
+    <value>連續梁</value>
+  </data>
+  <data name="ContinuousBeamCheck" xml:space="preserve">
+    <value>連續梁檢核</value>
+  </data>
+  <data name="CrossSection" xml:space="preserve">
+    <value>斷面</value>
   </data>
   <data name="CrossSectionalArea" xml:space="preserve">
     <value>斷面積</value>
   </data>
-  <data name="SectionModulus" xml:space="preserve">
-    <value>斷面模數</value>
+  <data name="DeadLoad" xml:space="preserve">
+    <value>靜載重</value>
   </data>
-  <data name="MomentOfInertia" xml:space="preserve">
-    <value>慣性矩</value>
+  <data name="DeflectionCheck" xml:space="preserve">
+    <value>撓度檢核</value>
   </data>
-  <data name="RectangularCrossSection" xml:space="preserve">
-    <value>矩形斷面</value>
+  <data name="Depth" xml:space="preserve">
+    <value>深度</value>
+  </data>
+  <data name="Design" xml:space="preserve">
+    <value>設計</value>
+  </data>
+  <data name="Direction" xml:space="preserve">
+    <value>方位</value>
+  </data>
+  <data name="Door" xml:space="preserve">
+    <value>門</value>
+  </data>
+  <data name="East" xml:space="preserve">
+    <value>東</value>
+  </data>
+  <data name="ElasticModulus" xml:space="preserve">
+    <value>彈性模數</value>
+  </data>
+  <data name="Elevation" xml:space="preserve">
+    <value>高程</value>
+  </data>
+  <data name="Exterior" xml:space="preserve">
+    <value>外部</value>
+  </data>
+  <data name="Falsework" xml:space="preserve">
+    <value>支撐架</value>
+  </data>
+  <data name="FixedSupport" xml:space="preserve">
+    <value>固定</value>
+  </data>
+  <data name="Floor" xml:space="preserve">
+    <value>樓層</value>
+  </data>
+  <data name="Floors" xml:space="preserve">
+    <value>樓層</value>
+  </data>
+  <data name="Formwork" xml:space="preserve">
+    <value>模板</value>
+  </data>
+  <data name="FormworkComponent" xml:space="preserve">
+    <value>模板構件</value>
+  </data>
+  <data name="FormworkLayerCheck" xml:space="preserve">
+    <value>模板分層檢核</value>
+  </data>
+  <data name="FormworkSheathing" xml:space="preserve">
+    <value>襯板</value>
+  </data>
+  <data name="FormworkSheathingLayerCheck" xml:space="preserve">
+    <value>襯板層檢核</value>
+  </data>
+  <data name="FormworkSupport" xml:space="preserve">
+    <value>模板支撐材</value>
+  </data>
+  <data name="FormworkSupportLayerCheck" xml:space="preserve">
+    <value>模板支撐層檢核</value>
+  </data>
+  <data name="FormworkTieRod" xml:space="preserve">
+    <value>模板螺桿</value>
   </data>
   <data name="FormworkTieRodLayerCheck" xml:space="preserve">
     <value>模板螺桿層檢核</value>
@@ -279,29 +282,59 @@
   <data name="HeavyDutyShoring" xml:space="preserve">
     <value>重型支撐架</value>
   </data>
-  <data name="Orientation" xml:space="preserve">
-    <value>方向</value>
+  <data name="Height" xml:space="preserve">
+    <value>高度</value>
   </data>
   <data name="Horizontal" xml:space="preserve">
     <value>水平</value>
   </data>
-  <data name="Vertical" xml:space="preserve">
-    <value>垂直</value>
-  </data>
   <data name="HorizontalOrientation" xml:space="preserve">
     <value>橫向</value>
   </data>
-  <data name="VerticalOrientation" xml:space="preserve">
-    <value>縱向</value>
+  <data name="HorizontalSpacing" xml:space="preserve">
+    <value>水平間距</value>
+  </data>
+  <data name="Interior" xml:space="preserve">
+    <value>內部</value>
+  </data>
+  <data name="IsValid" xml:space="preserve">
+    <value>檢核有效</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>標籤</value>
+  </data>
+  <data name="LateralPressure" xml:space="preserve">
+    <value>側壓力</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>長度</value>
+  </data>
+  <data name="Limit" xml:space="preserve">
+    <value>限制</value>
+  </data>
+  <data name="LiveLoad" xml:space="preserve">
+    <value>活載重</value>
+  </data>
+  <data name="Material" xml:space="preserve">
+    <value>材料</value>
+  </data>
+  <data name="MaximumAppliedForce" xml:space="preserve">
+    <value>最大受力</value>
+  </data>
+  <data name="MaximumBendingMoment" xml:space="preserve">
+    <value>最大彎矩</value>
+  </data>
+  <data name="MaximumBendingStress" xml:space="preserve">
+    <value>最大彎應力</value>
+  </data>
+  <data name="MaximumDeflection" xml:space="preserve">
+    <value>最大撓度</value>
   </data>
   <data name="MaximumHeight" xml:space="preserve">
     <value>最大高度</value>
   </data>
-  <data name="Review" xml:space="preserve">
-    <value>檢討</value>
-  </data>
-  <data name="BétonBrut" xml:space="preserve">
-    <value>清水模</value>
+  <data name="MaximumLateralPressure" xml:space="preserve">
+    <value>最大側壓力</value>
   </data>
   <data name="MaximumShearForce" xml:space="preserve">
     <value>最大剪力</value>
@@ -309,149 +342,20 @@
   <data name="MaximumShearStress" xml:space="preserve">
     <value>最大剪應力</value>
   </data>
-  <data name="ShearStressCheck" xml:space="preserve">
-    <value>剪應力檢核</value>
+  <data name="MaximumSidePressure" xml:space="preserve">
+    <value>最大側壓力</value>
   </data>
-  <data name="SafetyFactor" xml:space="preserve">
-    <value>安全係數</value>
+  <data name="Measurement" xml:space="preserve">
+    <value>測量</value>
   </data>
-  <data name="UnitStripCrossSectionalArea" xml:space="preserve">
-    <value>單位斷面積</value>
+  <data name="MomentOfInertia" xml:space="preserve">
+    <value>慣性矩</value>
   </data>
-  <data name="SimpleBeam" xml:space="preserve">
-    <value>簡支梁</value>
-  </data>
-  <data name="CantileverBeam" xml:space="preserve">
-    <value>懸臂梁</value>
-  </data>
-  <data name="ContinuousBeam" xml:space="preserve">
-    <value>連續梁</value>
-  </data>
-  <data name="BeamForm" xml:space="preserve">
-    <value>梁形式</value>
-  </data>
-  <data name="BeamCheck" xml:space="preserve">
-    <value>梁檢核</value>
-  </data>
-  <data name="Length" xml:space="preserve">
-    <value>長度</value>
-  </data>
-  <data name="DeflectionCheck" xml:space="preserve">
-    <value>撓度檢核</value>
-  </data>
-  <data name="AllowableShearStress" xml:space="preserve">
-    <value>容許剪應力</value>
-  </data>
-  <data name="AllowableDeflection" xml:space="preserve">
-    <value>容許撓度</value>
-  </data>
-  <data name="BottomCantileverBeamCheck" xml:space="preserve">
-    <value>底部懸臂梁檢核</value>
-  </data>
-  <data name="CantileverLength" xml:space="preserve">
-    <value>懸臂長度</value>
-  </data>
-  <data name="ShearStressSafetyFactor" xml:space="preserve">
-    <value>剪應力安全係數</value>
-  </data>
-  <data name="ContinuousBeamCheck" xml:space="preserve">
-    <value>連續梁檢核</value>
-  </data>
-  <data name="HorizontalSpacing" xml:space="preserve">
-    <value>水平間距</value>
-  </data>
-  <data name="VerticalSpacing" xml:space="preserve">
-    <value>垂直間距</value>
-  </data>
-  <data name="TributaryHeight" xml:space="preserve">
-    <value>載重高度</value>
-  </data>
-  <data name="TributaryArea" xml:space="preserve">
-    <value>載重面積</value>
-  </data>
-  <data name="MaximumAppliedForce" xml:space="preserve">
-    <value>最大受力</value>
-  </data>
-  <data name="TensileForce" xml:space="preserve">
-    <value>拉力</value>
-  </data>
-  <data name="TensileStress" xml:space="preserve">
-    <value>拉應力</value>
-  </data>
-  <data name="AppliedForceCheck" xml:space="preserve">
-    <value>受力檢核</value>
-  </data>
-  <data name="Axis" xml:space="preserve">
-    <value>軸</value>
-  </data>
-  <data name="Axes" xml:space="preserve">
-    <value>軸</value>
-  </data>
-  <data name="AllowableTensileForce" xml:space="preserve">
-    <value>容許拉力</value>
-  </data>
-  <data name="Concrete" xml:space="preserve">
-    <value>混凝土</value>
-  </data>
-  <data name="Column" xml:space="preserve">
-    <value>柱</value>
-  </data>
-  <data name="Columns" xml:space="preserve">
-    <value>柱</value>
-  </data>
-  <data name="LateralPressure" xml:space="preserve">
-    <value>側壓力</value>
-  </data>
-  <data name="Falsework" xml:space="preserve">
-    <value>支撐架</value>
-  </data>
-  <data name="Benchmark" xml:space="preserve">
-    <value>基準點</value>
-  </data>
-  <data name="Truss" xml:space="preserve">
-    <value>桁架</value>
-  </data>
-  <data name="Type" xml:space="preserve">
-    <value>類型</value>
-  </data>
-  <data name="Calculation" xml:space="preserve">
-    <value>計算</value>
-  </data>
-  <data name="SideFormworkCalculation" xml:space="preserve">
-    <value>側向模板計算</value>
-  </data>
-  <data name="LiveLoad" xml:space="preserve">
-    <value>活載重</value>
-  </data>
-  <data name="DeadLoad" xml:space="preserve">
-    <value>靜載重</value>
-  </data>
-  <data name="SelfWeight" xml:space="preserve">
-    <value>自重</value>
-  </data>
-  <data name="Direction" xml:space="preserve">
-    <value>方位</value>
-  </data>
-  <data name="Door" xml:space="preserve">
-    <value>門</value>
+  <data name="Name" xml:space="preserve">
+    <value>名稱</value>
   </data>
   <data name="North" xml:space="preserve">
     <value>北</value>
-  </data>
-  <data name="South" xml:space="preserve">
-    <value>南</value>
-  </data>
-  <data name="East" xml:space="preserve">
-    <value>東</value>
-  </data>
-  <data name="West" xml:space="preserve">
-    <value>西</value>
-  </data>
-  <data name="Wall" xml:space="preserve">
-    <value>牆</value>
-  </data>
-  <data name="Walls" xml:space="preserve">
-    <value>牆</value>
   </data>
   <data name="Northeast" xml:space="preserve">
     <value>東北</value>
@@ -459,46 +363,142 @@
   <data name="Northwest" xml:space="preserve">
     <value>西北</value>
   </data>
+  <data name="Orientation" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="Pressure" xml:space="preserve">
+    <value>壓力</value>
+  </data>
+  <data name="QuantityCheck" xml:space="preserve">
+    <value>數值檢核</value>
+  </data>
+  <data name="RectangularCrossSection" xml:space="preserve">
+    <value>矩形斷面</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>檢討</value>
+  </data>
+  <data name="SafetyFactor" xml:space="preserve">
+    <value>安全係數</value>
+  </data>
+  <data name="SectionModulus" xml:space="preserve">
+    <value>斷面模數</value>
+  </data>
+  <data name="SelfWeight" xml:space="preserve">
+    <value>自重</value>
+  </data>
+  <data name="ShearStressCheck" xml:space="preserve">
+    <value>剪應力檢核</value>
+  </data>
+  <data name="ShearStressSafetyFactor" xml:space="preserve">
+    <value>剪應力安全係數</value>
+  </data>
+  <data name="SideFormworkCalculation" xml:space="preserve">
+    <value>側向模板計算</value>
+  </data>
+  <data name="SideFormworkDesign" xml:space="preserve">
+    <value>側向模板計算</value>
+  </data>
+  <data name="SimpleBeam" xml:space="preserve">
+    <value>簡支梁</value>
+  </data>
+  <data name="SimpleSupport" xml:space="preserve">
+    <value>簡支</value>
+  </data>
+  <data name="Slab" xml:space="preserve">
+    <value>版</value>
+  </data>
+  <data name="Slabs" xml:space="preserve">
+    <value>版</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>來源</value>
+  </data>
+  <data name="South" xml:space="preserve">
+    <value>南</value>
+  </data>
   <data name="Southeast" xml:space="preserve">
     <value>東南</value>
   </data>
   <data name="Southwest" xml:space="preserve">
     <value>西南</value>
   </data>
-  <data name="Elevation" xml:space="preserve">
-    <value>高程</value>
-  </data>
-  <data name="Building" xml:space="preserve">
-    <value>建築物</value>
-  </data>
-  <data name="BottomFormworkCalculation" xml:space="preserve">
-    <value>底部模板計算</value>
-  </data>
-  <data name="MaximumLateralPressure" xml:space="preserve">
-    <value>最大側壓力</value>
-  </data>
-  <data name="FixedSupport" xml:space="preserve">
-    <value>固定</value>
-  </data>
-  <data name="Floor" xml:space="preserve">
+  <data name="Storey" xml:space="preserve">
     <value>樓層</value>
   </data>
-  <data name="Floors" xml:space="preserve">
-    <value>樓層</value>
+  <data name="SubChecks" xml:space="preserve">
+    <value>子檢核</value>
   </data>
-  <data name="SimpleSupport" xml:space="preserve">
-    <value>簡支</value>
+  <data name="SupportSpacing" xml:space="preserve">
+    <value>支撐間距</value>
   </data>
-  <data name="Interior" xml:space="preserve">
-    <value>內部</value>
+  <data name="TensileForce" xml:space="preserve">
+    <value>拉力</value>
   </data>
-  <data name="Exterior" xml:space="preserve">
-    <value>外部</value>
+  <data name="TensileStress" xml:space="preserve">
+    <value>拉應力</value>
+  </data>
+  <data name="Thickness" xml:space="preserve">
+    <value>厚度</value>
   </data>
   <data name="Tilt" xml:space="preserve">
     <value>傾斜</value>
   </data>
-  <data name="Measurement" xml:space="preserve">
-    <value>測量</value>
+  <data name="TributaryArea" xml:space="preserve">
+    <value>載重面積</value>
+  </data>
+  <data name="TributaryHeight" xml:space="preserve">
+    <value>載重高度</value>
+  </data>
+  <data name="TributaryWidth" xml:space="preserve">
+    <value>載重寬度</value>
+  </data>
+  <data name="Truss" xml:space="preserve">
+    <value>桁架</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>類型</value>
+  </data>
+  <data name="UniformlyDistributedLoad" xml:space="preserve">
+    <value>均佈載重</value>
+  </data>
+  <data name="UnitStripCrossSectionalArea" xml:space="preserve">
+    <value>單位斷面積</value>
+  </data>
+  <data name="UnitStripMomentOfInertia" xml:space="preserve">
+    <value>單位慣性矩</value>
+  </data>
+  <data name="UnitStripSectionModulus" xml:space="preserve">
+    <value>單位斷面模數</value>
+  </data>
+  <data name="UnitStripWidth" xml:space="preserve">
+    <value>單位寬度</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="Vertical" xml:space="preserve">
+    <value>垂直</value>
+  </data>
+  <data name="VerticalOrientation" xml:space="preserve">
+    <value>縱向</value>
+  </data>
+  <data name="VerticalSpacing" xml:space="preserve">
+    <value>垂直間距</value>
+  </data>
+  <data name="Wall" xml:space="preserve">
+    <value>牆</value>
+  </data>
+  <data name="Walls" xml:space="preserve">
+    <value>牆</value>
+  </data>
+  <data name="West" xml:space="preserve">
+    <value>西</value>
+  </data>
+  <data name="Width" xml:space="preserve">
+    <value>寬度</value>
+  </data>
+  <data name="Window" xml:space="preserve">
+    <value>窗</value>
   </data>
 </root>
