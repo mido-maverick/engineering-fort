@@ -664,6 +664,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Joist.
+        /// </summary>
+        public static string Joist {
+            get {
+                return ResourceManager.GetString("Joist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Label.
         /// </summary>
         public static string Label {

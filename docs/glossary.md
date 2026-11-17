@@ -45,6 +45,7 @@
 |重型支撐架|Heavy-Duty Shoring||
 |內部|Interior||
 |接頭|Joint||
+|櫊柵|Joist||
 |側壓力|Lateral Pressure||
 |活載重|Live Load|$L_L$|
 |載重|Load|$L$|

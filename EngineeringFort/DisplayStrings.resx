@@ -318,6 +318,9 @@
   <data name="IsValid" xml:space="preserve">
     <value>Is Valid</value>
   </data>
+  <data name="Joist" xml:space="preserve">
+    <value>Joist</value>
+  </data>
   <data name="Label" xml:space="preserve">
     <value>Label</value>
   </data>

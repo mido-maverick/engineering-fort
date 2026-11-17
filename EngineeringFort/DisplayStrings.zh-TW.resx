@@ -318,6 +318,9 @@
   <data name="IsValid" xml:space="preserve">
     <value>檢核有效</value>
   </data>
+  <data name="Joist" xml:space="preserve">
+    <value>櫊柵</value>
+  </data>
   <data name="Label" xml:space="preserve">
     <value>標籤</value>
   </data>
