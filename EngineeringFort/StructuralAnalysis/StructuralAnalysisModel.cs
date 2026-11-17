@@ -11,7 +11,7 @@ public record class StructuralAnalysisModel
     /// <summary>A member shorter than this is about its own depth: more likely a misreading than a member.</summary>
     public static Length ShortMember { get; } = Length.FromCentimeters(5);
 
-    public virtual string Label { get; init; } = string.Empty;
+    public virtual string Label { get; init; } = "";
 
     public virtual IReadOnlyList<StructuralPointConnection> Connections { get; init; } = [];
 

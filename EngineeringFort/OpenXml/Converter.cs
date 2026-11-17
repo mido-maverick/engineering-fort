@@ -443,7 +443,7 @@ public class Converter
 
     private static void SetMultiLine(WP.Run run, WP.Text firstText, string text)
     {
-        var lines = (text ?? string.Empty).Replace("\r\n", "\n").Split('\n');
+        var lines = (text ?? "").Replace("\r\n", "\n").Split('\n');
         firstText.Text = lines[0];
         firstText.Space = SpaceProcessingModeValues.Preserve;
 
@@ -572,7 +572,7 @@ public class Converter
         double d => d.ToString(format ?? QuantityFormat.DefaultPrecision),
         Enum e => e.ToString(format ?? "G"),
         IQuantity q => new QuantityFormat(format).Format(q),
-        _ => obj.ToString() ?? string.Empty,
+        _ => obj.ToString() ?? "",
     };
 
     /// <summary>

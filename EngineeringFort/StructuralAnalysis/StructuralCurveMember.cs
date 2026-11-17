@@ -8,13 +8,13 @@ namespace EngineeringFort.StructuralAnalysis;
 /// </summary>
 public record class StructuralCurveMember
 {
-    public virtual string Label { get; init; } = string.Empty;
+    public virtual string Label { get; init; } = "";
 
     /// <summary>The <see cref="StructuralPointConnection.Label"/> of the connection it starts at.</summary>
-    public virtual string Start { get; init; } = string.Empty;
+    public virtual string Start { get; init; } = "";
 
     /// <summary>The <see cref="StructuralPointConnection.Label"/> of the connection it ends at.</summary>
-    public virtual string End { get; init; } = string.Empty;
+    public virtual string End { get; init; } = "";
 
     /// <summary>The name of its section (IfcProfileDef.ProfileName), as marked, e.g. H100X100; omitted when unknown.</summary>
     public virtual string? Profile { get; init; }

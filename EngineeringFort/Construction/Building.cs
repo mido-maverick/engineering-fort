@@ -12,7 +12,7 @@ public record class Building : ILabelable
     /// <summary>Two axes whose directions differ by less than this sine count as parallel: they never cross.</summary>
     const double ParallelSine = 1e-9;
 
-    public virtual string Label { get; set; } = string.Empty;
+    public virtual string Label { get; set; } = "";
 
     /// <summary>Its storeys, bottom to top, so one whose elevation is unknown still has its place.</summary>
     public virtual IReadOnlyList<Storey> Floors { get; set; } = [];

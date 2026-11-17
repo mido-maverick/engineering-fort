@@ -5,7 +5,7 @@ public record class Storey : IRegexPatternProvider<Storey>, ILabelable
 {
     public static string RegexPattern { get; } = @"[BR]?\d{1,3}FL?|[RP]?RFL?";
 
-    public virtual string Label { get; set; } = string.Empty;
+    public virtual string Label { get; set; } = "";
 
     /// <summary>Omitted when unknown.</summary>
     public virtual Length? Elevation { get; set; }

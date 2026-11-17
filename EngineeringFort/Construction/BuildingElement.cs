@@ -11,7 +11,7 @@ public abstract record class BuildingElement
     /// The <see cref="ElementType.Label"/> of its type (IfcRelDefinesByType), e.g. C1, G3. The mark on
     /// the drawings is the type's, shared by many elements, so an element has no label of its own.
     /// </summary>
-    public virtual string Type { get; set; } = string.Empty;
+    public virtual string Type { get; set; } = "";
 
     /// <summary>Where it was read from, so it can be reviewed and read again.</summary>
     public virtual DocumentReference? Source { get; set; }

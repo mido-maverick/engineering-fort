@@ -11,7 +11,7 @@ public abstract record class ElementType : ILabelable
     /// The mark (Pset_*Common.Reference), e.g. C1, G3; elements name their type by it. Unmarked
     /// elements get one made up, e.g. RC15.
     /// </summary>
-    public virtual string Label { get; set; } = string.Empty;
+    public virtual string Label { get; set; } = "";
 
     /// <summary>Where the sizes came from.</summary>
     public virtual DocumentReference? Source { get; set; }

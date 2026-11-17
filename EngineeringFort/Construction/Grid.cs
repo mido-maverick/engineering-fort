@@ -6,7 +6,7 @@ namespace EngineeringFort.Construction;
 /// </summary>
 public record class Grid : ILabelable
 {
-    public virtual string Label { get; set; } = string.Empty;
+    public virtual string Label { get; set; } = "";
 
     public virtual IReadOnlyList<GridAxisCurve> UAxes { get; set; } = [];
 
