@@ -276,6 +276,9 @@
   <data name="Grids" xml:space="preserve">
     <value>網格</value>
   </data>
+  <data name="HeavyDutyShoring" xml:space="preserve">
+    <value>重型支撐架</value>
+  </data>
   <data name="Orientation" xml:space="preserve">
     <value>方向</value>
   </data>

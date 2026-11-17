@@ -547,6 +547,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Heavy-Duty Shoring.
+        /// </summary>
+        public static string HeavyDutyShoring {
+            get {
+                return ResourceManager.GetString("HeavyDutyShoring", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Height.
         /// </summary>
         public static string Height {

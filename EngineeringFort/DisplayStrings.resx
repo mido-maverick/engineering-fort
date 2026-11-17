@@ -276,6 +276,9 @@
   <data name="Grids" xml:space="preserve">
     <value>Grids</value>
   </data>
+  <data name="HeavyDutyShoring" xml:space="preserve">
+    <value>Heavy-Duty Shoring</value>
+  </data>
   <data name="Orientation" xml:space="preserve">
     <value>Orientation</value>
   </data>

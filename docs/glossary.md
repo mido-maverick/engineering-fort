@@ -42,6 +42,7 @@
 |貫材|Formwork Stringer||
 |螺桿|Formwork Tie Rod||
 |主梁|Girder||
+|重型支撐架|Heavy-Duty Shoring||
 |內部|Interior||
 |接頭|Joint||
 |側壓力|Lateral Pressure||
@@ -60,6 +61,7 @@
 |**剪**|Shear||
 |剪力|Shear Force|$V$|
 |剪應力|Shear Stress|$\tau$|
+|支撐架|Shoring||
 |簡支梁|Simple Beam||
 |版|Slab||
 |細長|Slender||
