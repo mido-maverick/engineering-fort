@@ -216,11 +216,20 @@
   <data name="Design" xml:space="preserve">
     <value>Design</value>
   </data>
+  <data name="Diameter" xml:space="preserve">
+    <value>Diameter</value>
+  </data>
   <data name="Direction" xml:space="preserve">
     <value>Direction</value>
   </data>
   <data name="Door" xml:space="preserve">
     <value>Door</value>
+  </data>
+  <data name="DX" xml:space="preserve">
+    <value>ΔX</value>
+  </data>
+  <data name="DY" xml:space="preserve">
+    <value>ΔY</value>
   </data>
   <data name="East" xml:space="preserve">
     <value>East</value>
@@ -230,6 +239,9 @@
   </data>
   <data name="Elevation" xml:space="preserve">
     <value>Elevation</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>End</value>
   </data>
   <data name="Exterior" xml:space="preserve">
     <value>Exterior</value>
@@ -423,6 +435,9 @@
   <data name="Southwest" xml:space="preserve">
     <value>Southwest</value>
   </data>
+  <data name="Start" xml:space="preserve">
+    <value>Start</value>
+  </data>
   <data name="Storey" xml:space="preserve">
     <value>Storey</value>
   </data>
@@ -459,6 +474,9 @@
   <data name="Type" xml:space="preserve">
     <value>Type</value>
   </data>
+  <data name="UAxes" xml:space="preserve">
+    <value>U Axes</value>
+  </data>
   <data name="UniformlyDistributedLoad" xml:space="preserve">
     <value>Uniformly Distributed Load</value>
   </data>
@@ -476,6 +494,9 @@
   </data>
   <data name="Value" xml:space="preserve">
     <value>Value</value>
+  </data>
+  <data name="VAxes" xml:space="preserve">
+    <value>V Axes</value>
   </data>
   <data name="Vertical" xml:space="preserve">
     <value>Vertical</value>

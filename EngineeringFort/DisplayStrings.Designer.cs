@@ -358,6 +358,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Diameter.
+        /// </summary>
+        public static string Diameter {
+            get {
+                return ResourceManager.GetString("Diameter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Direction.
         /// </summary>
         public static string Direction {
@@ -372,6 +381,24 @@ namespace EngineeringFort {
         public static string Door {
             get {
                 return ResourceManager.GetString("Door", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ΔX.
+        /// </summary>
+        public static string DX {
+            get {
+                return ResourceManager.GetString("DX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ΔY.
+        /// </summary>
+        public static string DY {
+            get {
+                return ResourceManager.GetString("DY", resourceCulture);
             }
         }
         
@@ -399,6 +426,15 @@ namespace EngineeringFort {
         public static string Elevation {
             get {
                 return ResourceManager.GetString("Elevation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End.
+        /// </summary>
+        public static string End {
+            get {
+                return ResourceManager.GetString("End", resourceCulture);
             }
         }
         
@@ -980,6 +1016,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Start.
+        /// </summary>
+        public static string Start {
+            get {
+                return ResourceManager.GetString("Start", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Storey.
         /// </summary>
         public static string Storey {
@@ -1088,6 +1133,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to U Axes.
+        /// </summary>
+        public static string UAxes {
+            get {
+                return ResourceManager.GetString("UAxes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uniformly Distributed Load.
         /// </summary>
         public static string UniformlyDistributedLoad {
@@ -1138,6 +1192,15 @@ namespace EngineeringFort {
         public static string Value {
             get {
                 return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to V Axes.
+        /// </summary>
+        public static string VAxes {
+            get {
+                return ResourceManager.GetString("VAxes", resourceCulture);
             }
         }
         
