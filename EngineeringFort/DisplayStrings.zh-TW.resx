@@ -150,6 +150,9 @@
   <data name="Beams" xml:space="preserve">
     <value>梁</value>
   </data>
+  <data name="BeamTypes" xml:space="preserve">
+    <value>梁類型</value>
+  </data>
   <data name="Benchmark" xml:space="preserve">
     <value>基準點</value>
   </data>
@@ -188,6 +191,9 @@
   </data>
   <data name="Columns" xml:space="preserve">
     <value>柱</value>
+  </data>
+  <data name="ColumnTypes" xml:space="preserve">
+    <value>柱類型</value>
   </data>
   <data name="Concrete" xml:space="preserve">
     <value>混凝土</value>
@@ -366,6 +372,9 @@
   <data name="Name" xml:space="preserve">
     <value>名稱</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>無</value>
+  </data>
   <data name="North" xml:space="preserve">
     <value>北</value>
   </data>
@@ -374,6 +383,15 @@
   </data>
   <data name="Northwest" xml:space="preserve">
     <value>西北</value>
+  </data>
+  <data name="Opening" xml:space="preserve">
+    <value>開口</value>
+  </data>
+  <data name="OpeningFilling" xml:space="preserve">
+    <value>門窗</value>
+  </data>
+  <data name="OpeningTypes" xml:space="preserve">
+    <value>開口類型</value>
   </data>
   <data name="Orientation" xml:space="preserve">
     <value>方向</value>
@@ -422,6 +440,9 @@
   </data>
   <data name="Slabs" xml:space="preserve">
     <value>版</value>
+  </data>
+  <data name="SlabTypes" xml:space="preserve">
+    <value>版類型</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>來源</value>
@@ -512,6 +533,9 @@
   </data>
   <data name="Walls" xml:space="preserve">
     <value>牆</value>
+  </data>
+  <data name="WallTypes" xml:space="preserve">
+    <value>牆類型</value>
   </data>
   <data name="West" xml:space="preserve">
     <value>西</value>

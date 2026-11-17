@@ -160,6 +160,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Beam Types.
+        /// </summary>
+        public static string BeamTypes {
+            get {
+                return ResourceManager.GetString("BeamTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Benchmark.
         /// </summary>
         public static string Benchmark {
@@ -273,6 +282,15 @@ namespace EngineeringFort {
         public static string Columns {
             get {
                 return ResourceManager.GetString("Columns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Column Types.
+        /// </summary>
+        public static string ColumnTypes {
+            get {
+                return ResourceManager.GetString("ColumnTypes", resourceCulture);
             }
         }
         
@@ -808,6 +826,15 @@ namespace EngineeringFort {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string None {
+            get {
+                return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to North.
         /// </summary>
         public static string North {
@@ -831,6 +858,33 @@ namespace EngineeringFort {
         public static string Northwest {
             get {
                 return ResourceManager.GetString("Northwest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opening.
+        /// </summary>
+        public static string Opening {
+            get {
+                return ResourceManager.GetString("Opening", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opening Filling.
+        /// </summary>
+        public static string OpeningFilling {
+            get {
+                return ResourceManager.GetString("OpeningFilling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opening Types.
+        /// </summary>
+        public static string OpeningTypes {
+            get {
+                return ResourceManager.GetString("OpeningTypes", resourceCulture);
             }
         }
         
@@ -976,6 +1030,15 @@ namespace EngineeringFort {
         public static string Slabs {
             get {
                 return ResourceManager.GetString("Slabs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slab Types.
+        /// </summary>
+        public static string SlabTypes {
+            get {
+                return ResourceManager.GetString("SlabTypes", resourceCulture);
             }
         }
         
@@ -1246,6 +1309,15 @@ namespace EngineeringFort {
         public static string Walls {
             get {
                 return ResourceManager.GetString("Walls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wall Types.
+        /// </summary>
+        public static string WallTypes {
+            get {
+                return ResourceManager.GetString("WallTypes", resourceCulture);
             }
         }
         

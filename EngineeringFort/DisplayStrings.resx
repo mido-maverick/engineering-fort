@@ -150,6 +150,9 @@
   <data name="Beams" xml:space="preserve">
     <value>Beams</value>
   </data>
+  <data name="BeamTypes" xml:space="preserve">
+    <value>Beam Types</value>
+  </data>
   <data name="Benchmark" xml:space="preserve">
     <value>Benchmark</value>
   </data>
@@ -188,6 +191,9 @@
   </data>
   <data name="Columns" xml:space="preserve">
     <value>Columns</value>
+  </data>
+  <data name="ColumnTypes" xml:space="preserve">
+    <value>Column Types</value>
   </data>
   <data name="Concrete" xml:space="preserve">
     <value>Concrete</value>
@@ -366,6 +372,9 @@
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
   <data name="North" xml:space="preserve">
     <value>North</value>
   </data>
@@ -374,6 +383,15 @@
   </data>
   <data name="Northwest" xml:space="preserve">
     <value>Northwest</value>
+  </data>
+  <data name="Opening" xml:space="preserve">
+    <value>Opening</value>
+  </data>
+  <data name="OpeningFilling" xml:space="preserve">
+    <value>Opening Filling</value>
+  </data>
+  <data name="OpeningTypes" xml:space="preserve">
+    <value>Opening Types</value>
   </data>
   <data name="Orientation" xml:space="preserve">
     <value>Orientation</value>
@@ -422,6 +440,9 @@
   </data>
   <data name="Slabs" xml:space="preserve">
     <value>Slabs</value>
+  </data>
+  <data name="SlabTypes" xml:space="preserve">
+    <value>Slab Types</value>
   </data>
   <data name="Source" xml:space="preserve">
     <value>Source</value>
@@ -512,6 +533,9 @@
   </data>
   <data name="Walls" xml:space="preserve">
     <value>Walls</value>
+  </data>
+  <data name="WallTypes" xml:space="preserve">
+    <value>Wall Types</value>
   </data>
   <data name="West" xml:space="preserve">
     <value>West</value>

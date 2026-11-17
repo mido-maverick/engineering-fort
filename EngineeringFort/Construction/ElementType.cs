@@ -61,6 +61,7 @@ public record class OpeningType : ElementType
 
     public virtual Length? Height { get; set; }
 
+    [Display(Name = nameof(OpeningFilling))]
     /// <summary>What fills its openings (IfcRelFillsElement).</summary>
     public virtual OpeningFilling Filling { get; set; }
 }
