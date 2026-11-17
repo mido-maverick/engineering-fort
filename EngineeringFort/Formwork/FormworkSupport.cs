@@ -1,5 +1,11 @@
 namespace EngineeringFort.Formwork;
 
+/// <summary>
+/// A linear member under or behind the sheathing — a stud, a waler, a joist, a stringer — as a
+/// type (IfcBeamType or IfcMemberType): one material on one section, which is what IFC calls a
+/// material profile (IfcMaterialProfile, in an IfcMaterialProfileSet, the
+/// <see cref="CrossSection"/> being its IfcProfileDef).
+/// </summary>
 public record class FormworkSupport : FormworkComponent
 {
     public override string Name { get => base.Name; set => base.Name = value; }

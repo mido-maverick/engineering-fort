@@ -14,6 +14,10 @@ public interface ICrossSection
     Area ShearArea => CrossSectionalArea;
 }
 
+/// <summary>
+/// A solid rectangle (IfcRectangleProfileDef,
+/// <see cref="Width"/> its XDim and <see cref="Height"/> its YDim).
+/// </summary>
 public record class RectangularCrossSection : ICrossSection
 {
     public static Area CalculateCrossSectionalArea(Length w, Length h) => w * h;
