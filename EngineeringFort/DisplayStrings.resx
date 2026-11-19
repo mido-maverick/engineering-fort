@@ -399,6 +399,9 @@
   <data name="Orientation" xml:space="preserve">
     <value>Orientation</value>
   </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
+  </data>
   <data name="Pressure" xml:space="preserve">
     <value>Pressure</value>
   </data>
@@ -410,6 +413,9 @@
   </data>
   <data name="Review" xml:space="preserve">
     <value>Review</value>
+  </data>
+  <data name="Rotation" xml:space="preserve">
+    <value>Rotation</value>
   </data>
   <data name="SafetyFactor" xml:space="preserve">
     <value>Safety Factor</value>

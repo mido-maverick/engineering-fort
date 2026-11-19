@@ -399,6 +399,9 @@
   <data name="Orientation" xml:space="preserve">
     <value>方向</value>
   </data>
+  <data name="Position" xml:space="preserve">
+    <value>位置</value>
+  </data>
   <data name="Pressure" xml:space="preserve">
     <value>壓力</value>
   </data>
@@ -410,6 +413,9 @@
   </data>
   <data name="Review" xml:space="preserve">
     <value>檢討</value>
+  </data>
+  <data name="Rotation" xml:space="preserve">
+    <value>旋轉</value>
   </data>
   <data name="SafetyFactor" xml:space="preserve">
     <value>安全係數</value>
